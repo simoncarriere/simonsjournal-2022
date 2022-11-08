@@ -80,10 +80,10 @@ export default function Contact() {
                           <p className='pt-2 text-slate-500'>Reserved for white listed contacts. Either start a project or get in touch first. </p>
                         </div>
 
-                        <div className='w-full h-0.5 my-6 bg-slate-200'></div>
+                        <div className='w-full h-0.5 my-6 bg-slate-100'></div>
                         <div className='w-full p-6 my-4 border rounded-lg bg-slate-900 border-slate-900 hover:cursor-pointer hover:opacity-90'>
                           <h5 className='text-base text-white'>3. Start A Project (2 minutes)</h5>
-                          <p className='pt-2 text-slate-500'>Get an estimated timeline and budget for your project</p>
+                          <p className='pt-2 text-slate-700'>Get an estimated timeline and budget for your project</p>
                         </div>
                       </div>
 

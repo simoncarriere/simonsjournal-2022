@@ -1,5 +1,5 @@
 ---
-title: Change me!
+title: Animate your react apps in 3 simple steps with Framer motion.
 date: 2022-03-11
 ---
 
