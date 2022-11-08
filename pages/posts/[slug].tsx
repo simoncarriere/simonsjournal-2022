@@ -27,9 +27,9 @@ const PostLayout = ({ post }: { post: Post }) => {
       <Head>
         <title>{post.title}</title>
       </Head>
-      <article className="max-w-xl mx-auto py-8">
+      <article className="max-w-4xl mx-auto  pt-36">
         <div className="text-center mb-8">
-          <time dateTime={post.date} className="text-xs text-gray-600 mb-1">
+          <time dateTime={post.date} className="text-xs text-slate-500 mb-1">
             {format(parseISO(post.date), "LLLL d, yyyy")}
           </time>
           <h1>{post.title}</h1>

@@ -11,17 +11,17 @@ body {
 
 @layer base {
   h1 {
-    @apply font-sans font-normal text-5xl text-slate-900 leading-tight
+    @apply font-sans font-normal text-4xl 2xl:text-5xl  text-slate-900 leading-tight
   }
   h2 {
-    @apply font-sans font-normal text-xl text-slate-900 tracking-wide leading-tight
+    @apply font-sans font-normal text-xl  text-slate-900 tracking-wide leading-tight
   }
 
   h4{
     @apply font-sans font-normal text-xl tracking-wide text-neutral-500 leading-relaxed
   }
   h5{
-    @apply font-sans font-normal text-lg tracking-wide
+    @apply font-sans font-normal xl:text-base 2xl:text-lg tracking-wide
   }
   p {
     @apply font-sans font-extralight text-base

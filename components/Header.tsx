@@ -7,7 +7,7 @@ import { ContactContext } from "context/ContactContext";
 function Logo() {
   return (
     <Link href="/" >
-        <img src='/images/logo.png' className="flex m-auto"/>
+        <img src='/images/logo.png' className="flex m-auto hover:cursor-pointer"/>
     </Link>
   )
 }
