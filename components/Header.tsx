@@ -17,7 +17,7 @@ export function Header() {
   const {sidebarOpen, toggleSidebar} = useContext(ContactContext)
 
   return (
-    <header className="fixed flex justify-between w-full p-8">
+    <header className="fixed flex justify-between w-full p-8 ">
       <Logo />
       <Searchbar />
       <button className="btn-icon-primary" onClick={() => toggleSidebar()}>

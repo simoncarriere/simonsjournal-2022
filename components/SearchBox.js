@@ -24,9 +24,9 @@ function classNames(...classes) {
 }
 
 
-export default function SearchBox() {
+export const SearchBox = ({hasFocus, toggleCmd}) => {
 
-    const [open, setOpen] = useState(true)
+    // const [open, setOpen] = useState(true)
     const [rawQuery, setRawQuery] = useState('')
 
     const query = rawQuery.toLowerCase().replace(/^[#>]/, '')
@@ -46,8 +46,8 @@ export default function SearchBox() {
         : users.filter((user) => user.name.toLowerCase().includes(query))
 
     return (
-    <Transition.Root show={open} as={Fragment} afterLeave={() => setRawQuery('')} appear>
-      <Dialog as="div" className="relative z-10" onClose={setOpen}>
+    <Transition.Root show={hasFocus} as={Fragment} afterLeave={() => setRawQuery('')} appear>
+      <Dialog as="div" className="relative z-10" onClose={() => toggleCmd()}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -57,7 +57,7 @@ export default function SearchBox() {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-25" />
+          <div className="fixed inset-0 transition-opacity bg-opacity-30 bg-slate-900" />
         </Transition.Child>
 
         <div className="fixed inset-0 z-10 p-4 overflow-y-auto sm:p-6 md:p-20">
@@ -70,15 +70,15 @@ export default function SearchBox() {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <Dialog.Panel className="max-w-xl mx-auto overflow-hidden transition-all transform bg-white divide-y divide-gray-100 shadow-2xl rounded-xl ring-1 ring-black ring-opacity-5">
+            <Dialog.Panel className="max-w-4xl mx-auto overflow-hidden transition-all transform divide-y shadow-2xl divide-slate-200 bg-slate-200 rounded-xl ring-1 ring-slate-300 ring-opacity-5">
               <Combobox onChange={(item) => (window.location = item.url)}>
                 <div className="relative">
                   <MagnifyingGlassIcon
-                    className="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-400"
+                    className="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-slate-900"
                     aria-hidden="true"
                   />
                   <Combobox.Input
-                    className="w-full h-12 pr-4 text-gray-800 placeholder-gray-400 bg-transparent border-0 pl-11 focus:ring-0 sm:text-sm"
+                    className="w-full h-12 pr-4 text-gray-800 placeholder-gray-400 border-0 bg-slate-200 pl-11 focus:ring-0 sm:text-sm"
                     placeholder="Search..."
                     onChange={(event) => setRawQuery(event.target.value)}
                   />
@@ -100,14 +100,14 @@ export default function SearchBox() {
                               className={({ active }) =>
                                 classNames(
                                   'flex cursor-default select-none items-center px-4 py-2',
-                                  active && 'bg-indigo-600 text-white'
+                                  active && 'bg-green-100 text-slate-700'
                                 )
                               }
                             >
                               {({ active }) => (
                                 <>
                                   <FolderIcon
-                                    className={classNames('h-6 w-6 flex-none', active ? 'text-white' : 'text-gray-400')}
+                                    className={classNames('h-6 w-6 flex-none', active ? 'text-slate-900' : 'text-slate-700')}
                                     aria-hidden="true"
                                   />
                                   <span className="flex-auto ml-3 truncate">{project.name}</span>
@@ -162,6 +162,9 @@ export default function SearchBox() {
                   </div>
                 )}
 
+
+
+
                 <div className="flex flex-wrap items-center bg-gray-50 py-2.5 px-4 text-xs text-gray-700">
                   Type{' '}
                   <kbd
@@ -193,6 +196,10 @@ export default function SearchBox() {
                   </kbd>{' '}
                   for help.
                 </div>
+
+
+
+                
               </Combobox>
             </Dialog.Panel>
           </Transition.Child>

@@ -11,7 +11,7 @@ body {
 
 @layer base {
   h1 {
-    @apply font-sans font-normal text-4xl 2xl:text-5xl  text-slate-900 leading-tight
+    @apply font-sans font-normal text-4xl xl:text-5xl  text-slate-900 
   }
   h2 {
     @apply font-sans font-normal text-xl  text-slate-900 tracking-wide leading-tight
@@ -32,9 +32,12 @@ body {
 }
 @layer components {
   .btn-icon-primary {
-    @apply bg-slate-900 text-white rounded-md p-4 hover:bg-slate-800
+    @apply bg-slate-900 text-white rounded-md p-4 hover:bg-slate-800 transition
   }
   .btn-icon-secondary {
-    @apply bg-slate-200 text-slate-800 rounded-md border border-slate-200 p-2 hover:border-slate-300
+    @apply bg-white text-slate-800 rounded-md border border-slate-300 p-2 hover:bg-slate-300 transition
+  }
+  .tag {
+    @apply bg-slate-200  border border-slate-300 px-1 py-0.5 rounded-md mr-2 text-sm text-slate-700 hover:text-slate-700 hover:bg-slate-300
   }
 }

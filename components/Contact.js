@@ -21,7 +21,7 @@ export default function Contact() {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 transition-opacity bg-opacity-25 bg-neutral-900" />
+          <div className="fixed inset-0 transition-opacity bg-opacity-50 bg-neutral-900" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-hidden">
@@ -59,7 +59,7 @@ export default function Contact() {
                   </Transition.Child>
                   <div className="flex flex-col h-full py-20 overflow-y-scroll bg-white shadow-xl">
                     <div className="px-4 sm:px-16">
-                      <Dialog.Title><h2>Let’s Connect</h2></Dialog.Title>
+                      <h2>Let’s Connect</h2>
                     </div>
                     <div className="relative flex-1 px-4 mt-4 sm:px-16">
                       
