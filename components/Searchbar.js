@@ -40,7 +40,7 @@ const Searchbar = () => {
 
 
     return ( 
-        <div className="relative z-10 flex flex-col w-full mx-16">
+        <div className="relative z-10 flex flex-col mx-16">
             <div className="w-full">
                 <input
                     type="text"
@@ -51,7 +51,7 @@ const Searchbar = () => {
                     onClick={() => setHasFocus(true)}
                     onBlur={() => setHasFocus(false)}
                     onChange={(e) => setSearchValue(e.target.value)}
-                    className="block w-full h-16 px-4 pr-12 transition border-none rounded-md shadow-sm placeholder:text-slate-500 bg-slate-200 focus:border-slate-300 focus:ring-slate-300"  
+                    className="block w-full h-16 px-4 pr-12 transition border-none rounded-md shadow-sm placeholder:text-slate-500 bg-slate-200 focus:bg-slate-100 focus:border-2 focus:border-slate-900 focus:placeholder:text-slate-700 focus:ring-slate-300"  
                 />
                 <div className="absolute h-16 inset-y-0 right-0 flex py-3 pr-2.5 ">
                     <kbd className="inline-flex items-center px-3 mr-2 font-mono text-xs font-medium border rounded border-slate-300 text-slate-500 ">

@@ -44,10 +44,10 @@ export default function Home({ posts }) {
    
 
             {/* ----- PROJECTS ----- */}
-            <div className="flex flex-col w-full mt-4 xl:flex-row 2xl:mt-8 space-between">
+            <div className="flex flex-col w-full mt-4 xl:flex-row 2xl:mt-8 space-between pr-24">
               
               <div className="flex mr-4 xl:block basis-1/2 hover:cursor-pointer hover:opacity-90">
-                <img src="/images/prj-1.png" className="object-cover h-20 rounded-lg w-28 xl:h-44 xl:w-full"/>
+                <img src="/images/prj-1.png" className="object-cover h-20 rounded-lg w-28  xl:h-32 2xl:h-44  xl:w-full"/>
                 <div className="h-full my-auto ml-4 xl:ml-0">
                   <h5 className="xl:mt-4 xl:mb-2">Interactive Design Guide Builder</h5>
                   <p className="text-neutral-500">Create a personalized boiler plate design system</p>
@@ -55,7 +55,7 @@ export default function Home({ posts }) {
               </div>
               
               <div className="flex mt-4 mr-4 xl:block basis-1/2 hover:cursor-pointer hover:opacity-90 xl:mt-0">
-                <img src="/images/prj-2.png" className="object-cover h-20 rounded-lg w-28 xl:h-44 xl:w-full"/>
+                <img src="/images/prj-2.png" className="object-cover h-20 rounded-lg w-28 xl:h-16 2xl:h-44 xl:w-full"/>
                 <div className="h-full my-auto ml-4 xl:ml-0">
                   <h5 className="xl:mt-4 xl:mb-2">Interactive Design Guide Builder</h5>
                   <p className="text-neutral-500">Create a personalized boiler plate design system</p>

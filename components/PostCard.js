@@ -5,7 +5,7 @@ import {format, parseISO } from "date-fns";
 const PostCard = (post) => {
     return ( 
       <Link href={post.url}>
-        <div className="flex my-12 hover:cursor-pointer hover:opacity-90">
+        <div className="flex my-12 hover:cursor-pointer hover:opacity-90  pb-6">
           {/* <img src="./images/prj-1.png" alt="project-profile" className="object-cover rounded-lg h-28 w-28"/> */}
             <time dateTime={post.date} className="block mb-2 text-xs w-28 text-neutral-500">
               {format(parseISO(post.date), "LLLL d, yyyy")}
