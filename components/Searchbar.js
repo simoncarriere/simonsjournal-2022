@@ -63,9 +63,9 @@ const Searchbar = () => {
             {hasFocus ? (
                 <>
                 {/* <SearchBox hasFocus={hasFocus} toggleCmd={toggleCmd} /> */}
-                <div className="w-full border rounded-b-xl bg-neutral-100 border-slate-300 top-24 ">
+                <div className="z-10 w-full border rounded-b-xl bg-neutral-100 border-slate-300 top-16 absolute">
                     Class
-                    <div className="bg-slate-200 flex flex-wrap w-full justify-center items-center  py-2.5 px-4 text-xs text-slate-700">
+                    <div className="bg-slate-200 rounded-b-xl flex flex-wrap w-full justify-center items-center  py-2.5 px-4 text-xs text-slate-700">
                         Type{' '}
                         <kbd
                             className={classNames(

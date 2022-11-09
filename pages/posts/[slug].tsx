@@ -47,20 +47,24 @@ const PostLayout = ({ post }: { post: Post }) => {
       {/* <article className="max-w-4xl mx-auto pt-44">  */}
       <article className="mx-24 pt-20"> 
         <div className="text-center mb-44">
-          <time dateTime={post.date} className="text-xs text-slate-500 mb-1">
-            {format(parseISO(post.date), "LLLL d, yyyy")}
-          </time>
           <h1 className="my-8 max-w-4xl mx-auto">{post.title}</h1>
+          <div className="flex w-full justify-center ">
+            <time dateTime={post.date} className=" text-slate-500 mb-1">
+              {format(parseISO(post.date), "LLLL d, yyyy")}
+            </time>
+            <span> - </span>
+            <p>312 Views</p>
+          </div>
         </div>
         
         {/* Main Section */}
         <div className="grid grid-cols-8 gap-4 my-44 relative">
           {/* Content Table */}
           <div className="text-sm col-span-2 pr-20">
-            <ol className="text-neutral-500 list-decimal list-inside text-base sticky top-16">
+            <ol className=" list-decimal list-inside text-base sticky top-16">
               <p className="mb-2 text-neutral-700">Content</p>
               {contentTable.map(subheading => (
-                <a className="hover:text-neutral-700 transition" href="#"><li>{subheading.title}</li></a>
+                <a className="hover:text-neutral-700 text-slate-500 transition" href="#"><li>{subheading.title}</li></a>
               ))}
             </ol>
           </div>
