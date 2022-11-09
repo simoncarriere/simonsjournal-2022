@@ -20,6 +20,9 @@ export default function MyApp({ Component, pageProps }) {
         <div >
           <Component {...pageProps} />
         </div>
+        <footer className='w-full flex my-36 m-auto justify-center align-middle items-center text-slate-500 hover:text-slate-700 transition'>
+          <h5><a href="mailto:hello@simonsjournal.com">hello@simonsjournal.com</a></h5>
+        </footer>
         <Contact />
       </ContactProvider>
     </>
