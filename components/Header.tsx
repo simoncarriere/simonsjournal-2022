@@ -2,6 +2,7 @@ import { useContext } from "react";
 import Link from 'next/link'
 
 import Searchbar from './Searchbar'
+import Searchbar2 from './Searchbar2'
 import { ContactContext } from "context/ContactContext";
 
 function Logo() {
@@ -17,7 +18,7 @@ export function Header() {
   const {sidebarOpen, toggleSidebar} = useContext(ContactContext)
 
   return (
-    <header className="flex flex-auto justify-between w-full p-8">
+    <header className="flex justify-between flex-auto w-full p-8">
       <div className="flex-none">
         <Logo />
       </div>

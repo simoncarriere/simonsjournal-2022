@@ -32,6 +32,7 @@ export default function Home({ posts }) {
         
           <div className="max-w-2xl mt-16">
             
+            
             <div className="flex items-center my-auto">
               <h2 className="mr-4">Currently Building</h2>
               <button className="btn-icon-secondary">
@@ -45,7 +46,6 @@ export default function Home({ posts }) {
 
             {/* ----- PROJECTS ----- */}
             <div className="flex flex-col w-full pr-24 mt-4 xl:flex-row 2xl:mt-8 space-between">
-              
               <div className="flex mr-4 xl:block basis-1/2 hover:cursor-pointer ">
                 <img src="/images/prj-1.png" className="object-cover h-20 rounded-lg hover:brightness-95 w-28 xl:h-32 2xl:h-44 xl:w-full"/>
                 <div className="h-full my-auto ml-4 xl:ml-0">
@@ -53,19 +53,17 @@ export default function Home({ posts }) {
                   <p className="text-neutral-500">Create a personalized boiler plate design system</p>
                 </div>
               </div>
-              
               <div className="flex mt-4 mr-4 xl:block basis-1/2 hover:cursor-pointer xl:mt-0">
-                <img src="/images/prj-2.png" className="object-cover h-20 rounded-lg hover:brightness-95 w-28 xl:h-16 2xl:h-44 xl:w-full"/>
+                <img src="/images/prj-2.png" className="object-cover h-20 rounded-lg hover:brightness-95 w-28 xl:h-32 2xl:h-44 xl:w-full"/>
                 <div className="h-full my-auto ml-4 xl:ml-0">
                   <h5 className="text-base xl:mt-4 xl:mb-1 3xl:text-lg">Interactive Design Guide Builder</h5>
                   <p className="text-neutral-500">Create a personalized boiler plate design system</p>
                 </div>
               </div>
-
             </div>
-            
+
+
           </div>
-        
         </div>
         <div className="hidden py-8 pl-12 lg:block basis-1/2">
           <img src="images/simon.jpeg" className="rounded-2xl"/>
