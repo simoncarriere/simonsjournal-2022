@@ -34,7 +34,7 @@
     @apply bg-slate-900 text-white rounded-md flex justify-center items-center hover:bg-slate-800 transition h-16 w-16
   }
   .btn-icon-secondary {
-    @apply bg-white text-slate-800 rounded-md border border-slate-300 p-2 hover:bg-slate-300 transition
+    @apply bg-slate-100 text-slate-800 rounded-md border border-slate-300 p-2 hover:bg-slate-200 transition
   }
   .tag {
     @apply bg-slate-200  border border-slate-300 px-1 py-0.5 rounded-md mr-2 text-sm text-slate-700 hover:text-slate-700 hover:bg-slate-300

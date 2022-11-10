@@ -9,18 +9,16 @@ import Contact from '../components/Contact'
 export default function MyApp({ Component, pageProps }) {
   return (
     <>
+      <Head>
+        <title>Contentlayer Next.js Example</title>
+        <link rel="icon" type="image/x-icon" href="/favicon.png" />
+      </Head>
       <ContactProvider>
-        <Head>
-          <title>Contentlayer Next.js Example</title>
-          <link rel="icon" type="image/x-icon" href="/favicon.png" />
-        </Head>
-
         <Header />
-
         <div >
           <Component {...pageProps} />
         </div>
-        <footer className='w-full flex my-36 m-auto justify-center align-middle items-center text-slate-500 hover:text-slate-700 transition'>
+        <footer className='flex items-center justify-center w-full m-auto align-middle transition my-36 text-slate-500 hover:text-slate-700'>
           <h5><a href="mailto:hello@simonsjournal.com">hello@simonsjournal.com</a></h5>
         </footer>
         <Contact />

@@ -1,9 +1,8 @@
 import { useContext, Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
+
 import { XMarkIcon } from '@heroicons/react/24/outline'
-
 import { ContactContext } from "context/ContactContext";
-
 
 export default function Contact() {
 
@@ -64,7 +63,7 @@ export default function Contact() {
                     <div className="relative flex-1 px-4 mt-4 sm:px-16">
                       
                       
-                      {/* Replace with your content */}
+                      {/* ---- OPTIONS ----- */}
                       <div className='mb-12'>
                         <p className='text-lg font-extralight text-neutral-500'>Let’s work together from strategy to launch. Start a project for an estimate timeline and budget.</p>
                       </div>
@@ -87,11 +86,6 @@ export default function Contact() {
                         </div>
                       </div>
 
-                                
-                      {/* <div className="absolute inset-0 px-4 sm:px-6">
-                        <div className="h-full border-2 border-gray-200 border-dashed" aria-hidden="true" />
-                      </div> */}
-                      {/* /End replace */}
                     </div>
                   </div>
                 </Dialog.Panel>

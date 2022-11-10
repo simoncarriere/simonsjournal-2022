@@ -5,7 +5,7 @@ import {format, parseISO } from "date-fns";
 // const PostCard = (post) => {
 //     return ( 
 //       <Link href={post.url}>
-//         <div className="flex my-12 hover:cursor-pointer hover:opacity-90  pb-6">
+//         <div className="flex pb-6 my-12 hover:cursor-pointer hover:opacity-90">
 //           {/* <img src="./images/prj-1.png" alt="project-profile" className="object-cover rounded-lg h-28 w-28"/> */}
 //             <time dateTime={post.date} className="block mb-2 text-xs w-28 text-neutral-500">
 //               {format(parseISO(post.date), "LLLL d, yyyy")}
@@ -36,7 +36,7 @@ import {format, parseISO } from "date-fns";
 const PostCard = (post) => {
     return ( 
       <Link href={post.url}>
-        <div className="hover:cursor-pointer hover:filter-brightness-95 bg-slate-200 rounded-lg animate-pulse w-full h-64">
+        <div className="w-full h-64 rounded-lg hover:cursor-pointer hover:bg-slate-300 bg-slate-200 animate-pulse">
           {/* <img src="./images/entry-2.png" alt="project-profile" className=""/> */}
           {/* <div className=""> */}
             {/* <time dateTime={post.date} className="block mb-2 text-xs text-neutral-500">
