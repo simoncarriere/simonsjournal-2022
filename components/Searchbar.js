@@ -80,7 +80,7 @@ const Searchbar = () => {
             
             {/* Expended search results */}
             { hasFocus ? (
-                <div className="absolute z-10 w-full border bg-slate-100 rounded-b-md border-slate-200 top-16">
+                <div className="absolute z-10 w-full bg-slate-100 rounded-b-md top-16">
                     
                     {/* Initial State */}
                     {rawQuery.length > 0 ? ( 
@@ -92,8 +92,10 @@ const Searchbar = () => {
                                 <ul className='flex my-4'>
                                     <li className='tag'>Compose Email</li>
                                     <li className='tag'>Schedule a Call</li>
+                                    <li className='tag'>Sign Up Newsletter</li>
                                     <li className='tag'>Download Resume</li>
                                     <li className='tag'>Send Feedback</li>
+                                    <li className='tag'>Challenge me</li>
                                 </ul>
                             </div>
 
@@ -101,10 +103,10 @@ const Searchbar = () => {
                                 <h5 className='text-slate-500'>Announcements</h5>
                                 <div className='flex mt-4'>
                                     <div className='flex flex-col justify-between w-2/3 px-8 py-8  mb-8 bg-green-100 rounded-md'>  
-                                        <h2 className='text-2xl text-green-700'>30 Days of SASS <span className='text-green-500'>(Releasing Early 2023)</span></h2>        
+                                        <h2 className='text-2xl text-green-700 border-b border-green-300 pb-2'>30 Days of SASS <span className='text-green-500'>(Releasing Early 2023)</span></h2>        
                                         <ul className='my-4  text-green-500'>
+                                            <li>The indiehackers bootcamp, a walkthrough to starting and growing your digital product</li>
                                             <li>- Build a market ready digital platform with Figma, React, Supabase & Stripe</li>
-                                            <li>- The indiehackers bootcamp, a walkthrough you need on your indiehacking journey</li>
                                             <li>- 1 on 1 mentorship and 6 months technical support</li>
                                             <li>- Interviews and behind the scenes with successfull Indiehackers</li>
                                         </ul>
@@ -113,11 +115,29 @@ const Searchbar = () => {
                                             <button className='w-32 ml-4 px-4 py-2 transition border border-green-300 rounded-md hover:opacity-80 text-green-700 flex items-center justify-center'><PlayIcon className='text-green-700 h-4 w-4 mr-2'/><p>Preview</p></button>
                                         </div>
                                     </div>
-                                    <div className='flex flex-col justify-between w-1/3 px-8 py-8 mx-4 mb-8 rounded-md bg-slate-300'>
+                                    <div className='flex flex-col w-1/3 px-8 py-8 mx-4 mb-8 rounded-md bg-slate-200'>
+                                        <h2 className='text-2xl text-slate-700 border-b border-slate-300 pb-2'>Stats</h2>    
+                                        <ul className='my-4'>
+                                            <li className='flex'>
+                                                <p className='w-36 text-slate-500'>All Time Views</p>
+                                                <p className='text-slate-700'>827</p>
+                                            </li>
+                                            <li className='flex'>
+                                                <p className='w-36 text-slate-500'>Twitter Followers</p>
+                                                <p className='text-slate-700'>230</p>
+                                            </li>
+                                            <li className='flex'>
+                                                <p className='w-36 text-slate-500'>Github Stars</p>
+                                                <p className='text-slate-700'>27</p>
+                                            </li>
+                                        </ul>
+                                        {/* <button className='w-40 px-4 py-2 transition rounded-md hover:opacity-80 bg-slate-800 text-slate-100'>Get an Estimate</button> */}
+                                    </div>
+                                    {/* <div className='flex flex-col justify-between w-1/3 px-8 py-8 mx-4 mb-8 rounded-md bg-slate-300'>
                                         <h2 className='text-2xl text-slate-700'>Start a Project</h2>    
                                         <p className='text-slate-500 '>Get an estimated timeline and budget for your project</p>
                                         <button className='w-40 px-4 py-2 transition rounded-md hover:opacity-80 bg-slate-800 text-slate-100'>Get an Estimate</button>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
@@ -128,12 +148,13 @@ const Searchbar = () => {
                     {rawQuery === '?' && (
                         <div className="px-6 text-center py-14 sm:px-14">
                             {/* <LifebuoyIcon className="w-6 h-6 mx-auto text-gray-400" aria-hidden="true" /> */}
-                            <h5 className="mt-4 text-neutral-900">Help with searching</h5>
-                            <p className="max-w-2xl mx-auto mt-2 text-neutral-700">
+                            <h5 className="text-xl mt-4 text-neutral-900">Say Hi to Siri 2.0, my personal Assistant</h5>
+                            <p className="max-w-2xl mx-auto mt-2 text-neutral-500 text-lg">
+                                She's not as smart as Siri 1.0 but 
                                 Use this tool to quickly search for users and projects across our entire platform. You can also
                                 use the search modifiers found in the footer below to limit the results to just users or projects.
                             </p>
-                            <p>Feedback</p>
+                            <button className="w-40 px-4 py-2 transition rounded-md hover:opacity-80 bg-green-100 text-green-500 mt-4">Feedback</button>
                         </div>
                     )}
 
@@ -164,7 +185,7 @@ const Searchbar = () => {
         
 
                     {/*  Keys Shortcuts */}
-                    <div className="flex flex-wrap items-center justify-center w-full px-4 py-4 text-sm border-t bg-slate-100 rounded-b-md border-slate-300 text-slate-700">
+                    <div className="flex flex-wrap items-center justify-center w-full px-4 py-4 text-sm border-t bg-slate-100 rounded-b-md border-slate-200 text-slate-700">
                         Type{' '}
                         <kbd
                             className={classNames(
