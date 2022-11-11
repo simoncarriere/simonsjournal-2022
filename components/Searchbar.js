@@ -58,7 +58,8 @@ const Searchbar = () => {
                 {/* Cmd K */}
                 <div className="absolute h-16 inset-y-0 right-0 flex py-3 pr-2.5 ">
                     <kbd className="inline-flex items-center px-3 mr-2 font-mono text-xs font-medium border rounded border-slate-300 text-slate-500 ">
-                    ⌘ Cmd + K
+                    {/* ⌘ Cmd + K */}
+                    /
                     </kbd>
                 </div>
             </div>
