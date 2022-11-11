@@ -19,17 +19,12 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-
-
 const Searchbar = () => {
 
     const [hasFocus, setHasFocus] = useState(false);
     const [rawQuery, setRawQuery] = useState('')
 
-
-    const query = rawQuery.toLowerCase().replace(/^[#>]/, '')
-
-    console.log(allPosts)
+    const query = rawQuery.toLowerCase().replace(/^[#>]?/, '')
 
     const filteredPost = (rawQuery) === '#' ? allPosts: query === '' || rawQuery.startsWith('>') ? [] : allPosts.filter((post) =>  (
         post.title.toLowerCase().includes(query))
@@ -85,18 +80,41 @@ const Searchbar = () => {
             { hasFocus ? (
                 <>
                   
-                <div className="absolute z-10 w-full border bg-slate-200 rounded-b-md border-slate-300 top-16">
+                <div className="absolute z-10 w-full border bg-slate-100 rounded-b-md border-slate-300 top-16">
                     
+                 
 
-
-
+                    {/* Initial State */}
                     {rawQuery.length > 0 ? ( 
                         null
                      ) : (
-                        null
+                        <div>
+                            
+                            <div className='p-8'>
+                                <h5>I'm Looking for...</h5>
+                                <ul className='flex my-4'>
+                                    <li className='tag'>Case Studies</li>
+                                    <li className='tag'>Code Snippets</li>
+                                    <li className='tag'>Opnions</li>
+                                    <li className='tag'>Schedule a Call</li>
+                                    <li className='tag'>Resume</li>
+                                    <li className='tag'>Email</li>
+                                </ul>
+                            </div>
+                            <div className='px-8 py-8 mx-8 mb-8 bg-green-100 rounded-md'>
+                                <h2 className='text-green-700'>Sign up for early access to SASS in a month</h2>        
+                                <ul className='my-4 text-green-500'>
+                                    <li>- Build a market ready SASS with Figma, React, Supabase & Stripe</li>
+                                    <li>- A great step by step guide to building your online startup</li>
+                                    <li>- Interviews with market </li>
+                                </ul>
+                                <button className='px-4 py-2 bg-green-700 rounded-lg text-slate-100'>Get Notified</button>
+                            </div>
+                        </div>
                         // allPosts.map(post => <p key={post._id}>{post.title}</p>)
                     )}
 
+                    {/* Search */}
                     {rawQuery === '?' && (
                         <div className="px-6 text-center py-14 sm:px-14">
                             {/* <LifebuoyIcon className="w-6 h-6 mx-auto text-gray-400" aria-hidden="true" /> */}
@@ -105,6 +123,7 @@ const Searchbar = () => {
                                 Use this tool to quickly search for users and projects across our entire platform. You can also
                                 use the search modifiers found in the footer below to limit the results to just users or projects.
                             </p>
+                            <p>Feedback</p>
                         </div>
                     )}
 
@@ -139,13 +158,15 @@ const Searchbar = () => {
                     )}
 
 
+
+
                     {/*  Keys Shortcuts */}
                     <div className="flex flex-wrap items-center justify-center w-full px-4 py-4 text-sm border-t bg-slate-100 rounded-b-md border-slate-300 text-slate-700">
                         Type{' '}
                         <kbd
                             className={classNames(
                             'mx-1 flex h-5 w-5 items-center justify-center rounded border font-semibold sm:mx-2',
-                            rawQuery.startsWith('#') ? 'bg-green-700 text-slate-100' : 'bg-slate-100 text-slate-700'
+                            rawQuery.startsWith('#') ? 'bg-slate-900 text-slate-100' : 'bg-slate-100 text-slate-700'
                             )}
                         >
                             #
@@ -155,7 +176,7 @@ const Searchbar = () => {
                         <kbd
                             className={classNames(
                             'mx-1 flex h-5 w-5 items-center justify-center rounded border  font-semibold sm:mx-2',
-                            rawQuery.startsWith('>') ? 'bg-green-700 text-slate-100' : 'bg-slate-100 text-slate-700'
+                            rawQuery.startsWith('>') ? 'bg-slate-900 text-slate-100' : 'bg-slate-100 text-slate-700'
                             )}
                         >
                             &gt;
@@ -164,7 +185,7 @@ const Searchbar = () => {
                         <kbd
                             className={classNames(
                             'mx-1 flex h-5 w-5 items-center justify-center rounded border font-semibold sm:mx-2',
-                            rawQuery === '?' ? 'bg-green-700 text-slate-100' : 'bg-slate-100 text-slate-700'
+                            rawQuery === '?' ? 'bg-slate-900 text-slate-100' : 'bg-slate-100 text-slate-700'
                             )}
                         >
                             ?

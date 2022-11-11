@@ -1,4 +1,4 @@
-
+import { useState } from "react";
 import { compareDesc} from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
 
@@ -16,8 +16,11 @@ export async function getStaticProps() {
 }
 
 
+
+
 export default function Home({ posts }) {
 
+  const [filter, setFilter] = useState('all')
 
   return (
     <main className="mx-8 sm:mx-16 lg:mx-20 xl:mx-32">
