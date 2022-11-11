@@ -42,7 +42,7 @@ const Searchbar = () => {
         <div className="relative z-10 flex flex-col mx-16">
 
             {/* Search Bar */}
-            <div className="z-10 w-full">
+            <div className="z-10 w-full transition">
                 <input
                     type="text"
                     placeholder="Search through projects, code snippets & journal entries"
@@ -101,6 +101,11 @@ const Searchbar = () => {
                                     <li className='tag'>Email</li>
                                 </ul>
                             </div>
+
+
+
+
+                            
                             <div className='px-8 py-8 mx-8 mb-8 bg-green-100 rounded-md'>
                                 <h2 className='text-green-700'>Sign up for early access to SASS in a month</h2>        
                                 <ul className='my-4 text-green-500'>
@@ -108,7 +113,7 @@ const Searchbar = () => {
                                     <li>- A great step by step guide to building your online startup</li>
                                     <li>- Interviews with market </li>
                                 </ul>
-                                <button className='px-4 py-2 bg-green-700 rounded-lg text-slate-100'>Get Notified</button>
+                                <button className='px-4 py-2 my-auto align-middle bg-green-700 rounded-lg text-slate-100'>Early Access</button>
                             </div>
                         </div>
                         // allPosts.map(post => <p key={post._id}>{post.title}</p>)
@@ -172,7 +177,7 @@ const Searchbar = () => {
                             #
                         </kbd>{' '}
                         <span className="sm:hidden">for entries,</span>
-                        <span className="hidden sm:inline">to filter entries,</span>
+                        <span className="hidden sm:inline">to search entries,</span>
                         <kbd
                             className={classNames(
                             'mx-1 flex h-5 w-5 items-center justify-center rounded border  font-semibold sm:mx-2',
@@ -181,7 +186,7 @@ const Searchbar = () => {
                         >
                             &gt;
                         </kbd>{' '}
-                        for commands, and{' '}
+                        for a list of commands, and{' '}
                         <kbd
                             className={classNames(
                             'mx-1 flex h-5 w-5 items-center justify-center rounded border font-semibold sm:mx-2',
