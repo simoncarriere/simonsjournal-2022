@@ -37,6 +37,6 @@
     @apply bg-slate-100 text-slate-800 rounded-md border border-slate-300 p-2 hover:bg-slate-200 transition
   }
   .tag {
-    @apply bg-slate-200  border border-slate-300 px-2 py-1 rounded-md mr-2 text-sm text-slate-700 hover:text-slate-700 hover:bg-slate-300 hover:cursor-pointer
+    @apply bg-slate-200  border border-slate-300 px-3 py-2 rounded-md mr-2 text-sm text-slate-700 hover:text-slate-700 hover:bg-slate-300 hover:cursor-pointer
   }
 }

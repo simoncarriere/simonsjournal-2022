@@ -1,6 +1,6 @@
 import {Fragment, useState} from 'react'
-import {Disclosure, Transition} from '@headlessui/react'
-import { MegaphoneIcon } from '@heroicons/react/24/outline'
+import {Transition} from '@headlessui/react'
+import { PlayIcon } from '@heroicons/react/24/solid'
 
 import { allPosts, Post } from "contentlayer/generated";
 import Link from "next/link";
@@ -80,39 +80,44 @@ const Searchbar = () => {
             
             {/* Expended search results */}
             { hasFocus ? (
-                <div className="absolute z-10 w-full border bg-slate-100 rounded-b-md border-slate-300 top-16">
+                <div className="absolute z-10 w-full border bg-slate-100 rounded-b-md border-slate-200 top-16">
                     
                     {/* Initial State */}
                     {rawQuery.length > 0 ? ( 
                         null
                      ) : (
                         <div>
-                            <div className='p-8'>
-                                <h5>I'm Looking for...</h5>
+                            <div className='m-8'>
+                                <h5 className='text-slate-500'>Quick Actions</h5>
                                 <ul className='flex my-4'>
-                                    <li className='tag'>Case Studies</li>
-                                    <li className='tag'>Code Snippets</li>
-                                    <li className='tag'>Opnions</li>
+                                    <li className='tag'>Compose Email</li>
                                     <li className='tag'>Schedule a Call</li>
-                                    <li className='tag'>Resume</li>
-                                    <li className='tag'>Email</li>
+                                    <li className='tag'>Download Resume</li>
+                                    <li className='tag'>Send Feedback</li>
                                 </ul>
                             </div>
 
-                            <div className='flex mx-4'>
-                                <div className='flex flex-col w-2/3 px-8 py-8 mx-4 mb-8 bg-green-100 rounded-md'>  
-                                    <h2 className='py-2 text-2xl text-green-700'>30 Days of SASS <span className='text-green-500'>(Releasing Early 2023)</span></h2>        
-                                    <ul className='pb-4 text-sm text-green-500'>
-                                        <li>- Build a market ready digital platform with Figma, React, Supabase & Stripe</li>
-                                        <li>- The indiehackers bootcamp, a walkthrough you need on your indiehacking journey</li>
-                                        <li>- Interviews and behind the scenes with successfull Indiehackers</li>
-                                    </ul>
-                                    <button className='w-32 px-4 py-2 transition bg-green-700 rounded-md hover:opacity-80 text-slate-100'>Early Access</button>
-                                </div>
-                                <div className='flex flex-col w-1/3 px-8 py-8 mx-4 mb-8 rounded-md bg-slate-300'>
-                                    <h2 className='text-3xl font-thin text-slate-700'>Start a Project</h2>    
-                                    <p className='text-slate-500 '>Get an estimated timeline and budget for your project</p>
-                                    <button className='w-full px-4 py-2 transition rounded-md hover:opacity-80 bg-slate-800 text-slate-100'>Get an Estimate</button>
+                            <div className='mx-8 pt-4'>
+                                <h5 className='text-slate-500'>Announcements</h5>
+                                <div className='flex mt-4'>
+                                    <div className='flex flex-col justify-between w-2/3 px-8 py-8  mb-8 bg-green-100 rounded-md'>  
+                                        <h2 className='text-2xl text-green-700'>30 Days of SASS <span className='text-green-500'>(Releasing Early 2023)</span></h2>        
+                                        <ul className='my-4  text-green-500'>
+                                            <li>- Build a market ready digital platform with Figma, React, Supabase & Stripe</li>
+                                            <li>- The indiehackers bootcamp, a walkthrough you need on your indiehacking journey</li>
+                                            <li>- 1 on 1 mentorship and 6 months technical support</li>
+                                            <li>- Interviews and behind the scenes with successfull Indiehackers</li>
+                                        </ul>
+                                        <div className='flex'>
+                                            <button className='w-52 px-4 py-2 transition bg-green-700 rounded-md hover:opacity-80 text-slate-100'>Early Access<span className='text-green-300 ml-2'>$100.00</span></button>
+                                            <button className='w-32 ml-4 px-4 py-2 transition border border-green-300 rounded-md hover:opacity-80 text-green-700 flex items-center justify-center'><PlayIcon className='text-green-700 h-4 w-4 mr-2'/><p>Preview</p></button>
+                                        </div>
+                                    </div>
+                                    <div className='flex flex-col justify-between w-1/3 px-8 py-8 mx-4 mb-8 rounded-md bg-slate-300'>
+                                        <h2 className='text-2xl text-slate-700'>Start a Project</h2>    
+                                        <p className='text-slate-500 '>Get an estimated timeline and budget for your project</p>
+                                        <button className='w-40 px-4 py-2 transition rounded-md hover:opacity-80 bg-slate-800 text-slate-100'>Get an Estimate</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -133,33 +138,30 @@ const Searchbar = () => {
                     )}
 
                     {filteredPost.length > 0 && (
-                        filteredPost.map((post) => (
-                            <div 
-                                key={post._id} 
-                                value={post.title}
-                                className='flex items-center px-4 py-4 cursor-default select-none text-slate-700 hover:bg-green-100'
-                            >
-                                <Link href={post.url}>
-                                    <a className='flex'>
-                                    <p className="flex-auto ml-3 truncate">{post.title}</p>
-                                    <p className="flex-auto ml-3 truncate">{post._id}</p>
-
-                                    </a>
-                                </Link>
-                            </div>
-                        ))
+                        <div className='m-8'>
+                            <h5 className='text-slate-500'>Entry Search results for "{rawQuery}"</h5>
+                            {filteredPost.map((post) => (
+                                <div key={post._id} value={post.title} className='flex items-center cursor-default select-none text-slate-700 hover:opacity-80  my-4'>
+                                    <Link href={post.url}>
+                                        <a className='flex justify-center items-center'>
+                                            <p className='text-slate-800 text-lg'>{post.title}</p>
+                                        </a>
+                                    </Link>
+                                </div>
+                            ))}
+                        </div>
                     )}
                     {filteredUsers.length > 0 && (
-                        filteredUsers.map((user) => (
-                            <div 
-                                key={user.id} 
-                                value={user.name}
-                                className='flex items-center px-4 py-2 cursor-default select-none text-slate-700'
-                            >
-                                <p className="flex-auto ml-3 truncate">{user.name}</p>
-                            </div>
-                        ))
+                        <div className='m-8'>
+                            <h5 className='text-slate-500'>User Search results for "{rawQuery}"</h5>
+                            {filteredUsers.map((user) => (
+                                <div key={user.id} value={user.name} className='flex items-center cursor-default select-none text-slate-700 hover:opacity-80  my-4'>
+                                    <p className='text-slate-800 text-lg'>{user.name}</p>
+                                </div>
+                            ))}
+                        </div>
                     )}
+        
 
                     {/*  Keys Shortcuts */}
                     <div className="flex flex-wrap items-center justify-center w-full px-4 py-4 text-sm border-t bg-slate-100 rounded-b-md border-slate-300 text-slate-700">
@@ -182,7 +184,7 @@ const Searchbar = () => {
                         >
                             &gt;
                         </kbd>{' '}
-                        for a list of commands, and{' '}
+                        for a list of actions, and{' '}
                         <kbd
                             className={classNames(
                             'mx-1 flex h-5 w-5 items-center justify-center rounded border font-semibold sm:mx-2',

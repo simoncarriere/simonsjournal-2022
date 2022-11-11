@@ -30,7 +30,7 @@ export default function Home({ posts }) {
         <div className=" lg:basis-1/2">
           <div className="pr-1 lg:max-w-lg">
             <h1 className="leading-tight">Purpose driven React developer & product strategist</h1>
-            <h4 className="mt-6">Looking to join a startup on a bold mission. <br/> Montreal is home, available anywhere.</h4>
+            <h4 className="mt-6 text-xl leading-relaxed text-slate-500">Looking to join a startup on a bold mission. <br/> Montreal is home, available anywhere.</h4>
           </div>
         
           <div className="max-w-2xl mt-16">
