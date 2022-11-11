@@ -1,5 +1,6 @@
 import {Fragment, useState} from 'react'
-import {  Transition } from '@headlessui/react'
+import {Disclosure, Transition} from '@headlessui/react'
+import { MegaphoneIcon } from '@heroicons/react/24/outline'
 
 import { allPosts, Post } from "contentlayer/generated";
 import Link from "next/link";
@@ -50,7 +51,7 @@ const Searchbar = () => {
                     id="search"
                     value={rawQuery}
                     onClick={() => setHasFocus(true)}
-                    onBlur={() => setHasFocus(false)}
+                    // onBlur={() => setHasFocus(false)}
                     onChange={(e) => setRawQuery(e.target.value)}
                     className="block w-full h-16 px-4 pr-12 transition border-none rounded-md shadow-sm placeholder:text-slate-500 bg-slate-200 focus:bg-slate-100 focus:border-2 focus:border-slate-900 focus:placeholder:text-slate-700 focus:ring-0 focus:rounded-b-none"  
                 />
@@ -72,24 +73,20 @@ const Searchbar = () => {
                 leave="ease-in duration-200"
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
+                onClick={() => setHasFocus(false)}
             >
-                <div className="fixed inset-0 transition-opacity bg-opacity-50 z-2 bg-neutral-900" />
+                <div className="fixed inset-0 transition-opacity bg-opacity-50 cursor-pointer z-2 bg-neutral-900" />
             </Transition>
             
             {/* Expended search results */}
             { hasFocus ? (
-                <>
-                  
                 <div className="absolute z-10 w-full border bg-slate-100 rounded-b-md border-slate-300 top-16">
                     
-                 
-
                     {/* Initial State */}
                     {rawQuery.length > 0 ? ( 
                         null
                      ) : (
                         <div>
-                            
                             <div className='p-8'>
                                 <h5>I'm Looking for...</h5>
                                 <ul className='flex my-4'>
@@ -102,18 +99,21 @@ const Searchbar = () => {
                                 </ul>
                             </div>
 
-
-
-
-                            
-                            <div className='px-8 py-8 mx-8 mb-8 bg-green-100 rounded-md'>
-                                <h2 className='text-green-700'>Sign up for early access to SASS in a month</h2>        
-                                <ul className='my-4 text-green-500'>
-                                    <li>- Build a market ready SASS with Figma, React, Supabase & Stripe</li>
-                                    <li>- A great step by step guide to building your online startup</li>
-                                    <li>- Interviews with market </li>
-                                </ul>
-                                <button className='px-4 py-2 my-auto align-middle bg-green-700 rounded-lg text-slate-100'>Early Access</button>
+                            <div className='flex mx-4'>
+                                <div className='flex flex-col w-2/3 px-8 py-8 mx-4 mb-8 bg-green-100 rounded-md'>  
+                                    <h2 className='py-2 text-2xl text-green-700'>30 Days of SASS <span className='text-green-500'>(Releasing Early 2023)</span></h2>        
+                                    <ul className='pb-4 text-sm text-green-500'>
+                                        <li>- Build a market ready digital platform with Figma, React, Supabase & Stripe</li>
+                                        <li>- The indiehackers bootcamp, a walkthrough you need on your indiehacking journey</li>
+                                        <li>- Interviews and behind the scenes with successfull Indiehackers</li>
+                                    </ul>
+                                    <button className='w-32 px-4 py-2 transition bg-green-700 rounded-md hover:opacity-80 text-slate-100'>Early Access</button>
+                                </div>
+                                <div className='flex flex-col w-1/3 px-8 py-8 mx-4 mb-8 rounded-md bg-slate-300'>
+                                    <h2 className='text-3xl font-thin text-slate-700'>Start a Project</h2>    
+                                    <p className='text-slate-500 '>Get an estimated timeline and budget for your project</p>
+                                    <button className='w-full px-4 py-2 transition rounded-md hover:opacity-80 bg-slate-800 text-slate-100'>Get an Estimate</button>
+                                </div>
                             </div>
                         </div>
                         // allPosts.map(post => <p key={post._id}>{post.title}</p>)
@@ -132,7 +132,6 @@ const Searchbar = () => {
                         </div>
                     )}
 
-                    
                     {filteredPost.length > 0 && (
                         filteredPost.map((post) => (
                             <div 
@@ -161,9 +160,6 @@ const Searchbar = () => {
                             </div>
                         ))
                     )}
-
-
-
 
                     {/*  Keys Shortcuts */}
                     <div className="flex flex-wrap items-center justify-center w-full px-4 py-4 text-sm border-t bg-slate-100 rounded-b-md border-slate-300 text-slate-700">
@@ -198,7 +194,6 @@ const Searchbar = () => {
                         for help.
                     </div>
                 </div>
-                </>
             ) : null}
         </div>
 
