@@ -53,7 +53,7 @@ const Searchbar = () => {
                     onClick={() => setHasFocus(true)}
                     // onBlur={() => setHasFocus(false)}
                     onChange={(e) => setRawQuery(e.target.value)}
-                    className="block w-full h-16 px-4 pr-12 transition border-none rounded-md shadow-sm placeholder:text-slate-500 bg-slate-200 focus:bg-slate-100 focus:border-2 focus:border-slate-900 focus:placeholder:text-slate-700 focus:ring-0 focus:rounded-b-none"  
+                    className="block w-full h-16 px-8 pr-12 transition border-none rounded-md shadow-sm placeholder:text-slate-500 bg-slate-200 focus:bg-slate-100 focus:border-2 focus:border-slate-900 focus:placeholder:text-slate-700 focus:ring-0 focus:rounded-b-none"  
                 />
                 {/* Cmd K */}
                 <div className="absolute h-16 inset-y-0 right-0 flex py-3 pr-2.5 ">
@@ -81,7 +81,7 @@ const Searchbar = () => {
             
             {/* Expended search results */}
             { hasFocus ? (
-                <div className="absolute z-10 w-full bg-slate-100 rounded-b-md top-16">
+                <div className="absolute z-10 w-full border-t bg-slate-100 rounded-b-md top-16 border-slate-200">
                     
                     {/* Initial State */}
                     {rawQuery.length > 0 ? ( 
@@ -112,7 +112,7 @@ const Searchbar = () => {
                                             <li>- Interviews and behind the scenes with successfull Indiehackers</li>
                                         </ul>
                                         <div className='flex'>
-                                            <button className='px-4 py-2 transition bg-green-700 rounded-md w-52 hover:opacity-80 text-slate-100'>Early Access<span className='ml-2 text-green-300'>$100.00</span></button>
+                                            <button className='px-4 py-2 transition bg-green-700 rounded-md w-44 hover:opacity-80 text-slate-100'>Early Access<span className='ml-2 text-green-300'>$100</span></button>
                                             <button className='flex items-center justify-center w-32 px-4 py-2 ml-4 text-green-700 transition border border-green-300 rounded-md hover:opacity-80'><PlayIcon className='w-4 h-4 mr-2 text-green-700'/><p>Preview</p></button>
                                         </div>
                                     </div>
@@ -159,9 +159,9 @@ const Searchbar = () => {
                         </div>
                     )}
 
-                    {filteredPost.length > 0 && (
+                    {filteredPost.length > 0 ? (
                         <div className='m-8'>
-                            <h5 className='text-slate-500'>Entry Search results for "{rawQuery}"</h5>
+                            <h5 className='text-slate-500'>{filteredPost.length} Search Results for "{rawQuery}"" in Projects</h5>
                             {filteredPost.map((post) => (
                                 <div key={post._id} value={post.title} className='flex items-center my-4 cursor-default select-none text-slate-700 hover:opacity-80'>
                                     <Link href={post.url}>
@@ -172,10 +172,15 @@ const Searchbar = () => {
                                 </div>
                             ))}
                         </div>
+                    ) : (
+                        null
+                        // <div className='m-8'>
+                        //     <h5 className='text-slate-500'>No Search Results for "{rawQuery}"" in Projects</h5>
+                        // </div>
                     )}
                     {filteredUsers.length > 0 && (
                         <div className='m-8'>
-                            <h5 className='text-slate-500'>User Search results for "{rawQuery}"</h5>
+                            <h5 className='text-slate-500'>{filteredUsers.length} Search Result for "{rawQuery}" in Actions</h5>
                             {filteredUsers.map((user) => (
                                 <div key={user.id} value={user.name} className='flex items-center my-4 cursor-default select-none text-slate-700 hover:opacity-80'>
                                     <p className='text-lg text-slate-800'>{user.name}</p>
