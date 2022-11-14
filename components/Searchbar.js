@@ -81,7 +81,7 @@ const Searchbar = () => {
             
             {/* Expended search results */}
             { hasFocus ? (
-                <div className="absolute z-10 w-full border-t bg-slate-100 rounded-b-md top-16 border-slate-200">
+                <div className="absolute z-10 w-full transition border-t bg-slate-100 rounded-b-md top-16 border-slate-200">
                     
                     {/* Initial State */}
                     {rawQuery.length > 0 ? ( 
