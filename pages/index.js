@@ -4,7 +4,6 @@ import { allPosts, Post } from "contentlayer/generated";
 
 import CTA from '../components/cta'
 import PostCard from '../components/PostCard'
-import Filters2 from '../components/Filters2'
 import Filters from '../components/Filters'
 
 
@@ -15,12 +14,12 @@ export async function getStaticProps() {
   return { props: { posts } };
 }
 
-
+ 
 
 
 export default function Home({ posts }) {
 
-  const [filter, setFilter] = useState('all')
+  const [active, setActive] = useState('all')
 
   return (
     <main className="mx-8 sm:mx-16 lg:mx-20 xl:mx-32">
@@ -30,7 +29,7 @@ export default function Home({ posts }) {
         <div className=" lg:basis-1/2">
           <div className="pr-1 lg:max-w-lg">
             <h1 className="leading-tight">Purpose driven React developer & product strategist</h1>
-            <h4 className="mt-6 text-xl leading-relaxed text-slate-500">Looking to join a startup on a bold mission. <br/> Montreal is home, available anywhere.</h4>
+            <h4 className="mt-6 text-xl leading-relaxed text-neutral-500">Looking to join a startup on a bold mission. <br/> Montreal is home, available anywhere.</h4>
           </div>
         
           <div className="max-w-2xl mt-16">
@@ -48,16 +47,16 @@ export default function Home({ posts }) {
    
 
             {/* ----- PROJECTS ----- */}
-            <div className="flex flex-col w-full pr-24 mt-4 xl:flex-row 2xl:mt-8 space-between">
+            <div className="flex flex-col w-full pr-24 mt-6 xl:flex-row 2xl:mt-8 space-between">
               <div className="flex mr-4 xl:block basis-1/2 hover:cursor-pointer ">
-                <img src="/images/prj-1.png" className="object-cover h-20 rounded-lg hover:brightness-95 w-28 xl:h-32 2xl:h-44 xl:w-full"/>
+                <img src="/images/prj-1.png" className="object-cover h-20 rounded-lg hover:brightness-95 w-28 xl:h-36 2xl:h-44 xl:w-full"/>
                 <div className="h-full my-auto ml-4 xl:ml-0">
                   <h5 className="text-base xl:mt-4 xl:mb-1">Interactive Design Guide Builder</h5>
                   <p className="text-neutral-500">Create a personalized boiler plate design system</p>
                 </div>
               </div>
               <div className="flex mt-4 mr-4 xl:block basis-1/2 hover:cursor-pointer xl:mt-0">
-                <img src="/images/prj-2.png" className="object-cover h-20 rounded-lg hover:brightness-95 w-28 xl:h-32 2xl:h-44 xl:w-full"/>
+                <img src="/images/prj-2.png" className="object-cover h-20 rounded-lg hover:brightness-95 w-28 xl:h-36 2xl:h-44 xl:w-full"/>
                 <div className="h-full my-auto ml-4 xl:ml-0">
                   <h5 className="text-base xl:mt-4 xl:mb-1 3xl:text-lg">Interactive Design Guide Builder</h5>
                   <p className="text-neutral-500">Create a personalized boiler plate design system</p>
@@ -86,11 +85,19 @@ export default function Home({ posts }) {
             </button>
           </div>
         </div>
-        <Filters2/>
-        <div className="grid grid-cols-4 gap-4 mt-10">
-          {posts.map((post, idx) => (
-            <PostCard key={idx} {...post} />
-          ))}
+        <Filters posts={posts} active={active} setActive={setActive}/>
+        <div className="grid grid-cols-4 gap-4 mt-10 ">
+          {active === 'all' ? (
+            posts.map((post, idx) => (
+              <PostCard key={idx} {...post} />
+            ))
+          ) : (
+            // null
+            posts.filter(post => post.category === active).map((post, idx) => (
+              <PostCard key={idx} {...post} />
+            ))
+          )}
+          
         </div>
       </div>
 

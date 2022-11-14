@@ -31,7 +31,7 @@ const Searchbar = () => {
         post.title.toLowerCase().includes(query))
     )
 
-    const filteredUsers =
+    const filteredActions =
         rawQuery === '>'
         ? users
         : query === '' || rawQuery.startsWith('#')
@@ -55,7 +55,6 @@ const Searchbar = () => {
                     onChange={(e) => setRawQuery(e.target.value)}
                     className="block w-full h-16 px-8 pr-12 transition border-none rounded-md shadow-sm placeholder:text-slate-500 bg-slate-200 focus:bg-slate-100 focus:border-2 focus:border-slate-900 focus:placeholder:text-slate-700 focus:ring-0 focus:rounded-b-none"  
                 />
-                {/* Cmd K */}
                 <div className="absolute h-16 inset-y-0 right-0 flex py-3 pr-2.5 ">
                     <kbd className="inline-flex items-center px-3 mr-2 font-mono text-xs font-medium border rounded border-slate-300 text-slate-500 ">
                     {/* ⌘ Cmd + K */}
@@ -83,7 +82,7 @@ const Searchbar = () => {
             { hasFocus ? (
                 <div className="absolute z-10 w-full transition border-t bg-slate-100 rounded-b-md top-16 border-slate-200">
                     
-                    {/* Initial State */}
+                    {/* INITIAL STATE */}
                     {rawQuery.length > 0 ? ( 
                         null
                      ) : (
@@ -145,19 +144,24 @@ const Searchbar = () => {
                         // allPosts.map(post => <p key={post._id}>{post.title}</p>)
                     )}
 
-                    {/* Search */}
+                    {/* HELP SECTION */}
                     {rawQuery === '?' && (
                         <div className="px-6 text-center py-14 sm:px-14">
                             {/* <LifebuoyIcon className="w-6 h-6 mx-auto text-gray-400" aria-hidden="true" /> */}
-                            <h5 className="mt-4 text-xl text-neutral-900">Say Hi to Siri 2.0, my personal Assistant</h5>
-                            <p className="max-w-2xl mx-auto mt-2 text-lg text-neutral-500">
-                                She's not as smart as Siri 1.0 but 
-                                Use this tool to quickly search for users and projects across our entire platform. You can also
-                                use the search modifiers found in the footer below to limit the results to just users or projects.
+                            <h5 className="mt-4 text-xl text-neutral-900">Welcome to my Command Bar!</h5>
+                            <p className="max-w-2xl mx-auto my-4 text-lg text-neutral-500">
+                                Ever since <a className="link" href="https://superhuman.com">Superhuman</a> and <a className="link" href="https://www.alfredapp.com">Alfred</a> showed us the power of sophisticated search bars,
+                                I've wanted to create my own. You can currently use this tool to quickly search across the journal and perform a few limited actions. 
+                                I'll soon be introducing <a className="link" href="https://algolia.com">Algolia</a> for global search accross the journal and additional features. 
                             </p>
-                            <button className="w-40 px-4 py-2 mt-4 text-green-500 transition bg-green-100 rounded-md hover:opacity-80">Feedback</button>
+                            <a href="https://github.com/simoncarriere/simonsjournal-2022/issues" target="_blank">
+                                <button className="w-40 px-4 py-2 mt-4 transition rounded-md bg-slate-200 text-slate-500 hover:opacity-80">
+                                    Report Issue
+                                </button>
+                            </a>
                         </div>
                     )}
+
 
                     {filteredPost.length > 0 ? (
                         <div className='m-8'>
@@ -165,9 +169,9 @@ const Searchbar = () => {
                             {filteredPost.map((post) => (
                                 <div key={post._id} value={post.title} className='flex items-center my-4 cursor-default select-none text-slate-700 hover:opacity-80'>
                                     <Link href={post.url}>
-                                        <a className='flex items-center justify-center'>
+                                        <div className='flex items-center justify-center cursor-pointer'>
                                             <p className='text-lg text-slate-800'>{post.title}</p>
-                                        </a>
+                                        </div>
                                     </Link>
                                 </div>
                             ))}
@@ -178,10 +182,12 @@ const Searchbar = () => {
                         //     <h5 className='text-slate-500'>No Search Results for "{rawQuery}"" in Projects</h5>
                         // </div>
                     )}
-                    {filteredUsers.length > 0 && (
+
+                    
+                    {filteredActions.length > 0 && (
                         <div className='m-8'>
-                            <h5 className='text-slate-500'>{filteredUsers.length} Search Result for "{rawQuery}" in Actions</h5>
-                            {filteredUsers.map((user) => (
+                            <h5 className='text-slate-500'>{filteredActions.length} Search Result for "{rawQuery}" in Actions</h5>
+                            {filteredActions.map((user) => (
                                 <div key={user.id} value={user.name} className='flex items-center my-4 cursor-default select-none text-slate-700 hover:opacity-80'>
                                     <p className='text-lg text-slate-800'>{user.name}</p>
                                 </div>
@@ -202,7 +208,7 @@ const Searchbar = () => {
                             #
                         </kbd>{' '}
                         <span className="sm:hidden">for entries,</span>
-                        <span className="hidden sm:inline">to search entries,</span>
+                        <span className="hidden sm:inline">to search journal,</span>
                         <kbd
                             className={classNames(
                             'mx-1 flex h-5 w-5 items-center justify-center rounded border  font-semibold sm:mx-2',
@@ -220,7 +226,7 @@ const Searchbar = () => {
                         >
                             ?
                         </kbd>{' '}
-                        for help.
+                        to learn more.
                     </div>
                 </div>
             ) : null}

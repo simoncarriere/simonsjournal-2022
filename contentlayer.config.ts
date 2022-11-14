@@ -2,7 +2,7 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 
 const Post = defineDocumentType(() => ({
   name: 'Post',
-  filePathPattern: `**/*.md`,
+  filePathPattern: `**/*.mdx`,
   fields: {
     title: {
       type: 'string',
@@ -14,6 +14,20 @@ const Post = defineDocumentType(() => ({
       description: 'The date of the post',
       required: true,
     },
+    category: {
+      type: 'enum',
+      options: ['project','code','opinion','other'],
+      default: 'project'
+    },
+    keywords: {
+      type: 'list',
+      of: {type: 'string'}
+    },
+    image:{
+      type: 'string',
+      description: 'The hero image of the post',
+      // required: true
+    }
   },
   computedFields: {
     url: {
