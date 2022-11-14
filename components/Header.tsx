@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import Link from 'next/link'
-
-import Searchbar from './Searchbar'
 import { ContactContext } from "context/ContactContext";
+// Components
+import Searchbar from './Searchbar'
 
 function Logo() {
   return (

@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import '../styles/globals.css'
 import {ContactProvider} from '../context/ContactContext'
-
+// Components
 import { Header } from '../components/Header'
 import Contact from '../components/Contact'
 

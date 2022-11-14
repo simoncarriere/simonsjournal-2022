@@ -75,7 +75,7 @@ export default function Home({ posts }) {
           </div>
         </div>
         <Filters posts={posts} active={active} setActive={setActive}/>
-        <div className="grid grid-cols-4 gap-4 mt-10 ">
+        <div className="grid gap-8 mt-10 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 ">
           {active === 'all' ? (
             posts.map((post, idx) => (
               <PostCard key={idx} {...post} />

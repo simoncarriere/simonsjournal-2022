@@ -28,16 +28,16 @@ export default function Filters({posts, active, setActive}) {
             Select a tab
           </label>
           {/* Use an "onChange" listener to redirect the user to the selected tab URL. */}
-          {/* <select
+          <select
             id="tabs"
             name="tabs"
             className="block w-full py-2 pb-4 pl-3 pr-10 text-base rounded-md focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm"
-            defaultValue={tabs.find((tab) => tab.current).name}
+            // defaultValue={tabs.find((tab) => tab.current).name}
           >
             {tabs.map((tab) => (
               <option key={tab.name} onClick={() => setActive(id.name)}>{tab.name}</option>
             ))}
-          </select> */}
+          </select>
         </div>
         <div className="hidden sm:block">
           <div className="">
