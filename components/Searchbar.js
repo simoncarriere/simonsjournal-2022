@@ -1,4 +1,4 @@
-import {Fragment, useState} from 'react'
+import {Fragment, useState, useRef} from 'react'
 import {Transition} from '@headlessui/react'
 import { PlayIcon } from '@heroicons/react/24/solid'
 
@@ -25,9 +25,11 @@ const Searchbar = () => {
 
     const [hasFocus, setHasFocus] = useState(false);
     const [rawQuery, setRawQuery] = useState('')
+    const ref = useRef(null)
 
     useKeypress('/', () => {
         setHasFocus(true)
+        ref.current.focus()
     });
   
 
@@ -57,7 +59,7 @@ const Searchbar = () => {
                     id="search"
                     value={rawQuery}
                     onClick={() => setHasFocus(true)}
-                    // onBlur={() => setHasFocus(false)}
+                    ref={ref}
                     onChange={(e) => setRawQuery(e.target.value)}
                     className="block w-full h-16 px-8 pr-12 transition border-none rounded-md shadow-sm placeholder:text-slate-500 bg-slate-200 focus:bg-slate-100 focus:border-2 focus:border-slate-900 focus:placeholder:text-slate-700 focus:ring-0 focus:rounded-b-none"  
                 />
