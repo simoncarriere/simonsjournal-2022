@@ -25,34 +25,33 @@ export async function getStaticProps({ params }) {
   };
 }
 
-const contentTable = [
-  {
-    title: 'Introduction',
-  },
-  {
-    title: 'RL from human feedback',
-  },
-  {
-    title: 'Our natural language API ',
-  },
-  {
-    title: 'Next Steps',
-  },
-]
+// const contentTable = [
+//   {
+//     title: 'Introduction',
+//   },
+//   {
+//     title: 'RL from human feedback',
+//   },
+//   {
+//     title: 'Our natural language API ',
+//   },
+//   {
+//     title: 'Next Steps',
+//   },
+// ]
 
 
 const PostLayout = ({ post }: { post: Post }) => {
 
-  console.log(post)
   return (
     <>
       <Head>
         <title>{post.title}</title>
       </Head>
       {/* <article className="max-w-4xl mx-auto pt-44">  */}
-      <article className="pt-20 mx-24"> 
+      <article className="max-w-4xl pt-20 mx-auto"> 
       
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="mx-auto text-center ">
           <time dateTime={post.date} className="px-4 py-2 mb-1 text-green-500 bg-green-100 rounded-lg">
             {format(parseISO(post.date), "LLLL d, yyyy")}
           </time>
@@ -61,20 +60,22 @@ const PostLayout = ({ post }: { post: Post }) => {
         </div>
         
         {/* Main Section */}
-        <div className="relative grid grid-cols-8 gap-4 my-44">
+        {/* <div className="relative grid grid-cols-8 gap-4 my-44"> */}
+        <div className="my-44">
           
           {/* Content Table */}
-          <div className="col-span-2 pr-20 text-sm">
+          {/* <div className="col-span-2 pr-20 text-sm">
             <ol className="sticky text-base list-decimal list-inside top-16">
               <p className="mb-2">Content</p>
-              {contentTable.map(subheading => (
-                <a className=" hover:text-green-700 text-neutral-500" href="#"><li>{subheading.title}</li></a>
+              {contentTable.map((subheading, index) => (
+                <a key={index} className=" hover:text-green-700 text-neutral-500" href="#"><li>{subheading.title}</li></a>
               ))}
             </ol>
-          </div>
+          </div> */}
 
           {/* MDX */}
-          <div className="col-span-4 col-start-3 prose">
+          {/* <div className="col-span-4 col-start-3 prose"> */}
+          <div className="prose">
             <div dangerouslySetInnerHTML={{ __html: post.body.html }} />
           </div>
 

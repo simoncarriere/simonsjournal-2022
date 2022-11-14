@@ -14,7 +14,7 @@ export default function Filters({posts, active, setActive}) {
     { name: 'All', category: 'all', count: posts.length},
     { name: 'Case Studies', category: 'project', count: posts.filter(i => i.category === 'project').length},
     { name: 'Code Snippets', category: 'code', count: posts.filter(i => i.category === 'code').length, current: false },
-    { name: 'Opinions',  category: 'opinion', count: posts.filter(i => i.category === 'opinion').length },
+    // { name: 'Opinions',  category: 'opinion', count: posts.filter(i => i.category === 'opinion').length },
     // { name: 'Other', category: 'other', count: posts.filter(i => i.category === 'other').length},
   ]
 
@@ -70,7 +70,7 @@ export default function Filters({posts, active, setActive}) {
         </div>
       </div>
 
-      {/* ----- Dropdown ----- */}
+      {/* Sorting Dropdown */}
       <Menu as="div" className="relative z-0 inline-block text-left">
         <div>
           <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-sm border rounded-md shadow-sm border-slate-300 text-slate-700 hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-slate-100">

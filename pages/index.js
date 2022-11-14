@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { compareDesc} from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
-
-import CTA from '../components/cta'
-import PostCard from '../components/PostCard'
+import { compareDesc} from "date-fns";
+// Components
 import Filters from '../components/Filters'
-
+import PostCard from '../components/PostCard'
+import CTA from '../components/cta'
 
 export async function getStaticProps() {
   const posts = allPosts.sort((a, b) => {
@@ -14,9 +13,6 @@ export async function getStaticProps() {
   return { props: { posts } };
 }
 
- 
-
-
 export default function Home({ posts }) {
 
   const [active, setActive] = useState('all')
@@ -24,17 +20,14 @@ export default function Home({ posts }) {
   return (
     <main className="mx-8 sm:mx-16 lg:mx-20 xl:mx-32">
 
-      {/* ----- HEADING ----- */}
+      {/* Heading */}
       <header className="flex items-center justify-center max-h-screen pt-48 lg:pt-0">
         <div className=" lg:basis-1/2">
           <div className="pr-1 lg:max-w-lg">
             <h1 className="leading-tight">Purpose driven React developer & product strategist</h1>
             <h4 className="mt-6 text-xl leading-relaxed text-neutral-500">Looking to join a startup on a bold mission. <br/> Montreal is home, available anywhere.</h4>
           </div>
-        
           <div className="max-w-2xl mt-16">
-            
-            
             <div className="flex items-center my-auto">
               <h2 className="mr-4">Currently Building</h2>
               <button className="btn-icon-secondary">
@@ -43,10 +36,7 @@ export default function Home({ posts }) {
                 </svg>
               </button>
             </div>
-
-   
-
-            {/* ----- PROJECTS ----- */}
+            {/* Projects */}
             <div className="flex flex-col w-full pr-24 mt-6 xl:flex-row 2xl:mt-8 space-between">
               <div className="flex mr-4 xl:block basis-1/2 hover:cursor-pointer ">
                 <img src="/images/prj-1.png" className="object-cover h-20 rounded-lg hover:brightness-95 w-28 xl:h-36 2xl:h-44 xl:w-full"/>
@@ -72,12 +62,11 @@ export default function Home({ posts }) {
         </div>
       </header>
 
-      {/* ----- Journal Entries : Code snippets, walkthrough, opinions & case studies ----- */}
+      {/* Journal Entries */}
       <div className="my-12">
         <div className="flex justify-between w-full items-middle">
           <div className="flex items-center my-auto mb-6"> 
             <h2 className="mr-4">Index</h2>
-            {/* <h5>Code snippets, walkthrough, opinions & case studies</h5> */}
             <button className="btn-icon-secondary">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
@@ -92,7 +81,6 @@ export default function Home({ posts }) {
               <PostCard key={idx} {...post} />
             ))
           ) : (
-            // null
             posts.filter(post => post.category === active).map((post, idx) => (
               <PostCard key={idx} {...post} />
             ))
@@ -101,8 +89,7 @@ export default function Home({ posts }) {
         </div>
       </div>
 
-      {/* ----- CALL TO ACTION ----- */}
-      {/* <CTA /> */}
+      {/* CTA */}
     </main>
   );
 }
