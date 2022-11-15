@@ -69,11 +69,12 @@ export default function Contact() {
                       </div>
 
                       <div>
-
-                        <div className='w-full p-6 my-4 border rounded-lg bg-slate-100 border-slate-200 hover:cursor-pointer hover:border-slate-300 hover:bg-slate-200 '>
-                          <h5 className='text-base text-slate-900'>1. Email</h5>
-                          <p className='pt-2 text-slate-500'>General inquiries & feedback.</p>
-                        </div>
+                        <a href="mailto:hello@simonsjournal.com">
+                          <div className='w-full p-6 my-4 border rounded-lg bg-slate-100 border-slate-200 hover:cursor-pointer hover:border-slate-300 hover:bg-slate-200 '>
+                            <h5 className='text-base text-slate-900'>1. Email</h5>
+                            <p className='pt-2 text-slate-500'>General inquiries & feedback.</p>
+                          </div>
+                        </a>
                         <div className='w-full p-6 my-4 border rounded-lg bg-slate-100 border-slate-200 hover:cursor-pointer hover:border-slate-300 hover:bg-slate-200 '>
                           <h5 className='text-base text-slate-900'>2. Schedule A Call</h5>
                           <p className='pt-2 text-slate-500'>Reserved for white listed contacts. Either start a project or get in touch first. </p>

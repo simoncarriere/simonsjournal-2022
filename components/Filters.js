@@ -58,7 +58,7 @@ export default function Filters({posts, active, setActive}) {
                     <span
                       className={classNames(
                         tab.category === active ? 'bg-green-100 text-green-600' : 'bg-neutral-100 text-neutral-900',
-                        'hidden ml-3 py-0.5 px-2.5 rounded-full text-xs font-medium md:inline-block m-auto'
+                        'hidden transition ml-3 py-0.5 px-2.5 rounded-full text-xs font-medium md:inline-block m-auto'
                       )}
                     >
                       {tab.count ? tab.count : '0'}

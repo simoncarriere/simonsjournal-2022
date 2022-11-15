@@ -55,7 +55,7 @@ const PostLayout = ({ post }: { post: Post }) => {
           <time dateTime={post.date} className="px-4 py-2 mb-1 text-green-500 bg-green-100 rounded-lg">
             {format(parseISO(post.date), "LLLL d, yyyy")}
           </time>
-          <h1 className="my-8">{post.title}</h1>
+          <h1 className="my-8 leading-snug">{post.title}</h1>
           <img src={`/images/${post.image}`} className="object-cover"/>
         </div>
         

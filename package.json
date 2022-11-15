@@ -12,6 +12,7 @@
     "@heroicons/react": "^2.0.13",
     "contentlayer": "latest",
     "date-fns": "2.29.3",
+    "framer-motion": "^7.6.6",
     "next": "12.3.1",
     "next-contentlayer": "latest",
     "react": "18.2.0",

@@ -6,15 +6,37 @@ import useKeypress from '../hooks/useKeypress';
 import { allPosts, Post } from "contentlayer/generated";
 import Link from "next/link";
   
-const users = [
+const actions = [
  {
     id: 1,
-    name: 'Leslie Alexander',
-    url: '#',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    name: 'Compose Email',
+    url: 'mailto:hello@simonsjournal.com',
   },
-  // More users...
+ {
+    id: 2,
+    name: 'Schedule a Call',
+    url: '#',
+  },
+ {
+    id: 3,
+    name: 'Join Newsletter',
+    url: '#',
+  },
+ {
+    id: 4,
+    name: 'Download Resume',
+    url: '#',
+  },
+ {
+    id: 5,
+    name: 'Report Issue',
+    url: '#',
+  },
+ {
+    id: 6,
+    name: 'Challenge me',
+    url: '#',
+  },
 ]
 
 function classNames(...classes) {
@@ -31,7 +53,6 @@ const Searchbar = () => {
         setHasFocus(true)
         ref.current.focus()
     });
-  
 
     const query = rawQuery.toLowerCase().replace(/^[#>]?/, '')
 
@@ -41,10 +62,10 @@ const Searchbar = () => {
 
     const filteredActions =
         rawQuery === '>'
-        ? users
+        ? actions
         : query === '' || rawQuery.startsWith('#')
         ? []
-        : users.filter((user) => user.name.toLowerCase().includes(query))
+        : actions.filter((action) => action.name.toLowerCase().includes(query))
 
 
     return ( 
@@ -97,13 +118,12 @@ const Searchbar = () => {
                         <div>
                             <div className='m-8'>
                                 <h5 className='text-slate-500'>Quick Actions</h5>
-                                <ul className='grid my-4 text-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 grid-gap-4'>
-                                    <li className='tag'>Compose Email</li>
-                                    <li className='tag'>Schedule a Call</li>
-                                    <li className='tag'>Join Newsletter</li>
-                                    <li className='tag'>Download Resume</li>
-                                    <li className='tag'>Send Feedback</li>
-                                    <li className='tag'>Challenge me</li>
+                                <ul className='grid my-4 text-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 grid-gap-4 2xl:grid-cols-8'>
+                                    {actions.map(action => (
+                                        <a href={action.url}>
+                                            <li className='tag' key={action.id}>{action.name}</li>
+                                        </a>
+                                    ))}
                                 </ul>
                             </div>
 
@@ -195,10 +215,10 @@ const Searchbar = () => {
                     {filteredActions.length > 0 && (
                         <div className='m-8'>
                             <h5 className='text-slate-500'>{filteredActions.length} Search Result for "{rawQuery}" in Actions</h5>
-                            {filteredActions.map((user) => (
-                                <div key={user.id} value={user.name} className='flex items-center my-4 cursor-default select-none text-slate-700 hover:opacity-80'>
-                                    <p className='text-lg text-slate-800'>{user.name}</p>
-                                </div>
+                            {filteredActions.map((action) => (
+                                <a key={action.id} value={action.name} href={action.url} className='flex items-center my-4 select-none text-slate-700 hover:opacity-80'>
+                                    <p className='text-lg text-slate-800'>{action.name}</p>
+                                </a>
                             ))}
                         </div>
                     )}

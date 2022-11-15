@@ -37,7 +37,7 @@
     @apply bg-slate-100 text-slate-800 rounded-md border border-slate-300 p-2 hover:bg-slate-200 transition
   }
   .tag {
-    @apply bg-slate-200 my-1 xl:my-0 border border-slate-300 px-3 py-2 rounded-md mr-2 text-sm text-slate-700 hover:text-slate-700 hover:opacity-80  hover:cursor-pointer 
+    @apply bg-slate-200 my-1 xl:my-0 border border-slate-300 px-3 py-3 rounded-md mr-2 text-sm text-slate-700 hover:text-slate-700 hover:opacity-80  hover:cursor-pointer 
   }
   .link {
     @apply text-green-500 underline

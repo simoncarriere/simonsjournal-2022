@@ -13,10 +13,10 @@ const PostCard = (post) => {
             <div className="w-full h-64 bg-slate-200 animate-pulse"/>
           )}
           <div>
-            <time dateTime={post.date} className="block mt-4 mb-1 text-xs text-neutral-500">
+            <time dateTime={post.date} className="block mt-4 mb-1 text-xs font-medium text-neutral-900">
               {format(parseISO(post.date), "LLLL d, yyyy")}
             </time>
-            <h3 className=" text-slate-900">{post.title}</h3>
+            <h3 className=" text-neutral-500">{post.title}</h3>
           </div>
 
         </div>

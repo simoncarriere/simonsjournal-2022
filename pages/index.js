@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { allPosts, Post } from "contentlayer/generated";
 import { compareDesc} from "date-fns";
+import { motion } from "framer-motion";
 // Components
 import Filters from '../components/Filters'
 import PostCard from '../components/PostCard'
@@ -40,17 +41,31 @@ export default function Home({ posts }) {
             <div className="flex flex-col w-full pr-24 mt-6 xl:flex-row 2xl:mt-8 space-between">
               <div className="flex mr-4 xl:block basis-1/2 hover:cursor-pointer ">
                 <img src="/images/prj-1.png" className="object-cover h-20 rounded-lg hover:brightness-95 w-28 xl:h-36 2xl:h-44 xl:w-full"/>
-                <div className="h-full my-auto ml-4 xl:ml-0">
+                {/* <div className="h-full my-auto ml-4 xl:ml-0">
                   <h5 className="text-base xl:mt-4 xl:mb-1">Interactive Design Guide Builder</h5>
                   <p className="text-neutral-500">Create a personalized boiler plate design system</p>
+                </div> */}
+                <div>
+                  <time  className="block mt-4 mb-1 text-xs font-medium text-neutral-500">
+                    {/* {format(parseISO(post.date), "LLLL d, yyyy")}  */} 10 January, 2020
+                  </time>
+                  <h3 className=" text-neutral-900">Create a personalized boiler plate design system</h3>
                 </div>
               </div>
               <div className="flex mt-4 mr-4 xl:block basis-1/2 hover:cursor-pointer xl:mt-0">
                 <img src="/images/prj-2.png" className="object-cover h-20 rounded-lg hover:brightness-95 w-28 xl:h-36 2xl:h-44 xl:w-full"/>
-                <div className="h-full my-auto ml-4 xl:ml-0">
+                
+                <div>
+                  <time  className="block mt-4 mb-1 text-xs font-medium text-neutral-900">
+                    {/* {format(parseISO(post.date), "LLLL d, yyyy")} */}10 Febuary, 2021
+                  </time>
+                  <h3 className=" text-neutral-500">Create a personalized boiler plate design system</h3>
+                </div>
+                
+                {/* <div className="h-full my-auto ml-4 xl:ml-0">
                   <h5 className="text-base xl:mt-4 xl:mb-1 3xl:text-lg">Interactive Design Guide Builder</h5>
                   <p className="text-neutral-500">Create a personalized boiler plate design system</p>
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -75,7 +90,11 @@ export default function Home({ posts }) {
           </div>
         </div>
         <Filters posts={posts} active={active} setActive={setActive}/>
-        <div className="grid gap-8 mt-10 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 ">
+    
+          <motion.div 
+            className="grid gap-8 mt-10 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
+            // animate={{ opacity: active ? 1 : 0 }}
+          >
           {active === 'all' ? (
             posts.map((post, idx) => (
               <PostCard key={idx} {...post} />
@@ -85,10 +104,9 @@ export default function Home({ posts }) {
               <PostCard key={idx} {...post} />
             ))
           )}
-          
-        </div>
+          </motion.div>
+   
       </div>
-
       {/* CTA */}
     </main>
   );
