@@ -4,11 +4,9 @@ import {format, parseISO } from "date-fns";
 const PostCard = (post) => {
     return ( 
       <Link href={post.url}>
-        <div className="rounded-lg hover:cursor-pointer hover:brightness-95">
-        
-          
+        <div className="hover:cursor-pointer hover:brightness-95">
           {post.image ? (
-            <img src={`./images/${post.image}`} alt="project-profile" className="object-cover w-full h-64 bg-green-300"/>
+            <img src={`./images/${post.image}`} alt="project-profile" className="object-cover w-full h-64 bg-green-300 rounded-lg"/>
             ) : (
             <div className="w-full h-64 bg-slate-200 animate-pulse"/>
           )}
@@ -18,7 +16,6 @@ const PostCard = (post) => {
             </time>
             <h3 className=" text-neutral-500">{post.title}</h3>
           </div>
-
         </div>
       </Link>
      );

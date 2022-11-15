@@ -30,12 +30,12 @@ const actions = [
  {
     id: 5,
     name: 'Report Issue',
-    url: '#',
+    url: 'https://github.com/simoncarriere/simonsjournal-2022/issues',
   },
  {
     id: 6,
     name: 'Challenge me',
-    url: '#',
+    url: 'https://www.chess.com/play/online/new?opponent=simoniphone',
   },
 ]
 
@@ -69,13 +69,13 @@ const Searchbar = () => {
 
 
     return ( 
-        <div className="relative z-10 flex flex-col mx-16">
+        <div className="relative z-10 flex flex-col mx-8 lg:mx-16">
 
             {/* Search Bar */}
             <div className="z-10 w-full transition">
                 <input
                     type="text"
-                    placeholder="Search through projects, code snippets & journal entries"
+                    placeholder="Search Index..."
                     name="search"
                     id="search"
                     value={rawQuery}
@@ -109,7 +109,7 @@ const Searchbar = () => {
             
             {/* Expended search results */}
             { hasFocus ? (
-                <div className="absolute left-0 z-10 transition border-t lg:w-full bg-slate-100 rounded-b-md top-16 border-slate-200">
+                <div className="fixed left-0 z-10 mx-4 transition border-t rounded-md md:mx-0 md:absolute md:w-full bg-slate-100 md:rounded-t-none top-24 md:top-16 border-slate-200">
                     
                     {/* INITIAL STATE */}
                     {rawQuery.length > 0 ? ( 
@@ -126,20 +126,20 @@ const Searchbar = () => {
                                     ))}
                                 </ul>
                             </div>
-
+                            {/* Announcements */}
                             <div className='pt-4 mx-8'>
                                 <h5 className='text-slate-500'>Announcements</h5>
                                 <div className='mt-4 xl:flex'>
                                     <div className='flex flex-col justify-between px-8 py-8 mb-4 bg-green-100 rounded-md xl:mb-8 xl:w-2/3'>  
                                         <h2 className='pb-2 text-2xl text-green-700 border-b border-green-300'>30 Days of SASS <span className='text-green-500'>(Releasing Early 2023)</span></h2>        
                                         <ul className='my-4 text-green-500'>
-                                            <li>The indiehackers bootcamp, a walkthrough to starting and growing your digital product</li>
+                                            <li>The indiehackers bootcamp, a walkthrough to starting and growing your digital products.</li>
                                             <li>- Build a market ready digital platform with Figma, React, Supabase & Stripe</li>
                                             <li>- 1 on 1 mentorship and 6 months technical support</li>
                                             <li>- Interviews and behind the scenes with successfull Indiehackers</li>
                                         </ul>
                                         <div className='flex'>
-                                            <button className='px-4 py-2 transition bg-green-700 rounded-md w-44 hover:opacity-80 text-slate-100'>Early Access<span className='ml-2 text-green-300'>$100</span></button>
+                                            <button className='px-4 py-2 transition bg-green-700 rounded-md w-44 hover:opacity-80 text-slate-100'>Early Access<span className='ml-2 text-green-300'>$185</span></button>
                                             <button className='flex items-center justify-center w-32 px-4 py-2 ml-4 text-green-700 transition border border-green-300 rounded-md hover:opacity-80'><PlayIcon className='w-4 h-4 mr-2 text-green-700'/><p>Preview</p></button>
                                         </div>
                                     </div>
@@ -190,6 +190,17 @@ const Searchbar = () => {
                         </div>
                     )}
 
+    
+                    {/* No Results */}
+                    {query !== '' && rawQuery !== '?' && filteredPost.length === 0 && filteredActions.length === 0 && (
+                        <div className="px-6 text-center py-14 sm:px-14">
+                            <h5 className="mt-4 text-xl text-neutral-900">No Results Found</h5>
+                            <p className="max-w-2xl mx-auto my-4 text-lg text-neutral-500">
+                               I havent had a chance to write about '{rawQuery}' yet.
+                            </p>
+                        </div>
+                    )}
+
 
                     {filteredPost.length > 0 ? (
                         <div className='m-8'>
@@ -197,7 +208,7 @@ const Searchbar = () => {
                             {filteredPost.map((post) => (
                                 <div key={post._id} value={post.title} className='flex items-center my-4 cursor-default select-none text-slate-700 hover:opacity-80'>
                                     <Link href={post.url}>
-                                        <div className='flex items-center justify-center cursor-pointer'>
+                                        <div className='flex items-center justify-center cursor-pointer' onClick={() => setHasFocus(false)}>
                                             <p className='text-lg text-slate-800'>{post.title}</p>
                                         </div>
                                     </Link>
@@ -216,7 +227,7 @@ const Searchbar = () => {
                         <div className='m-8'>
                             <h5 className='text-slate-500'>{filteredActions.length} Search Result for "{rawQuery}" in Actions</h5>
                             {filteredActions.map((action) => (
-                                <a key={action.id} value={action.name} href={action.url} className='flex items-center my-4 select-none text-slate-700 hover:opacity-80'>
+                                <a key={action.id} value={action.name} href={action.url} onClick={() => setHasFocus(false)} className='flex items-center my-4 select-none text-slate-700 hover:opacity-80'>
                                     <p className='text-lg text-slate-800'>{action.name}</p>
                                 </a>
                             ))}

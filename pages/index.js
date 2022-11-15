@@ -80,7 +80,7 @@ export default function Home({ posts }) {
       {/* Journal Entries */}
       <div className="my-12">
         <div className="flex justify-between w-full items-middle">
-          <div className="flex items-center my-auto mb-6"> 
+          <div className="flex items-center my-auto mb-4"> 
             <h2 className="mr-4">Index</h2>
             <button className="btn-icon-secondary">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
@@ -92,7 +92,7 @@ export default function Home({ posts }) {
         <Filters posts={posts} active={active} setActive={setActive}/>
     
           <motion.div 
-            className="grid gap-8 mt-10 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
+            className="grid gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
             // animate={{ opacity: active ? 1 : 0 }}
           >
           {active === 'all' ? (
