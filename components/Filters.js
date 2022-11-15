@@ -51,14 +51,14 @@ export default function Filters({posts, active, setActive}) {
                     tab.category === active 
                       ? 'border-green-500 text-green-600'
                       : 'border-none text-neutral-500 hover:text-neutral-700 hover:border-neutral-200',
-                    'whitespace-nowrap flex py-4 px-1 border-b-2 font-medium text-lg cursor-pointer'
+                    'whitespace-nowrap flex py-4 px-1 border-b-2 text-lg cursor-pointer'
                   )}
                 >
                   {tab.name}
                     <span
                       className={classNames(
                         tab.category === active ? 'bg-green-100 text-green-600' : 'bg-neutral-100 text-neutral-900',
-                        'hidden transition ml-3 py-0.5 px-2.5 rounded-full text-xs font-medium md:inline-block m-auto'
+                        'hidden transition ml-3 py-1 px-2.5 rounded-full text-xs font-medium md:inline-block m-auto'
                       )}
                     >
                       {tab.count ? tab.count : '0'}

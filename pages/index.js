@@ -22,13 +22,13 @@ export default function Home({ posts }) {
     <main className="mx-8 sm:mx-16 lg:mx-20 xl:mx-32">
 
       {/* Heading */}
-      <header className="flex items-center justify-center max-h-screen pt-48 lg:pt-0">
-        <div className=" lg:basis-1/2">
+      <header className="flex items-center justify-center max-h-screen mt-8 mb-24 lg:mt-0">
+        <div className=" basis-1/2 lg:basis-3/5">
           <div className="pr-1 lg:max-w-lg">
             <h1 className="leading-tight">Purpose driven React developer & product strategist</h1>
-            <h4 className="mt-6 text-xl leading-relaxed text-neutral-500">Looking to join a startup on a bold mission. <br/> Montreal is home, available anywhere.</h4>
+            <h2 className="mt-6 text-xl leading-relaxed text-neutral-500">Looking to join a startup on a bold mission. <br/> Montreal is home, available anywhere.</h2>
           </div>
-          <div className="max-w-2xl mt-16">
+          <div className="max-w-2xl mt-8 xl:mt-16">
             <div className="flex items-center my-auto">
               <h2 className="mr-4">Currently Building</h2>
               <button className="btn-icon-secondary">
@@ -39,28 +39,31 @@ export default function Home({ posts }) {
             </div>
             {/* Projects */}
             <div className="flex flex-col w-full pr-24 mt-6 xl:flex-row 2xl:mt-8 space-between">
-              <div className="flex mr-4 xl:block basis-1/2 hover:cursor-pointer ">
-                <img src="/images/prj-1.png" className="object-cover h-20 rounded-lg hover:brightness-95 w-28 xl:h-36 2xl:h-44 xl:w-full"/>
-                {/* <div className="h-full my-auto ml-4 xl:ml-0">
-                  <h5 className="text-base xl:mt-4 xl:mb-1">Interactive Design Guide Builder</h5>
-                  <p className="text-neutral-500">Create a personalized boiler plate design system</p>
-                </div> */}
-                <div>
-                  <time  className="block mt-4 mb-1 text-xs font-medium text-neutral-500">
-                    {/* {format(parseISO(post.date), "LLLL d, yyyy")}  */} 10 January, 2020
-                  </time>
-                  <h3 className=" text-neutral-900">Create a personalized boiler plate design system</h3>
+              <div className="flex mr-4 xl:block basis-1/2 hover:cursor-pointer">
+                <img src="/images/prj-1.png" className="object-cover h-24 rounded-lg hover:brightness-95 w-28 xl:h-36 2xl:h-44 xl:w-full"/>
+                <div className="ml-4 xl:ml-2">
+                  <h3  className="block mt-4 mb-1 text-neutral-900">
+                      {/* {format(parseISO(post.date), "LLLL d, yyyy")}  */} Interactive Design Guide Builder
+                  </h3>
+                  <h4 className=" text-neutral-500">Create a personalized boiler plate design system</h4>
                 </div>
               </div>
               <div className="flex mt-4 mr-4 xl:block basis-1/2 hover:cursor-pointer xl:mt-0">
-                <img src="/images/prj-2.png" className="object-cover h-20 rounded-lg hover:brightness-95 w-28 xl:h-36 2xl:h-44 xl:w-full"/>
-                
-                <div>
+                <img src="/images/prj-2.png" className="object-cover h-24 rounded-lg hover:brightness-95 w-28 xl:h-36 2xl:h-44 xl:w-full"/>
+                <div className="ml-4 xl:ml-2">
                   <time  className="block mt-4 mb-1 text-xs font-medium text-neutral-900">
-                    {/* {format(parseISO(post.date), "LLLL d, yyyy")} */}10 Febuary, 2021
+                    {/* {format(parseISO(post.date), "LLLL d, yyyy")} */} (Releasing Early 2023)
                   </time>
-                  <h3 className=" text-neutral-500">Create a personalized boiler plate design system</h3>
+                  <h3 className=" text-neutral-500">30 Days of Sass - The Indiehackers bootcamp</h3>
                 </div>
+
+
+                {/* <div>
+                  <time dateTime={post.date} className="block mt-4 mb-1 text-xs font-medium text-neutral-900">
+                    {format(parseISO(post.date), "LLLL d, yyyy")}
+                  </time>
+                  <h3 className=" text-neutral-500">{post.title}</h3>
+                </div> */}
                 
                 {/* <div className="h-full my-auto ml-4 xl:ml-0">
                   <h5 className="text-base xl:mt-4 xl:mb-1 3xl:text-lg">Interactive Design Guide Builder</h5>
@@ -72,7 +75,7 @@ export default function Home({ posts }) {
 
           </div>
         </div>
-        <div className="hidden py-8 pl-12 lg:block basis-1/2">
+        <div className="hidden py-8 pl-12 lg:block basis-2/5 lg:basis-1/2">
           <img src="images/simon.jpeg" className="rounded-2xl"/>
         </div>
       </header>
@@ -108,6 +111,7 @@ export default function Home({ posts }) {
    
       </div>
       {/* CTA */}
+      <CTA />
     </main>
   );
 }

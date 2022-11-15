@@ -14,10 +14,10 @@ function Logo() {
 
 export function Header() {
 
-  const {sidebarOpen, toggleSidebar} = useContext(ContactContext)
+  const {toggleSidebar} = useContext(ContactContext)
 
   return (
-    <header className="flex justify-between flex-auto w-full p-8">
+    <header className="flex justify-between w-full p-8 my-auto">
       <div className="flex-none">
         <Logo />
       </div>

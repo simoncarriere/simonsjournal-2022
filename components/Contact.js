@@ -64,7 +64,7 @@ export default function Contact() {
                       
                       
                       {/* ---- OPTIONS ----- */}
-                      <div className='mb-12'>
+                      <div className='mb-8'>
                         <p className='text-lg font-extralight text-neutral-500'>Let’s work together from strategy to launch. Start a project for an estimate timeline and budget.</p>
                       </div>
 

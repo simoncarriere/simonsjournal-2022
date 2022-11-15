@@ -43,3 +43,20 @@
     @apply text-green-500 underline
   }
 }
+
+
+
+h2 {
+  font-size: 22px;
+  letter-spacing: 0.02em;
+}
+
+h3 {
+  letter-spacing: 0.02em;
+}
+
+h4 {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0em;
+}

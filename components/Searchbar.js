@@ -117,7 +117,7 @@ const Searchbar = () => {
                      ) : (
                         <div>
                             <div className='m-8'>
-                                <h5 className='text-slate-500'>Quick Actions</h5>
+                                <h5 className='text-slate-500'>Quick Links</h5>
                                 <ul className='grid my-4 text-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 grid-gap-4 2xl:grid-cols-8'>
                                     {actions.map(action => (
                                         <a href={action.url}>
