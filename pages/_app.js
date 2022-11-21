@@ -15,7 +15,7 @@ export default function MyApp({ Component, pageProps }) {
       </Head>
       <ContactProvider>
         <Header />
-        <div >
+        <div className='mx-8 sm:mx-16 lg:mx-20 xl:mx-32'>
           <Component {...pageProps} />
         </div>
         <footer className='flex items-center justify-center w-full m-auto align-middle transition my-36 text-slate-500 hover:text-slate-700'>

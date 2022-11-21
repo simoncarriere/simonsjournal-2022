@@ -1,9 +1,10 @@
 import Head from "next/head";
 import { format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
-import PostCard from "components/PostCard";
 import { useMDXComponent } from 'next-contentlayer/hooks'
-
+// Components
+import PostCard from "components/PostCard";
+import EntryActions from '../../components/EntryActions'
 
 
 export async function getStaticPaths() {
@@ -25,21 +26,6 @@ export async function getStaticProps({ params }) {
   };
 }
 
-// const contentTable = [
-//   {
-//     title: 'Introduction',
-//   },
-//   {
-//     title: 'RL from human feedback',
-//   },
-//   {
-//     title: 'Our natural language API ',
-//   },
-//   {
-//     title: 'Next Steps',
-//   },
-// ]
-
 
 const PostLayout = ({ post }: { post: Post }) => {
 
@@ -48,33 +34,22 @@ const PostLayout = ({ post }: { post: Post }) => {
       <Head>
         <title>{post.title}</title>
       </Head>
-      {/* <article className="max-w-4xl mx-auto pt-44">  */}
-      <article className="max-w-4xl pt-20 mx-auto"> 
-      
-        <div className="mx-auto text-center ">
-          <time dateTime={post.date} className="px-4 py-2 mb-1 text-green-500 bg-green-100 rounded-lg">
-            {format(parseISO(post.date), "LLLL d, yyyy")}
-          </time>
-          <h1 className="my-8 leading-snug">{post.title}</h1>
-          <img src={`/images/${post.image}`} className="object-cover"/>
-        </div>
-        
-        {/* Main Section */}
-        {/* <div className="relative grid grid-cols-8 gap-4 my-44"> */}
-        <div className="my-44">
-          
-          {/* Content Table */}
-          {/* <div className="col-span-2 pr-20 text-sm">
-            <ol className="sticky text-base list-decimal list-inside top-16">
-              <p className="mb-2">Content</p>
-              {contentTable.map((subheading, index) => (
-                <a key={index} className=" hover:text-green-700 text-neutral-500" href="#"><li>{subheading.title}</li></a>
-              ))}
-            </ol>
-          </div> */}
+      <article className="mx-auto mt-16"> 
+        <img src={`/images/${post.image}`} className="object-cover rounded-lg"/>
 
-          {/* MDX */}
+        {/* Main Section */}
+        <div className="mt-24 mb-44">
+
+
           {/* <div className="col-span-4 col-start-3 prose"> */}
+          <h1 className="my-8 leading-snug">{post.title}</h1>
+          <div className="flex items-center justify-between w-full pb-4 border-b border-neutral-300">
+            <time dateTime={post.date} className="text-mono">
+              Posted {format(parseISO(post.date), "LLLL d, yyyy")}
+            </time>
+            <EntryActions />
+          </div>
+          {/* MDX */}
           <div className="prose">
             <div dangerouslySetInnerHTML={{ __html: post.body.html }} />
           </div>
@@ -103,16 +78,16 @@ const PostLayout = ({ post }: { post: Post }) => {
         {/* Resource Table */}
         <div className="mt-24">
           <div className="grid grid-cols-8 gap-4 py-6 border-t border-slate-200 text-neutral-500">
-            <p className="col-span-2">Collaborators</p>
-            <p className="col-span-4 col-start-3">Simon</p>
+            <h6 className="col-span-2">Collaborators</h6>
+            <h6 className="col-span-4 col-start-3">Simon</h6>
           </div>
           <div className="grid grid-cols-8 gap-4 py-6 border-t border-slate-200 text-neutral-500">
-            <p className="col-span-2">Acknowledgments</p>
-            <p className="col-span-4 col-start-3">For valuable feedback and discussions we’d like to thank William Saunders, Elizabeth Barnes, Richard Ngo, Steven Bills, Ryan Lowe, Steven Adler, Gretchen Krueger, Dan Mossing, Leo Gao, Sam Altman, and Ilya Sutskever.</p>
+            <h6 className="col-span-2">Acknowledgments</h6>
+            <h6 className="col-span-4 col-start-3">For valuable feedback and discussions we’d like to thank William Saunders, Elizabeth Barnes, Richard Ngo, Steven Bills, Ryan Lowe, Steven Adler, Gretchen Krueger, Dan Mossing, Leo Gao, Sam Altman, and Ilya Sutskever.</h6>
           </div>
           <div className="grid grid-cols-8 gap-4 py-6 border-t border-slate-200 text-neutral-500">
-            <p className="col-span-2">Filed in</p>
-            <p className="col-span-4 col-start-3">{post.category}</p>
+            <h6 className="col-span-2">Filed in</h6>
+            <h6 className="col-span-4 col-start-3">{post.category}</h6>
           </div>
         </div>
 
@@ -125,15 +100,15 @@ const PostLayout = ({ post }: { post: Post }) => {
             <span className="px-2 text-sm bg-slate-100 text-neutral-500">Similar</span>
           </div>
         </div> */}
-        
+
 
        
       </article>
-      {/* <div className="mt-10">
+      <div className="mt-10">
           {allPosts.map((post, idx) => (
             <PostCard key={idx} {...post} />
           ))}
-        </div> */}
+        </div>
     </>
   );
 };

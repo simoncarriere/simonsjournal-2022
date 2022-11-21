@@ -5,7 +5,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   body {
     @apply bg-slate-100
@@ -14,7 +13,7 @@
     @apply font-sans font-normal text-4xl 2xl:text-5xl  text-slate-900 
   }
   h2 {
-    @apply font-sans font-normal text-xl  text-slate-900 tracking-wide leading-tight
+    @apply font-sans font-normal text-xl text-slate-900 tracking-wide leading-tight
   }
   h4{
     @apply font-sans font-normal text-lg 2xl:text-xl tracking-wide text-neutral-500 leading-relaxed
@@ -22,11 +21,17 @@
   h5{
     @apply font-sans font-normal xl:text-base 2xl:text-lg tracking-wide
   }
+  h6{
+    @apply font-sans text-sm text-neutral-500
+  }
   p {
-    @apply font-sans font-extralight text-sm 2xl:text-base 
+    @apply font-sans text-slate-900 tracking-normal text-lg leading-loose
   }
   code, pre {
     @apply font-mono 
+  }
+  time {
+    @apply font-mono text-sm tracking-tighter text-neutral-500
   }
 }
 @layer components {
@@ -39,12 +44,19 @@
   .tag {
     @apply bg-slate-200 my-1 xl:my-0 border border-slate-300 px-3 py-3 rounded-md mr-2 text-sm text-slate-700 hover:text-slate-700 hover:opacity-80  hover:cursor-pointer 
   }
+  .tag-sm {
+    @apply px-4 py-2 mb-1 text-green-500 bg-green-100 rounded-lg
+  }
   .link {
     @apply text-green-500 underline
   }
+  .card-lg {
+    @apply object-cover w-full h-64 rounded-lg
+  }
+  .card-sm {
+    @apply object-cover h-24 rounded-lg hover:brightness-95 w-28 xl:h-36 2xl:h-44 xl:w-full
+  }
 }
-
-
 
 h2 {
   font-size: 22px;

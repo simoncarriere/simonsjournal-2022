@@ -1,20 +1,26 @@
 import Link from "next/link";
-import {format, parseISO } from "date-fns";
+// import {format, parseISO } from "date-fns";
+import ReactTimeAgo from 'react-time-ago'
+import TimeAgo from 'javascript-time-ago'
+import en from 'javascript-time-ago/locale/en.json'
+TimeAgo.addDefaultLocale(en)
 
 const PostCard = (post) => {
     return ( 
       <Link href={post.url}>
         <div className="hover:cursor-pointer hover:brightness-95">
           {post.image ? (
-            <img src={`./images/${post.image}`} alt="project-profile" className="object-cover w-full h-64 bg-green-300 rounded-lg"/>
+            <img src={`./images/${post.image}`} alt="project-profile" className="card-lg"/>
             ) : (
             <div className="w-full h-64 bg-slate-200 animate-pulse"/>
           )}
-          <div>
-            <time dateTime={post.date} className="block mt-4 mb-1 text-xs font-medium text-neutral-900">
+          <div className="flex-row">
+            {/* <time dateTime={post.date} className="block mt-4 mb-1 text-xs font-medium text-neutral-900">
               {format(parseISO(post.date), "LLLL d, yyyy")}
-            </time>
-            <h3 className=" text-neutral-500">{post.title}</h3>
+            </time> */}
+            {/* <p className="bg-green-300">{post.category}</p> */}
+            <h3 className="mt-4 mb-1">{post.title}</h3>
+            <ReactTimeAgo date={post.date} locale="en-US"/>
           </div>
         </div>
       </Link>

@@ -1,11 +1,14 @@
 import { useState } from "react";
-import { allPosts, Post } from "contentlayer/generated";
+import { allPosts } from "contentlayer/generated";
+// Libraries
 import { compareDesc} from "date-fns";
 import { motion } from "framer-motion";
 // Components
 import Filters from '../components/Filters'
 import PostCard from '../components/PostCard'
 import CTA from '../components/cta'
+
+
 
 export async function getStaticProps() {
   const posts = allPosts.sort((a, b) => {
@@ -19,7 +22,7 @@ export default function Home({ posts }) {
   const [active, setActive] = useState('all')
 
   return (
-    <main className="mx-8 sm:mx-16 lg:mx-20 xl:mx-32">
+    <main>
 
       {/* Heading */}
       <header className="flex items-center justify-center max-h-screen mt-8 mb-24 lg:mt-0">
@@ -40,35 +43,18 @@ export default function Home({ posts }) {
             {/* Projects */}
             <div className="flex flex-col w-full pr-24 mt-6 xl:flex-row 2xl:mt-8 space-between">
               <div className="flex mr-4 xl:block basis-1/2 hover:cursor-pointer">
-                <img src="/images/prj-1.png" className="object-cover h-24 rounded-lg hover:brightness-95 w-28 xl:h-36 2xl:h-44 xl:w-full"/>
+                <img src="/images/prj-1.png" className="card-sm"/>
                 <div className="ml-4 xl:ml-2">
-                  <h3  className="block mt-4 mb-1 text-neutral-900">
-                      {/* {format(parseISO(post.date), "LLLL d, yyyy")}  */} Interactive Design Guide Builder
-                  </h3>
-                  <h4 className=" text-neutral-500">Create a personalized boiler plate design system</h4>
+                  <h3 className="block mt-4 mb-1">The Indiehacker Bootcamp</h3>
+                  <h4 className="text-base text-neutral-500">A month long course to learn how to design, build a SASS</h4>
                 </div>
               </div>
               <div className="flex mt-4 mr-4 xl:block basis-1/2 hover:cursor-pointer xl:mt-0">
-                <img src="/images/prj-2.png" className="object-cover h-24 rounded-lg hover:brightness-95 w-28 xl:h-36 2xl:h-44 xl:w-full"/>
+                <img src="/images/prj-2.png" className="card-sm"/>
                 <div className="ml-4 xl:ml-2">
-                  <time  className="block mt-4 mb-1 text-xs font-medium text-neutral-900">
-                    {/* {format(parseISO(post.date), "LLLL d, yyyy")} */} (Releasing Early 2023)
-                  </time>
-                  <h3 className=" text-neutral-500">30 Days of Sass - The Indiehackers bootcamp</h3>
+                  <h3 className="block mt-4 mb-1">Interactive Design Guide Builder</h3>
+                  <h4 className="text-base text-neutral-500">Create a personalized boiler plate design system</h4>                
                 </div>
-
-
-                {/* <div>
-                  <time dateTime={post.date} className="block mt-4 mb-1 text-xs font-medium text-neutral-900">
-                    {format(parseISO(post.date), "LLLL d, yyyy")}
-                  </time>
-                  <h3 className=" text-neutral-500">{post.title}</h3>
-                </div> */}
-                
-                {/* <div className="h-full my-auto ml-4 xl:ml-0">
-                  <h5 className="text-base xl:mt-4 xl:mb-1 3xl:text-lg">Interactive Design Guide Builder</h5>
-                  <p className="text-neutral-500">Create a personalized boiler plate design system</p>
-                </div> */}
               </div>
             </div>
 
@@ -111,7 +97,7 @@ export default function Home({ posts }) {
    
       </div>
       {/* CTA */}
-      <CTA />
+      {/* <CTA /> */}
     </main>
   );
 }
