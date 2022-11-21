@@ -2,7 +2,7 @@ import {Fragment, useState, useRef} from 'react'
 import {Transition} from '@headlessui/react'
 import { PlayIcon } from '@heroicons/react/24/solid'
 
-import useKeypress from '../hooks/useKeypress';
+import useKeyPress from '../hooks/useKeyPress';
 import { allPosts, Post } from "contentlayer/generated";
 import Link from "next/link";
   
@@ -49,7 +49,7 @@ const Searchbar = () => {
     const [rawQuery, setRawQuery] = useState('')
     const ref = useRef(null)
 
-    useKeypress('/', () => {
+    useKeyPress('/', () => {
         setHasFocus(true)
         ref.current.focus()
     });
