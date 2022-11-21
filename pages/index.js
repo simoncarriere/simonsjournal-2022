@@ -26,12 +26,12 @@ export default function Home({ posts }) {
 
       {/* Heading */}
       <header className="flex items-center justify-center max-h-screen mt-8 mb-24 lg:mt-0">
-        <div className=" basis-1/2 lg:basis-3/5">
-          <div className="pr-1 lg:max-w-lg">
+        <div className=" lg:basis-3/5">
+          <div className="max-w-lg pr-1 m-auto text-center lg:text-left lg:m-0">
             <h1 className="leading-tight">Purpose driven React developer & product strategist</h1>
             <h2 className="mt-6 text-xl leading-relaxed text-neutral-500">Looking to join a startup on a bold mission. <br/> Montreal is home, available anywhere.</h2>
           </div>
-          <div className="max-w-2xl mt-8 xl:mt-16">
+          <div className="max-w-2xl mt-8 xl:mt-12">
             <div className="flex items-center my-auto">
               <h2 className="mr-4">Currently Building</h2>
               <button className="btn-icon-secondary">
@@ -41,16 +41,16 @@ export default function Home({ posts }) {
               </button>
             </div>
             {/* Projects */}
-            <div className="flex flex-col w-full pr-24 mt-6 xl:flex-row 2xl:mt-8 space-between">
+            <div className="flex flex-col w-full pr-16 mt-4 xl:flex-row 2xl:mt-6 space-between">
               <div className="flex mr-4 xl:block basis-1/2 hover:cursor-pointer">
-                <img src="/images/prj-1.png" className="card-sm"/>
+                <img src="/images/prj-1.png" className="img-sm"/>
                 <div className="ml-4 xl:ml-2">
                   <h3 className="block mt-4 mb-1">The Indiehacker Bootcamp</h3>
                   <h4 className="text-base text-neutral-500">A month long course to learn how to design, build a SASS</h4>
                 </div>
               </div>
               <div className="flex mt-4 mr-4 xl:block basis-1/2 hover:cursor-pointer xl:mt-0">
-                <img src="/images/prj-2.png" className="card-sm"/>
+                <img src="/images/prj-2.png" className="img-sm"/>
                 <div className="ml-4 xl:ml-2">
                   <h3 className="block mt-4 mb-1">Interactive Design Guide Builder</h3>
                   <h4 className="text-base text-neutral-500">Create a personalized boiler plate design system</h4>                

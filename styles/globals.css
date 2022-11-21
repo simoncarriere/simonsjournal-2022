@@ -53,7 +53,7 @@
   .card-lg {
     @apply object-cover w-full h-64 rounded-lg
   }
-  .card-sm {
+  .img-sm {
     @apply object-cover h-24 rounded-lg hover:brightness-95 w-28 xl:h-36 2xl:h-44 xl:w-full
   }
 }
