@@ -7,7 +7,7 @@ import Searchbar from './Searchbar'
 function Logo() {
   return (
     <Link href="/" >
-        <img src='/images/logo.png' className="flex m-auto hover:cursor-pointer"/>
+        <img src='/images/Logo.png' className="flex m-auto hover:cursor-pointer"/>
     </Link>
   )
 }
