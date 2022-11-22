@@ -12,16 +12,17 @@ const PostCard = (post) => {
     //   {format(parseISO(post.date), "LLLL d, yyyy")}
     // </time> 
 
+
     return ( 
       <Link href={post.url}>
         <div className="hover:cursor-pointer hover:brightness-95">
           {post.image ? (
-            <img src={`/images/${post.image}`} alt="project-profile" className="card-lg"/>
+            <img src={`/images/${post.image}`} alt="project-profile" className="img-lg"/>
             ) : (
-            <div className="w-full h-64 bg-slate-200 animate-pulse"/>
+            <div className="w-full h-48 bg-slate-200 animate-pulse"/>
           )}
           <div className="flex-row">
-            <h3 className="mt-4 mb-1">{post.title}</h3>
+            <h3 className="mt-4 mb-1 ">{post.title}</h3>
             <ReactTimeAgo date={post.date} locale="en-US"/>
           </div>
         </div>

@@ -22,7 +22,7 @@
     @apply font-sans font-normal xl:text-base 2xl:text-lg tracking-wide
   }
   h6{
-    @apply font-sans text-sm text-neutral-500
+    @apply font-mono text-sm tracking-tighter text-neutral-500
   }
   p {
     @apply font-sans text-slate-900 tracking-normal text-lg leading-loose
@@ -35,23 +35,22 @@
   }
 }
 @layer components {
+  {/* Used for Message Header Icon */}
   .btn-icon-primary {
     @apply bg-slate-900 text-white rounded-md flex justify-center items-center hover:bg-slate-800 transition h-16 w-16
   }
+  {/*  Used for Arrow Icon on homepage and entry out links */}
   .btn-icon-secondary {
     @apply bg-slate-100 text-slate-800 rounded-md border border-slate-300 p-2 hover:bg-slate-200 transition
   }
   .tag {
-    @apply bg-slate-200 my-1 xl:my-0 border border-slate-300 px-3 py-3 rounded-md mr-2 text-sm text-slate-700 hover:text-slate-700 hover:opacity-80  hover:cursor-pointer 
-  }
-  .tag-sm {
-    @apply px-4 py-2 mb-1 text-green-500 bg-green-100 rounded-lg
+    @apply bg-slate-100 my-1 xl:my-0 border border-slate-300 px-3 py-3 rounded-md mr-2 text-sm text-slate-700 hover:text-slate-800 hover:bg-slate-200  hover:cursor-pointer 
   }
   .link {
     @apply text-green-500 underline
   }
-  .card-lg {
-    @apply object-cover w-full h-64 rounded-lg
+  .img-lg {
+    @apply object-cover w-full h-48 rounded-lg
   }
   .img-sm {
     @apply object-cover h-24 rounded-lg hover:brightness-95 w-28 xl:h-36 2xl:h-44 xl:w-full
@@ -59,6 +58,7 @@
 }
 
 h2 {
+  font-weight: 100;
   font-size: 22px;
   letter-spacing: 0.02em;
 }

@@ -87,11 +87,11 @@ export default function Home({ posts }) {
           {active === 'all' ? (
             posts.map((post, idx) => (
               <PostCard key={idx} {...post} />
-            ))
+            )).reverse()
           ) : (
             posts.filter(post => post.category === active).map((post, idx) => (
               <PostCard key={idx} {...post} />
-            ))
+            )).reverse()
           )}
           </motion.div>
    

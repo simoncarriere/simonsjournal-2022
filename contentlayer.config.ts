@@ -1,4 +1,13 @@
-import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+import { defineDocumentType, defineNestedType, makeSource } from 'contentlayer/source-files'
+
+const Links = defineNestedType(() => ({
+  name: 'Links',
+  fields: {
+    title: { type: 'string', required: true },
+    url: { type: 'string', required: true },
+  },
+}))
+
 
 const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -27,6 +36,10 @@ const Post = defineDocumentType(() => ({
       type: 'string',
       description: 'The hero image of the post',
       // required: true
+    },
+    links: {
+      type: 'list',
+      of: Links,
     }
   },
   computedFields: {
