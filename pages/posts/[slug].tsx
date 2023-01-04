@@ -28,7 +28,6 @@ export async function getStaticProps({ params }) {
 
 const PostLayout = ({ post }: { post: Post }) => {
 
-  console.log(post)
   return (
     <>
       <Head>
@@ -46,28 +45,25 @@ const PostLayout = ({ post }: { post: Post }) => {
             <time dateTime={post.date}>
               Posted {format(parseISO(post.date), "LLLL d, yyyy")}
             </time>
-            {post.links ? (
-              post.links.map(link => (
-                <div className="flex gap-2">
-                  <Button link={link.url} title={link.title}/>
-                  {/* <Button link='#' title="Source Code"/> */}
-                </div>            
-              ))
-            ) : null }
-
-       
           </div>
 
 
           <div className="relative grid-cols-12 xl:grid">
-            {/* MDX */}
-            <div className="col-span-8 ">
-              <div className="max-w-full prose prose-a:link prose-h3:font-thin prose-h3:text-2xl prose-h3:mt-16">
+            <div className="col-span-8">
+              {post.links ? (
+                <div className="flex gap-2 mt-12">
 
+                {post.links.map(link => (
+                  <Button link={link.url} title={link.title}/>      
+                ))}
+                </div>
+              ) : null }
+              <div className="max-w-full prose prose-a:link prose-h3:font-thin prose-h3:text-2xl prose-h3:mt-16 prose-h3:mb-8 2xl:prose-p:text-[16px]">
+                {/* MDX */}
                 <div dangerouslySetInnerHTML={{ __html: post.body.html }} />
               </div>
                 {/* Resource Table */}
-                <div className="mt-24 ">
+              <div className="mt-24 ">
                   <div className="grid grid-cols-8 gap-4 py-6 border-t border-slate-200 text-neutral-500">
                     <h6 className="col-span-2 ">Collaborators</h6>
                     <h5 className="col-span-4 col-start-3">Simon</h5>
@@ -80,11 +76,11 @@ const PostLayout = ({ post }: { post: Post }) => {
                     <h6 className="col-span-2">Filed in</h6>
                     <h5 className="col-span-4 col-start-3">{post.category}</h5>
                   </div>
-                </div>    
+              </div>    
             </div>
 
             
-            <div className="sticky top-0 col-span-3 col-start-10 mt-10 justify-self-end">
+            <div className="sticky top-0 col-span-3 col-start-10 mt-12 justify-self-end">
               <div className="flex items-center justify-between my-auto">
                 <h2 className="mr-4">Related Entries</h2>
                 <button className="flex items-center justify-center gap-2 btn-icon-secondary">
