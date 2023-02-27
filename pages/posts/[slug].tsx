@@ -25,7 +25,6 @@ export async function getStaticProps({ params }) {
   };
 }
 
-
 const PostLayout = ({ post }: { post: Post }) => {
 
   return (
@@ -33,24 +32,18 @@ const PostLayout = ({ post }: { post: Post }) => {
       <Head>
         <title>{post.title}</title>
       </Head>
+
       <article className="mx-auto mt-16"> 
 
-        <img src={`/images/${post.image}`} className="object-cover mx-auto rounded-lg"/>
-
-        {/* Main Section */}
-        <div className="mt-24 mb-44">
-
-          <h1 className="my-8 leading-snug">{post.title}</h1>
-          <div className="flex items-center justify-between w-full pb-4 border-b border-neutral-300">
-            <time dateTime={post.date}>
-              Posted {format(parseISO(post.date), "LLLL d, yyyy")}
-            </time>
-          </div>
-
-
-          <div className="relative grid-cols-12 xl:grid">
-            <div className="col-span-8">
-              {post.links ? (
+        <div className="flex">
+          <div className="basis-1/2">
+            <h1 className="my-8 leading-snug text-4xl">{post.title}</h1>
+            <div className="flex items-center justify-between w-full ">
+              <time dateTime={post.date}>
+                Posted {format(parseISO(post.date), "LLLL d, yyyy")}
+              </time>
+            </div>
+            {post.links ? (
                 <div className="flex gap-2 mt-12">
 
                 {post.links.map(link => (
@@ -58,12 +51,25 @@ const PostLayout = ({ post }: { post: Post }) => {
                 ))}
                 </div>
               ) : null }
-              <div className="max-w-full prose prose-a:link prose-h3:font-thin prose-h3:text-2xl prose-h3:mt-16 prose-h3:mb-8 2xl:prose-p:text-[16px]">
-                {/* MDX */}
-                <div dangerouslySetInnerHTML={{ __html: post.body.html }} />
+          </div>
+          <div className="basis-1/2">
+            <img src={`/images/${post.image}`} className="object-cover rounded-lg"/>
+          </div>
+        </div>
+          
+
+        <div className="mt-24 mb-44 pb-4 border-t border-neutral-300">
+          {/* Main Section */}
+          <div className="relative">
+            <div>
+              <div className="max-w-3xl mx-auto">
+                <div className="prose prose-a:link prose-h3:font-thin prose-h3:text-xl prose-h3:mt-16 prose-h3:mb-8 prose-p:text-[16px]">
+                  {/* MDX */}
+                  <div dangerouslySetInnerHTML={{ __html: post.body.html }} />
+                </div>
               </div>
                 {/* Resource Table */}
-              <div className="mt-24 ">
+              {/* <div className="mt-24 ">
                   <div className="grid grid-cols-8 gap-4 py-6 border-t border-slate-200 text-neutral-500">
                     <h6 className="col-span-2 ">Collaborators</h6>
                     <h5 className="col-span-4 col-start-3">Simon</h5>
@@ -76,11 +82,11 @@ const PostLayout = ({ post }: { post: Post }) => {
                     <h6 className="col-span-2">Filed in</h6>
                     <h5 className="col-span-4 col-start-3">{post.category}</h5>
                   </div>
-              </div>    
+              </div>     */}
             </div>
 
             
-            <div className="sticky top-0 col-span-3 col-start-10 mt-12 justify-self-end">
+            <div className="border-t border-slate-200 mt-24 pt-24">
               <div className="flex items-center justify-between my-auto">
                 <h2 className="mr-4">Related Entries</h2>
                 <button className="flex items-center justify-center gap-2 btn-icon-secondary">
@@ -90,9 +96,10 @@ const PostLayout = ({ post }: { post: Post }) => {
                   </svg>
                 </button>
               </div>
-              <div className="grid gap-8 mt-8 xl:max-w-sm sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 xl:block">
+              <div className="flex grid gap-8 mt-8 xl:max-w-sm sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 xl:block">
                 {allPosts
-                  .filter(i => (i.title !== post.title && i.category === post.category))
+                  // .filter(i => (i.title !== post.title && i.category === post.category))
+                  .filter(i => (i.title !== post.title))
                   .map((post, idx) => (
                     <PostCard key={idx} {...post} />
                 ))}
@@ -101,15 +108,9 @@ const PostLayout = ({ post }: { post: Post }) => {
           </div>
         </div>
 
-      
       </article>
-      
     </>
   );
 };
-
-
-
-
 
 export default PostLayout;

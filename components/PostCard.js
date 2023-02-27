@@ -22,7 +22,7 @@ const PostCard = (post) => {
             <div className="w-full h-48 bg-slate-200 animate-pulse"/>
           )}
           <div className="flex-row">
-            <h3 className="mt-4 mb-1 ">{post.title}</h3>
+            <h4 className="mt-4 mb-1 text-neutral-900">{post.title}</h4>
             <ReactTimeAgo date={post.date} locale="en-US"/>
           </div>
         </div>

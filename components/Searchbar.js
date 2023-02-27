@@ -5,6 +5,7 @@ import { PlayIcon } from '@heroicons/react/24/solid'
 import useKeyPress from '../hooks/useKeyPress';
 import { allPosts, Post } from "contentlayer/generated";
 import Link from "next/link";
+
   
 const actions = [
  {
@@ -17,15 +18,15 @@ const actions = [
     name: 'Schedule a Call',
     url: '#',
   },
- {
-    id: 3,
-    name: 'Join Newsletter',
-    url: '#',
-  },
+  {
+     id: 3,
+     name: 'Download CV',
+     url: '#',
+   },
  {
     id: 4,
-    name: 'Download Resume',
-    url: '#',
+    name: 'Join Newsletter',
+    url: 'https://simonsjournal.substack.com',
   },
  {
     id: 5,
@@ -69,7 +70,7 @@ const Searchbar = () => {
 
 
     return ( 
-        <div className="relative z-10 flex flex-col mx-8 lg:mx-16">
+        <div className="relative z-10 flex flex-col mx-6 lg:mx-8">
 
             {/* Search Bar */}
             <div className="z-10 w-full transition">
@@ -130,7 +131,26 @@ const Searchbar = () => {
                             <div className='pt-4 mx-8'>
                                 <h5 className='text-slate-500'>Announcements</h5>
                                 <div className='mt-4 xl:flex'>
-                                    <div className='flex flex-col justify-between px-8 py-8 mb-4 bg-green-100 rounded-md xl:mb-8 xl:w-2/3'>  
+
+
+                                    {/* SECTION 1  */}
+                                    <div className='bg-gradient-to-l from-slate-300 to-slate-200 flex flex-col justify-between px-8 py-8 mb-4 bg-slate-200 rounded-md xl:mb-8 xl:w-2/3'>  
+                                        <div className="border-b border-slate-300 pb-4">
+                                            <img src="/images/workinprogress.png" className="object-fit w-48 " alt="Work in progress Newsletter logo"/>
+                                        </div>
+                                        {/* <h2 className='pb-2 text-2xl text-green-700 border-b border-green-300'>30 Days of SASS <span className='text-green-500'>(Releasing Early 2023)</span></h2>         */}
+                                        <p className="text-slate-700 my-4 text-base max-w-lg">
+                                            A monthly newsletter documenting the journeys of indiepreneurs and the products they ship. Discussing how and when to launch, monetization and financial independence, and finding purpose in your work.
+                                        </p>
+                                        <div className='flex'>
+                                            <a href="https://simonsjournal.substack.com">
+                                                <button className='px-2 py-2 transition bg-slate-900 rounded-md w-28 text-sm hover:opacity-80 text-slate-100'>Subscribe<span className='ml-2 text-slate-300'></span></button>
+                                            </a>
+                                            {/* <button className='flex items-center justify-center w-32 px-4 py-2 ml-4 text-green-700 transition border border-green-300 rounded-md hover:opacity-80'><PlayIcon className='w-4 h-4 mr-2 text-green-700'/><p>Preview</p></button> */}
+                                        </div>
+                                    </div>
+                                    {/* <div className='flex flex-col justify-between px-8 py-8 mb-4 bg-green-100 rounded-md xl:mb-8 xl:w-2/3'>  
+                                        <img src="/images/workinprogress.png" className="object-fit w-48" alt="Work in progress Newsletter logo"/>
                                         <h2 className='pb-2 text-2xl text-green-700 border-b border-green-300'>30 Days of SASS <span className='text-green-500'>(Releasing Early 2023)</span></h2>        
                                         <ul className='my-4 text-green-500'>
                                             <li>The indiehackers bootcamp, a walkthrough to starting and growing your digital products.</li>
@@ -139,11 +159,26 @@ const Searchbar = () => {
                                             <li>- Interviews and behind the scenes with successfull Indiehackers</li>
                                         </ul>
                                         <div className='flex'>
-                                            <button className='px-4 py-2 transition bg-green-700 rounded-md w-44 hover:opacity-80 text-slate-100'>Early Access<span className='ml-2 text-green-300'>$185</span></button>
+                                            <a href="https://simonsjournal.substack.com">
+
+                                                <button className='px-4 py-2 transition bg-green-700 rounded-md w-44 hover:opacity-80 text-slate-100'>Early Access<span className='ml-2 text-green-300'>$185</span></button>
+                                            </a>
                                             <button className='flex items-center justify-center w-32 px-4 py-2 ml-4 text-green-700 transition border border-green-300 rounded-md hover:opacity-80'><PlayIcon className='w-4 h-4 mr-2 text-green-700'/><p>Preview</p></button>
                                         </div>
+                                    </div> */}
+
+                                    {/* SECTION 2  */}
+                                    <div className='flex flex-col px-8 py-8 mb-8 rounded-md xl:mx-4 xl:w-1/3 border border-slate-200'>
+                                        <div className="mb-2 mx-auto items-center mt-12">
+                                            <img src="/images/supersaas.png" className="object-fit w-48 " alt="Work in progress Newsletter logo"/>
+                                        </div>   
+                                        <a href="https://hellosupersaas.com" className="flex mx-auto">
+                                          <button className='px-3 py-3 transition bg-slate-900 rounded-md w-40 text-sm hover:opacity-90 text-white'>$50 Early Bird<span className='ml-2 text-orange-900 line-through italic'>$299</span></button>
+                                            {/* <button className='w-40 px-4 py-2 transition rounded-md hover:opacity-80 bg-slate-900 text-slate-100'>Get an Estimate</button> */}
+                                        </a>
+                                        
                                     </div>
-                                    <div className='flex flex-col px-8 py-8 mb-8 rounded-md xl:mx-4 xl:w-1/3 bg-slate-200'>
+                                    {/* <div className='flex flex-col px-8 py-8 mb-8 rounded-md xl:mx-4 xl:w-1/3 bg-gradient-to-r from-orange-100 to-orange-200'>
                                         <h2 className='pb-2 text-2xl border-b text-slate-700 border-slate-300'>Stats</h2>    
                                         <ul className='my-4'>
                                             <li className='flex'>
@@ -160,7 +195,7 @@ const Searchbar = () => {
                                             </li>
                                         </ul>
                                         <button className='w-40 px-4 py-2 transition rounded-md hover:opacity-80 bg-slate-800 text-slate-100'>Get an Estimate</button>
-                                    </div>
+                                    </div> */}
                                     {/* <div className='flex flex-col justify-between w-1/3 px-8 py-8 mx-4 mb-8 rounded-md bg-slate-300'>
                                         <h2 className='text-2xl text-slate-700'>Start a Project</h2>    
                                         <p className='text-slate-500 '>Get an estimated timeline and budget for your project</p>

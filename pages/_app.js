@@ -3,6 +3,7 @@ import '../styles/globals.css'
 import {ContactProvider} from '../context/ContactContext'
 // Components
 import { Header } from '../components/Header'
+import Footer from '../components/Footer'
 import Contact from '../components/Contact'
 
 // This default export is required in a new `pages/_app.js` file.
@@ -18,10 +19,12 @@ export default function MyApp({ Component, pageProps }) {
         <div className='mx-8 sm:mx-16 lg:mx-20 xl:mx-32'>
           <Component {...pageProps} />
         </div>
-        <footer className='flex items-center justify-center w-full m-auto align-middle transition my-36 text-slate-500 hover:text-slate-700'>
-          <h5><a href="mailto:hello@simonsjournal.com">hello@simonsjournal.com</a></h5>
-        </footer>
+
+
         <Contact />
+
+       <Footer/>
+
       </ContactProvider>
     </>
   )

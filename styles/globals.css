@@ -16,7 +16,7 @@
     @apply font-sans font-normal text-xl text-slate-900 tracking-wide leading-tight
   }
   h4{
-    @apply font-sans font-normal text-lg 2xl:text-xl tracking-wide text-neutral-500 leading-relaxed
+    @apply font-sans font-light text-lg 2xl:text-xl tracking-wide text-neutral-500 leading-relaxed
   }
   h5{
     @apply font-sans font-normal xl:text-base 2xl:text-lg tracking-wide
@@ -25,13 +25,13 @@
     @apply font-mono text-sm tracking-tighter text-neutral-500
   }
   p {
-    @apply font-sans text-slate-900 tracking-normal text-lg leading-loose
+    @apply font-sans text-slate-900 tracking-normal text-lg 
   }
   code, pre {
     @apply font-mono 
   }
   time {
-    @apply font-mono text-sm tracking-tighter text-neutral-500
+    @apply font-mono text-xs tracking-tighter text-neutral-500
   }
 }
 @layer components {

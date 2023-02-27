@@ -14,7 +14,7 @@ export default function Filters({posts, active, setActive}) {
     { name: 'All', category: 'all', count: posts.length},
     { name: 'Case Studies', category: 'project', count: posts.filter(i => i.category === 'project').length},
     { name: 'Code Snippets', category: 'code', count: posts.filter(i => i.category === 'code').length, current: false },
-    // { name: 'Opinions',  category: 'opinion', count: posts.filter(i => i.category === 'opinion').length },
+    { name: 'Personal',  category: 'personal', count: posts.filter(i => i.category === 'personal').length },
     // { name: 'Other', category: 'other', count: posts.filter(i => i.category === 'other').length},
   ]
 
@@ -23,12 +23,12 @@ export default function Filters({posts, active, setActive}) {
       
       {/* ----- Tabs ----- */}
       <div>
-        <div className="sm:hidden">
+        {/* <div className="sm:hidden">
           <label htmlFor="tabs" className="sr-only">
             Select a tab
-          </label>
+          </label> */}
           {/* Use an "onChange" listener to redirect the user to the selected tab URL. */}
-          <select
+          {/* <select
             id="tabs"
             name="tabs"
             className="block w-full py-2 pb-4 pl-3 pr-10 text-base rounded-md focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm"
@@ -38,7 +38,7 @@ export default function Filters({posts, active, setActive}) {
               <option key={tab.name} onClick={() => setActive(id.name)}>{tab.name}</option>
             ))}
           </select>
-        </div>
+        </div> */}
         <div className="hidden sm:block">
           <div className="">
             <ul className="flex -mb-px space-x-8" aria-label="Tabs">
@@ -49,7 +49,7 @@ export default function Filters({posts, active, setActive}) {
                   onClick={() => setActive(tab.category)}
                   className={classNames(
                     tab.category === active 
-                      ? 'border-green-500 text-green-600'
+                      ? 'border-neutral-500 text-slate-600'
                       : 'border-none text-neutral-500 hover:text-neutral-700 hover:border-neutral-200',
                     'whitespace-nowrap flex py-4 px-1 border-b-2 text-lg cursor-pointer'
                   )}
@@ -57,8 +57,8 @@ export default function Filters({posts, active, setActive}) {
                   {tab.name}
                     <span
                       className={classNames(
-                        tab.category === active ? 'bg-green-100 text-green-600' : 'bg-neutral-100 text-neutral-900',
-                        'hidden transition ml-3 py-1 px-2.5 rounded-full text-xs font-medium md:inline-block m-auto'
+                        tab.category === active ? 'bg-slate-900 text-slate-100' : 'bg-slate-200 text-slate-900',
+                        'hidden transition ml-3 py-1 px-2.5 rounded-md text-xs font-medium md:inline-block m-auto'
                       )}
                     >
                       {tab.count ? tab.count : '0'}
@@ -71,7 +71,7 @@ export default function Filters({posts, active, setActive}) {
       </div>
 
       {/* Sorting Dropdown */}
-      <Menu as="div" className="relative z-0 inline-block text-left">
+      {/* <Menu as="div" className="relative z-0 inline-block text-left">
         <div>
           <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-sm border rounded-md shadow-sm border-slate-300 text-slate-700 hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-slate-100">
             Sort By
@@ -132,7 +132,7 @@ export default function Filters({posts, active, setActive}) {
             </div>
           </Menu.Items>
         </Transition>
-      </Menu>
+      </Menu> */}
       
     </div>
   )
