@@ -65,7 +65,7 @@ const navigation = {
 }
 export default function Footer() {
     return (
-        <footer className='flex items-center justify-center w-full m-auto align-middle transition my-36 text-slate-500'>
+        <footer className='flex items-center justify-center w-full m-auto align-middle transition mt-36 mb-16 text-slate-500'>
             <div>
                 <h5><a href="mailto:hello@simonsjournal.com hover:text-slate-700">hello@simonsjournal.com</a></h5>
 

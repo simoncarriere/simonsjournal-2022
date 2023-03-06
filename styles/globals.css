@@ -5,6 +5,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
   body {
     @apply bg-slate-100
@@ -15,8 +16,11 @@
   h2 {
     @apply font-sans font-normal text-xl text-slate-900 tracking-wide leading-tight
   }
+  h3 {
+    @apply leading-6 
+  }
   h4{
-    @apply font-sans font-light text-lg 2xl:text-xl tracking-wide text-neutral-500 leading-relaxed
+    @apply font-sans font-light text-lg  text-neutral-500
   }
   h5{
     @apply font-sans font-normal xl:text-base 2xl:text-lg tracking-wide
@@ -31,44 +35,38 @@
     @apply font-mono 
   }
   time {
-    @apply font-mono text-xs tracking-tighter text-neutral-500
+    @apply  text-sm text-gray-400
+  }
+  image {
+    @apply -z-10 relative
+  }
+  input {
+    @apply border-none ;
   }
 }
 @layer components {
-  {/* Used for Message Header Icon */}
+  .card{
+    @apply cursor-pointer hover:-translate-y-1.5 duration-500 transition-all
+  }
+  .card img {
+    @apply object-cover w-full h-48 rounded-lg
+  }
   .btn-icon-primary {
     @apply bg-slate-900 text-white rounded-md flex justify-center items-center hover:bg-slate-800 transition h-16 w-16
   }
-  {/*  Used for Arrow Icon on homepage and entry out links */}
   .btn-icon-secondary {
-    @apply bg-slate-100 text-slate-800 rounded-md border border-slate-300 p-2 hover:bg-slate-200 transition
+    @apply bg-slate-100 text-slate-800 rounded-md border border-gray-300 p-2 hover:bg-slate-700 hover:border-slate-800 hover:text-gray-100 transition
   }
   .tag {
     @apply bg-slate-100 my-1 xl:my-0 border border-slate-300 px-3 py-3 rounded-md mr-2 text-sm text-slate-700 hover:text-slate-800 hover:bg-slate-200  hover:cursor-pointer 
   }
   .link {
-    @apply text-green-500 underline
+    @apply text-orange-400 no-underline hover:text-orange-500 font-light
   }
-  .img-lg {
-    @apply object-cover w-full h-48 rounded-lg
+  .radio-item {
+    @apply w-full border cursor-pointer border-slate-100 flex justify-center items-center h-24 rounded-md
   }
-  .img-sm {
-    @apply object-cover h-24 rounded-lg hover:brightness-95 w-28 xl:h-36 2xl:h-44 xl:w-full
+  .radio-checked {
+    @apply bg-slate-800 text-white
   }
-}
-
-h2 {
-  font-weight: 100;
-  font-size: 22px;
-  letter-spacing: 0.02em;
-}
-
-h3 {
-  letter-spacing: 0.02em;
-}
-
-h4 {
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0em;
 }

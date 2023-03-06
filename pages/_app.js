@@ -5,6 +5,7 @@ import {ContactProvider} from '../context/ContactContext'
 import { Header } from '../components/Header'
 import Footer from '../components/Footer'
 import Contact from '../components/Contact'
+import Searchbar from 'components/Searchbar'
 
 // This default export is required in a new `pages/_app.js` file.
 export default function MyApp({ Component, pageProps }) {
@@ -16,7 +17,8 @@ export default function MyApp({ Component, pageProps }) {
       </Head>
       <ContactProvider>
         <Header />
-        <div className='mx-8 sm:mx-16 lg:mx-20 xl:mx-32'>
+        <div className='mx-8 sm:mx-16 lg:mx-20 xl:mx-32 mt-6'>
+          <Searchbar/>
           <Component {...pageProps} />
         </div>
 

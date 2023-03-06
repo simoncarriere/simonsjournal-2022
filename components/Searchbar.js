@@ -70,7 +70,7 @@ const Searchbar = () => {
 
 
     return ( 
-        <div className="relative z-10 flex flex-col mx-6 lg:mx-8">
+        <div className="relative z-10 flex flex-col top-0 mt-0 pt-0">
 
             {/* Search Bar */}
             <div className="z-10 w-full transition">
@@ -105,7 +105,7 @@ const Searchbar = () => {
                 leaveTo="opacity-0"
                 onClick={() => setHasFocus(false)}
             >
-                <div className="fixed inset-0 transition-opacity bg-opacity-50 cursor-pointer z-2 bg-neutral-900" />
+                <div className="fixed inset-0 transition-opacity  cursor-pointer z-2 bg-gray-900/50" />
             </Transition>
             
             {/* Expended search results */}
@@ -212,16 +212,12 @@ const Searchbar = () => {
                         <div className="px-6 text-center py-14 sm:px-14">
                             {/* <LifebuoyIcon className="w-6 h-6 mx-auto text-gray-400" aria-hidden="true" /> */}
                             <h5 className="mt-4 text-xl text-neutral-900">Welcome to my Command Bar!</h5>
-                            <p className="max-w-2xl mx-auto my-4 text-lg text-neutral-500">
+                            <p className="max-w-2xl mx-auto my-4 text-base text-neutral-500">
                                 Ever since <a className="link" href="https://superhuman.com">Superhuman</a> and <a className="link" href="https://www.alfredapp.com">Alfred</a> showed us the power of sophisticated search bars,
                                 I've wanted to create my own. You can currently use this tool to quickly search across the journal and perform a few limited actions. 
                                 I'll soon be introducing <a className="link" href="https://algolia.com">Algolia</a> for global search accross the journal and additional features. 
                             </p>
-                            <a href="https://github.com/simoncarriere/simonsjournal-2022/issues" target="_blank">
-                                <button className="w-40 px-4 py-2 mt-4 transition rounded-md bg-slate-200 text-slate-500 hover:opacity-80">
-                                    Report Issue
-                                </button>
-                            </a>
+                           
                         </div>
                     )}
 
