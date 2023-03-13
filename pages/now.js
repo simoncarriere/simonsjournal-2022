@@ -2,7 +2,7 @@
 const Now = () => {
     return ( 
         <div>
-            <div>
+            <div className="">
                 <p>2023</p>
             </div>
         </div>
