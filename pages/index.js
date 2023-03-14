@@ -40,8 +40,8 @@ export default function Home({ posts }) {
   return (
     <main>
       {/* Heading */}
-      <header className="flex pt-20 2xl:items-center 2xl:justify-between ">
-        <div className="flex-1 mx-auto mt-4 lg:mx-0">
+      <header className="flex pt-4 2xl:items-center 2xl:justify-between">
+        <div className="mx-auto basis-2/3 lg:mt-12 md:mx-0">
           <div className="max-w-md pr-1 mx-auto text-center md:max-w-lg md:text-left 2xl:max-w-xl md:m-0">
             <h1 className="leading-tight ">
               Purpose driven full stack developer & product strategist
@@ -92,7 +92,7 @@ export default function Home({ posts }) {
                     </div>
                     <div>
                       <h3 className="block pb-1 text-sm">{project.title}</h3>
-                      <p className="mb-8 text-sm text-gray-400 w-72 sm:mb-0">
+                      <p className="mb-8 text-sm text-gray-500 max-w-72 sm:mb-0">
                         {project.desc}
                       </p>
                     </div>
@@ -129,7 +129,7 @@ export default function Home({ posts }) {
           </div>
         </div>
 
-        <div className="flex-1 hidden object-fill 2xl:block">
+        <div className="hidden object-fill mt-8 ml-4 basis-1/2 2xl:block">
           <Image
             src="/images/simon.jpeg"
             height={2000}
