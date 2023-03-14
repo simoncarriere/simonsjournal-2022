@@ -24,7 +24,7 @@ export function Header() {
   const { toggleSidebar } = useContext(ContactContext);
 
   return (
-    <header className="flex justify-between m-6">
+    <header className="flex justify-between m-6 md:m-0">
       <div className=" md:fixed left-6 top-6">
         <Logo />
       </div>

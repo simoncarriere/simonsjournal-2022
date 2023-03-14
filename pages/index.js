@@ -20,7 +20,7 @@ export async function getStaticProps() {
 const projects = [
   {
     title: "Bivi - Multiplayer Task App",
-    desc: "Multiplater task & scheduling for ambitious async teams.",
+    desc: "Where ambitious async teams get thing done together.",
     href: "https://bivi.io",
     img: "/images/product-7.png",
     logo: "/images/bivi-icon.png",
