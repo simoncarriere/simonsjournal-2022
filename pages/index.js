@@ -41,7 +41,7 @@ export default function Home({ posts }) {
     <main>
       {/* Heading */}
       <header className="flex pt-4 xl:items-center xl:justify-between">
-        <div className="mx-auto mt-8 basis-2/3 lg:mt-12 md:mx-0">
+        <div className="mx-auto mt-8 xl:basis-2/3 lg:mt-12 md:mx-0">
           <div className="max-w-md pr-1 mx-auto text-center md:max-w-lg md:text-left 2xl:max-w-xl md:m-0">
             <h1 className="leading-tight ">
               Purpose driven full stack developer & product strategist
@@ -75,11 +75,11 @@ export default function Home({ posts }) {
               </Link>
             </div>
             {/* Projects */}
-            <div className="flex flex-col justify-between w-full gap-4 mt-6 sm:flex-col lg:flex-row xl:pr-16 2xl:mt-6">
+            <div className="flex flex-col justify-between w-full gap-4 mt-6 sm:flex-col md:flex-row xl:pr-16 2xl:mt-6">
               {projects.map((project) => (
                 <a
                   href={project.href}
-                  className="flex flex-col w-full max-w-lg gap-4 p-5 border shadow-sm animate space-between border-slate-200 hover:bg-gray-100 card rounded-2xl"
+                  className="flex flex-col gap-4 p-5 border shadow-sm animate space-between bg-slate-100 border-slate-200 hover:bg-slate-50 rounded-2xl"
                 >
                   <div className="flex flex-col flex-1 gap-2">
                     <div className="">
@@ -92,7 +92,7 @@ export default function Home({ posts }) {
                     </div>
                     <div>
                       <h3 className="block pb-1 text-sm">{project.title}</h3>
-                      <p className="mb-8 text-sm text-gray-500 max-w-72 sm:mb-0">
+                      <p className="h-12 mb-8 text-sm text-gray-500 max-w-72 sm:mb-0">
                         {project.desc}
                       </p>
                     </div>
@@ -108,24 +108,6 @@ export default function Home({ posts }) {
                 </a>
               ))}
             </div>
-            {/* <div className="justify-between w-full gap-6 mt-6 lg:gap-6 xl:pr-16 sm:flex 2xl:mt-6">
-              {projects.map((project) => (
-                <a
-                  href={project.href}
-                  className="w-full basis-1/2 card xl:w-60 2xl:w-64"
-                >
-                  <div className="">
-                    <Image src={project.img} height={400} width={600} />
-                  </div>
-                  <div className="">
-                    <h3 className="block my-1 2xl:my-2">{project.title}</h3>
-                    <p className="mb-8 text-sm leading-6 text-gray-400 sm:mb-0">
-                      {project.desc}
-                    </p>
-                  </div>
-                </a>
-              ))}
-            </div> */}
           </div>
         </div>
 
