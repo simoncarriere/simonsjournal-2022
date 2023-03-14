@@ -90,7 +90,7 @@ export default function Home({ posts }) {
           </div>
         </div>
 
-        <div className="hidden object-fill pl-12 xl:block basis-1/2">
+        <div className="hidden object-fill pb-8 pl-12 xl:block basis-1/2">
           <Image
             src="/images/simon.jpeg"
             height={2000}
