@@ -1,72 +1,72 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   body {
-    @apply bg-slate-100
+    @apply bg-slate-100;
   }
   h1 {
-    @apply font-sans font-normal text-4xl 2xl:text-5xl  text-slate-900 
+    @apply font-sans font-normal text-4xl xl:text-4xl 2xl:text-5xl  text-slate-900;
   }
   h2 {
-    @apply font-sans font-normal text-xl text-slate-900 tracking-wide leading-tight
+    @apply font-sans font-normal text-lg xl:text-xl text-slate-900 tracking-wide leading-tight;
   }
   h3 {
-    @apply leading-6 
+    @apply leading-6;
   }
-  h4{
-    @apply font-sans font-light text-lg  text-neutral-500
+  h4 {
+    @apply font-sans font-light text-lg  text-neutral-500;
   }
-  h5{
-    @apply font-sans font-normal xl:text-base 2xl:text-lg tracking-wide
+  h5 {
+    @apply font-sans font-normal xl:text-base 2xl:text-lg tracking-wide;
   }
-  h6{
-    @apply font-mono text-sm tracking-tighter text-neutral-500
+  h6 {
+    @apply font-mono text-sm tracking-tighter text-neutral-500;
   }
   p {
-    @apply font-sans text-slate-900 tracking-normal text-lg 
+    @apply font-sans text-slate-900 tracking-normal text-lg;
   }
-  code, pre {
-    @apply font-mono 
+  code,
+  pre {
+    @apply font-mono;
   }
   time {
-    @apply  text-sm text-gray-400
+    @apply text-sm text-gray-400;
   }
   image {
-    @apply -z-10 relative
+    @apply -z-10 relative;
   }
   input {
-    @apply border-none ;
+    @apply border-none;
   }
 }
 @layer components {
-  .card{
-    @apply cursor-pointer hover:-translate-y-1.5 duration-500 transition-all
+  .card {
+    @apply cursor-pointer hover:-translate-y-1.5 duration-500 transition-all;
   }
   .card img {
-    @apply object-cover w-full h-48 rounded-lg
+    @apply object-cover w-full h-48 rounded-lg;
   }
   .btn-icon-primary {
-    @apply bg-slate-900 text-white rounded-md flex justify-center items-center hover:bg-slate-800 transition h-16 w-16
+    @apply bg-slate-900 text-white rounded-md flex justify-center items-center hover:bg-slate-800 transition h-16 w-16;
   }
   .btn-icon-secondary {
-    @apply bg-slate-100 text-slate-800 rounded-md border border-gray-300 p-2 hover:bg-slate-700 hover:border-slate-800 hover:text-gray-100 transition
+    @apply bg-slate-100 text-slate-800 rounded-md border border-gray-300 p-2 hover:bg-slate-700 hover:border-slate-800 hover:text-gray-100 transition;
   }
   .tag {
-    @apply bg-slate-100 my-1 xl:my-0 border border-slate-300 px-3 py-3 rounded-md mr-2 text-sm text-slate-700 hover:text-slate-800 hover:bg-slate-200  hover:cursor-pointer 
+    @apply bg-slate-100 my-1 xl:my-0 border border-slate-300 px-3 py-3 rounded-md mr-2 text-sm text-slate-700 hover:text-slate-800 hover:bg-slate-200  hover:cursor-pointer;
   }
   .link {
-    @apply text-orange-400 no-underline hover:text-orange-500 font-light
+    @apply text-orange-400 no-underline hover:text-orange-500 font-light;
   }
   .radio-item {
-    @apply w-full border cursor-pointer border-slate-100 flex justify-center items-center h-24 rounded-md
+    @apply w-full border cursor-pointer border-slate-100 flex justify-center items-center h-24 rounded-md;
   }
   .radio-checked {
-    @apply bg-slate-800 text-white
+    @apply bg-slate-800 text-white;
   }
 }

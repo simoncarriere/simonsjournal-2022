@@ -1,18 +1,17 @@
-import { useContext, useState, Fragment } from 'react'
-import { Dialog, Transition, RadioGroup } from '@headlessui/react'
+import { useContext, useState, Fragment } from "react";
+import { Dialog, Transition, RadioGroup } from "@headlessui/react";
 
-import { XMarkIcon, CheckIcon } from '@heroicons/react/24/outline'
+import { XMarkIcon, CheckIcon } from "@heroicons/react/24/outline";
 import { ContactContext } from "context/ContactContext";
 
 export default function Contact() {
+  const { sidebarOpen, toggleSidebar } = useContext(ContactContext);
 
-  const {sidebarOpen, toggleSidebar} = useContext(ContactContext)
+  let [plan, setPlan] = useState("startup");
 
-  let [plan, setPlan] = useState('startup')
-
-//   <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
-//   <CheckIcon className="h-6 w-6 text-green-600" aria-hidden="true" />
-// </div>
+  //   <div className="flex items-center justify-center w-12 h-12 mx-auto bg-green-100 rounded-full">
+  //   <CheckIcon className="w-6 h-6 text-green-600" aria-hidden="true" />
+  // </div>
 
   return (
     <Transition.Root show={sidebarOpen} as={Fragment}>
@@ -30,7 +29,7 @@ export default function Contact() {
         </Transition.Child>
 
         <div className="fixed inset-0 z-10 overflow-y-auto">
-          <div className="flex min-h-full items-end w-full justify-center p-4 text-center  sm:p-0">
+          <div className="flex items-end justify-center w-full min-h-full p-4 text-center sm:p-0">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -40,26 +39,24 @@ export default function Contact() {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-
-
-              <Dialog.Panel className="relative transform overflow-hidden rounded-t-xl bg-white text-left shadow-xl transition-all sm:w-3xl  mx-24  p-16">
+              <Dialog.Panel className="relative p-16 mx-24 overflow-hidden text-left transition-all transform bg-white shadow-xl rounded-t-xl sm:w-3xl">
                 {/* <div className='w-1/2'> */}
                 <div>
                   <div>
-                    <Dialog.Title as="h1" className='text-4xl'>
+                    <Dialog.Title as="h1" className="text-4xl">
                       Hey there! How would you like to connect?
                     </Dialog.Title>
                     <div className="my-4">
                       <h3>
-                        Let’s work together from strategy to launch. Start a project for an estimate timeline and budget.
+                        Let’s work together from strategy to launch. Start a
+                        project for an estimate timeline and budget.
                       </h3>
                     </div>
                   </div>
 
-
                   {/* <RadioGroup value={plan} onChange={setPlan} > */}
-                    {/* <RadioGroup.Label>Plan</RadioGroup.Label> */}
-                    {/* <div className="flex gap-4">
+                  {/* <RadioGroup.Label>Plan</RadioGroup.Label> */}
+                  {/* <div className="flex gap-4">
                       <RadioGroup.Option value="startup" className="radio-item">
                         {({ checked }) => (
                           <span className={checked ? 'radio-checked' : ''}>Startup</span>
@@ -77,96 +74,87 @@ export default function Contact() {
                       </RadioGroup.Option>
                     </div>
                   </RadioGroup> */}
- 
 
-                <div className='flex flex-col gap-6 my-8'>
-
-                  {/* Name */}
-                  <div>
-                    <label htmlFor="email" className="">
-                      Full Name
-                    </label>
-                    <div className='w-full'>
-                      <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        className='bg-slate-100 p-4 w-full my-1'
-                        // className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                        placeholder="Your name"
-                        aria-describedby="your-name"
-                      />
-                    </div>
-                    {/* <p className="mt-2 text-sm text-gray-500" id="email-description">
+                  <div className="flex flex-col gap-6 my-8">
+                    {/* Name */}
+                    <div>
+                      <label htmlFor="email" className="">
+                        Full Name
+                      </label>
+                      <div className="w-full">
+                        <input
+                          type="text"
+                          name="name"
+                          id="name"
+                          className="w-full p-4 my-1 bg-slate-100"
+                          // className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          placeholder="Your name"
+                          aria-describedby="your-name"
+                        />
+                      </div>
+                      {/* <p className="mt-2 text-sm text-gray-500" id="email-description">
                       We'll only use this for spam.
                     </p> */}
-                  </div>
-
-                  {/* Email */}
-                  <div>
-                    <label htmlFor="email" className="">
-                      Email
-                    </label>
-                    <div className='w-full'>
-                      <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        className='bg-slate-100 p-4 w-full my-1'
-                        // className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                        placeholder="Your email..."
-                        aria-describedby="email-description"
-                      />
                     </div>
-                    <p className="mt-1 text-sm text-gray-500" id="email-description">
-                      We'll only use this for spam.
-                    </p>
-                  </div>
 
-                  {/* Textarea */}
-                  <div>
-                    <label htmlFor="comment" className="">
-                      Message
-                    </label>
-                    <div className="mt-2">
-                      <textarea
-                        rows={4}
-                        name="comment"
-                        id="comment"
-                        className=" border-none bg-slate-100 p-4 my-1 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:py-1.5 sm:text-sm sm:leading-6"
-                        defaultValue={''}
-                      />
+                    {/* Email */}
+                    <div>
+                      <label htmlFor="email" className="">
+                        Email
+                      </label>
+                      <div className="w-full">
+                        <input
+                          type="email"
+                          name="email"
+                          id="email"
+                          className="w-full p-4 my-1 bg-slate-100"
+                          // className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          placeholder="Your email..."
+                          aria-describedby="email-description"
+                        />
+                      </div>
+                      <p
+                        className="mt-1 text-sm text-gray-500"
+                        id="email-description"
+                      >
+                        We'll only use this for spam.
+                      </p>
+                    </div>
+
+                    {/* Textarea */}
+                    <div>
+                      <label htmlFor="comment" className="">
+                        Message
+                      </label>
+                      <div className="mt-2">
+                        <textarea
+                          rows={4}
+                          name="comment"
+                          id="comment"
+                          className=" border-none bg-slate-100 p-4 my-1 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:py-1.5 sm:text-sm sm:leading-6"
+                          defaultValue={""}
+                        />
+                      </div>
                     </div>
                   </div>
 
-                </div>
-
-
-
-
-
-
-
-                <div className="mt-5 sm:mt-6">
-                  <button
-                    type="button"
-                    className="inline-flex w-full justify-center rounded-md bg-orange-600 px-3 py-8  text-white  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                    onClick={toggleSidebar}
-                  >
-                    Go back to dashboard
-                  </button>
-                </div>
+                  <div className="mt-5 sm:mt-6">
+                    <button
+                      type="button"
+                      className="inline-flex justify-center w-full px-3 py-8 text-white bg-orange-600 rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                      onClick={toggleSidebar}
+                    >
+                      Go back to dashboard
+                    </button>
+                  </div>
                 </div>
               </Dialog.Panel>
-
-
-
             </Transition.Child>
           </div>
         </div>
       </Dialog>
     </Transition.Root>
-  )
+  );
 
   // return (
   //   <Transition.Root show={sidebarOpen} as={Fragment}>
@@ -217,13 +205,12 @@ export default function Contact() {
   //                     </button>
   //                   </div>
   //                 </Transition.Child>
-  //                 <div className="flex flex-col h-1/2 py-20 overflow-y-scroll bg-white shadow-xl">
+  //                 <div className="flex flex-col py-20 overflow-y-scroll bg-white shadow-xl h-1/2">
   //                   <div className="px-4 sm:px-16">
   //                     <h2>Let’s Connect</h2>
   //                   </div>
   //                   <div className="relative flex-1 px-4 mt-4 sm:px-16">
-                      
-                      
+
   //                     {/* ---- OPTIONS ----- */}
   //                     <div className='mb-8'>
   //                       <p className='text-lg font-extralight text-neutral-500'>Let’s work together from strategy to launch. Start a project for an estimate timeline and budget.</p>
