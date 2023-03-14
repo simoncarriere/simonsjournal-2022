@@ -23,13 +23,14 @@ const projects = [
     desc: "Where async teams plan and get things done together",
     href: "https://bivi.io",
     img: "/images/product-7.png",
-    logo: "/images/2logo.png",
+    logo: "/images/bivi-icon.png",
   },
   {
     title: "Supersaas - Race to MVP",
     desc: "A collection of boilerplates to fast-track your next SAAS project.",
     href: "https://hellosupersaas.com",
     img: "/images/product-6.png",
+    logo: "/images/supersaas-icon.png",
   },
 ];
 
@@ -41,7 +42,7 @@ export default function Home({ posts }) {
       {/* Heading */}
       <header className="flex mt-12 xl:items-center xl:justify-between md:mt-16 xl:mt-0">
         <div className="mx-auto mt-4 lg:mx-0">
-          <div className="max-w-md pr-1 mx-auto text-center lg:text-left 2xl:max-w-xl lg:m-0">
+          <div className="max-w-md pr-1 mx-auto text-center md:max-w-lg md:text-left 2xl:max-w-xl md:m-0">
             <h1 className="leading-tight ">
               Purpose driven full stack developer & product strategist
             </h1>
@@ -78,7 +79,7 @@ export default function Home({ posts }) {
               {projects.map((project) => (
                 <a
                   href={project.href}
-                  className="flex flex-col w-full gap-4 p-4 border border-gray-200 shadow-sm md:flex-row lg:flex-col hover:bg-gray-100 card rounded-2xl"
+                  className="flex flex-col w-full gap-4 p-4 border shadow-sm border-slate-200 md:flex-row lg:flex-col hover:bg-gray-100 card rounded-2xl"
                 >
                   <div className="flex flex-col flex-1 gap-2">
                     <div className="">
@@ -90,8 +91,8 @@ export default function Home({ posts }) {
                       />
                     </div>
                     <div>
-                      <h3 className="block text-sm">{project.title}</h3>
-                      <p className="mb-8 text-sm leading-6 text-gray-400 sm:mb-0">
+                      <h3 className="block pb-1 text-sm">{project.title}</h3>
+                      <p className="mb-8 text-sm text-gray-400 w-72 sm:mb-0">
                         {project.desc}
                       </p>
                     </div>
@@ -101,7 +102,7 @@ export default function Home({ posts }) {
                       src={project.img}
                       height={250}
                       width={400}
-                      className="object-cover h-24 rounded-lg"
+                      className="object-cover rounded-lg"
                     />
                   </div>
                 </a>
