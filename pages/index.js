@@ -23,6 +23,7 @@ const projects = [
     desc: "Where async teams plan and get things done together",
     href: "https://bivi.io",
     img: "/images/product-7.png",
+    logo: "/images/2logo.png",
   },
   {
     title: "Supersaas - Race to MVP",
@@ -49,7 +50,8 @@ export default function Home({ posts }) {
               Montreal, available anywhere.
             </h2>
           </div>
-          <div className="mt-12 xl:max-w-2xl">
+          <div className="mt-12 ">
+            {/* xl:max-w-2xl */}
             <div className="flex items-center my-auto">
               <h2 className="mr-4">Currently Building</h2>
               <Link href="/now">
@@ -72,7 +74,40 @@ export default function Home({ posts }) {
               </Link>
             </div>
             {/* Projects */}
-            <div className="justify-between w-full gap-6 mt-6 lg:gap-6 xl:pr-16 sm:flex 2xl:mt-6">
+            <div className="flex flex-col justify-between w-full gap-4 mt-6 xl:max-w-3xl md:flex-col lg:flex-row xl:pr-16 2xl:mt-6">
+              {projects.map((project) => (
+                <a
+                  href={project.href}
+                  className="flex flex-col w-full gap-4 p-4 border border-gray-200 shadow-sm md:flex-row lg:flex-col hover:bg-gray-100 card rounded-2xl"
+                >
+                  <div className="flex flex-col flex-1 gap-2">
+                    <div className="">
+                      <Image
+                        src={project.logo}
+                        height={40}
+                        width={40}
+                        className="rounded-lg xl:object-contain"
+                      />
+                    </div>
+                    <div>
+                      <h3 className="block text-sm">{project.title}</h3>
+                      <p className="mb-8 text-sm leading-6 text-gray-400 sm:mb-0">
+                        {project.desc}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <Image
+                      src={project.img}
+                      height={250}
+                      width={400}
+                      className="object-cover h-24 rounded-lg"
+                    />
+                  </div>
+                </a>
+              ))}
+            </div>
+            {/* <div className="justify-between w-full gap-6 mt-6 lg:gap-6 xl:pr-16 sm:flex 2xl:mt-6">
               {projects.map((project) => (
                 <a
                   href={project.href}
@@ -89,7 +124,7 @@ export default function Home({ posts }) {
                   </div>
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
 
