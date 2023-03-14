@@ -25,13 +25,13 @@ export function Header() {
 
   return (
     <header>
-      <div className="fixed left-6 top-6">
+      <div className=" md:fixed left-6 top-6">
         <Logo />
       </div>
       {/* <div className="w-full mx-12">
         <Searchbar />
       </div> */}
-      <div className="fixed right-6 top-6">
+      <div className=" md:fixed right-6 top-6">
         {/* <button className="w-16 text-slate-200 bg-slate-800 btn-icon-primary" onClick={() => toggleSidebar()} */}
         <a
           className="w-16 text-slate-200 bg-slate-800 btn-icon-primary"
