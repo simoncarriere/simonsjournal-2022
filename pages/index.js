@@ -17,6 +17,21 @@ export async function getStaticProps() {
   return { props: { posts } };
 }
 
+const projects = [
+  {
+    title: "Bivi - Multiplayer Task App",
+    desc: "Where async teams plan and get things done together",
+    href: "https://bivi.io",
+    img: "/images/product-7.png",
+  },
+  {
+    title: "Supersaas - Race to MVP",
+    desc: "A collection of boilerplates to fast-track your next SAAS project.",
+    href: "https://hellosupersaas.com",
+    img: "/images/product-6.png",
+  },
+];
+
 export default function Home({ posts }) {
   const [active, setActive] = useState("all");
 
@@ -58,44 +73,22 @@ export default function Home({ posts }) {
             </div>
             {/* Projects */}
             <div className="justify-between w-full gap-0 mt-6 lg:gap-6 xl:pr-16 sm:flex 2xl:mt-6">
-              <a
-                href="http://hellosupersaas.com"
-                className="w-full basis-1/2 card xl:w-60 2xl:w-64"
-              >
-                <div className="">
-                  <Image
-                    src="/images/product-6.png "
-                    height={400}
-                    width={600}
-                  />
-                </div>
-                <div className="">
-                  <h3 className="block my-1 2xl:my-2">
-                    Supersaas - Race to MVP
-                  </h3>
-                  <p className="mb-8 text-sm leading-6 text-gray-400 sm:mb-0">
-                    A collection of boilerplates to fasttrack your next SAAS
-                    project
-                  </p>
-                </div>
-              </a>
-
-              <a
-                href="http://bivi.io"
-                className="w-full card basis-1/2 xl:w-60 2xl:w-64"
-              >
-                <div className="">
-                  <Image src="/images/product-7.png" width={600} height={400} />
-                </div>
-                <div className="ml-4 2xl:ml-2">
-                  <h3 className="block my-1 xl:my-2">
-                    Bivi - Multiplayer Task App
-                  </h3>
-                  <p className="text-sm leading-6 text-gray-400">
-                    Where async teams plan and get things done together
-                  </p>
-                </div>
-              </a>
+              {projects.map((project) => (
+                <a
+                  href={project.href}
+                  className="w-full basis-1/2 card xl:w-60 2xl:w-64"
+                >
+                  <div className="">
+                    <Image src={project.img} height={400} width={600} />
+                  </div>
+                  <div className="">
+                    <h3 className="block my-1 2xl:my-2">{project.title}</h3>
+                    <p className="mb-8 text-sm leading-6 text-gray-400 sm:mb-0">
+                      {project.desc}
+                    </p>
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
         </div>
