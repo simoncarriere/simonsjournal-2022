@@ -23,18 +23,18 @@ export default function Home({ posts }) {
   return (
     <main>
       {/* Heading */}
-      <header className="flex mt-32 xl:items-center xl:justify-between md:mt-20 lg:mt-0">
-        <div className="mx-auto lg:mx-0">
+      <header className="flex mt-32 xl:items-center xl:justify-between md:mt-20 xl:mt-0">
+        <div className="mx-auto mt-4 lg:mx-0">
           <div className="max-w-md pr-1 mx-auto text-center lg:text-left 2xl:max-w-xl lg:m-0">
             <h1 className="leading-tight ">
               Purpose driven full stack developer & product strategist
             </h1>
-            <h2 className="mt-3 leading-relaxed text-gray-400 sm:mt-4 xl:mt-6">
+            <h2 className="mt-3 leading-relaxed text-gray-400 sm:mt-4 xl:mt-4">
               Looking to join a startup on a bold mission. <br /> Based in
               Montreal, available anywhere.
             </h2>
           </div>
-          <div className="max-w-2xl mt-16 sm:mt-16 xl:mt-12">
+          <div className="max-w-2xl mt-12">
             <div className="flex items-center my-auto">
               <h2 className="mr-4">Currently Building</h2>
               <Link href="/now">
@@ -57,17 +57,22 @@ export default function Home({ posts }) {
               </Link>
             </div>
             {/* Projects */}
-            <div className="w-full gap-4 mt-8 space-between xl:pr-16 sm:flex 2xl:mt-6">
-              <a href="http://hellosupersaas.com" className=" basis-1/2 card">
-                <div className="w-full 2xl:w-64">
+            <div className="justify-between w-full gap-0 mt-6 lg:gap-6 xl:pr-16 sm:flex 2xl:mt-6">
+              <a
+                href="http://hellosupersaas.com"
+                className="w-full basis-1/2 card xl:w-60 2xl:w-64"
+              >
+                <div className="">
                   <Image
                     src="/images/product-6.png "
                     height={400}
                     width={600}
                   />
                 </div>
-                <div className="ml-4 xl:ml-2 ">
-                  <h3 className="block mt-2 mb-2">Supersaas - Race to MVP</h3>
+                <div className="">
+                  <h3 className="block my-1 2xl:my-2">
+                    Supersaas - Race to MVP
+                  </h3>
                   <p className="mb-8 text-sm leading-6 text-gray-400 sm:mb-0">
                     A collection of boilerplates to fasttrack your next SAAS
                     project
@@ -75,12 +80,17 @@ export default function Home({ posts }) {
                 </div>
               </a>
 
-              <a href="http://bivi.io" className=" card basis-1/2">
-                <div className="w-full 2xl:w-64">
+              <a
+                href="http://bivi.io"
+                className="w-full card basis-1/2 xl:w-60 2xl:w-64"
+              >
+                <div className="">
                   <Image src="/images/product-7.png" width={600} height={400} />
                 </div>
-                <div className="ml-4 xl:ml-2">
-                  <h3 className="block my-2">Bivi - Multiplayer Task App</h3>
+                <div className="ml-4 2xl:ml-2">
+                  <h3 className="block my-1 xl:my-2">
+                    Bivi - Multiplayer Task App
+                  </h3>
                   <p className="text-sm leading-6 text-gray-400">
                     Where async teams plan and get things done together
                   </p>
@@ -128,7 +138,7 @@ export default function Home({ posts }) {
         <Filters posts={posts} active={active} setActive={setActive} />
 
         <motion.div
-          className="grid gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-4 3xl:grid-cols-"
+          className="grid gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5"
           // animate={{ opacity: active ? 1 : 0 }}
         >
           {active === "all"
