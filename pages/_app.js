@@ -17,8 +17,8 @@ export default function MyApp({ Component, pageProps }) {
       </Head>
       <ContactProvider>
         <Header />
-        <div className="mx-8 mt-6 md:mx-28 xl:mx-32">
-          <div className="hidden md:block">
+        <div className="mx-8 md:mx-28 xl:mx-32">
+          <div className="hidden mt-6 md:block ">
             <Searchbar />
           </div>
           <Component {...pageProps} />

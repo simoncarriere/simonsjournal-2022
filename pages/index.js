@@ -38,7 +38,7 @@ export default function Home({ posts }) {
   return (
     <main>
       {/* Heading */}
-      <header className="flex mt-12 xl:items-center xl:justify-between md:mt-20 xl:mt-0">
+      <header className="flex mt-12 xl:items-center xl:justify-between md:mt-16 xl:mt-0">
         <div className="mx-auto mt-4 lg:mx-0">
           <div className="max-w-md pr-1 mx-auto text-center lg:text-left 2xl:max-w-xl lg:m-0">
             <h1 className="leading-tight ">
