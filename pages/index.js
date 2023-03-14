@@ -20,7 +20,7 @@ export async function getStaticProps() {
 const projects = [
   {
     title: "Bivi - Multiplayer Task App",
-    desc: "Where async teams plan and get things done together",
+    desc: "Multiplater task & scheduling for ambitious async teams.",
     href: "https://bivi.io",
     img: "/images/product-7.png",
     logo: "/images/bivi-icon.png",
@@ -40,8 +40,8 @@ export default function Home({ posts }) {
   return (
     <main>
       {/* Heading */}
-      <header className="flex mt-12 xl:items-center xl:justify-between md:mt-16 xl:mt-0">
-        <div className="mx-auto mt-4 lg:mx-0">
+      <header className="flex pt-20 2xl:items-center 2xl:justify-between ">
+        <div className="flex-1 mx-auto mt-4 lg:mx-0">
           <div className="max-w-md pr-1 mx-auto text-center md:max-w-lg md:text-left 2xl:max-w-xl md:m-0">
             <h1 className="leading-tight ">
               Purpose driven full stack developer & product strategist
@@ -75,11 +75,11 @@ export default function Home({ posts }) {
               </Link>
             </div>
             {/* Projects */}
-            <div className="flex flex-col justify-between w-full gap-4 mt-6 xl:max-w-3xl md:flex-col lg:flex-row xl:pr-16 2xl:mt-6">
+            <div className="flex flex-col justify-between w-full gap-4 mt-6 md:flex-col lg:flex-row xl:pr-16 2xl:mt-6">
               {projects.map((project) => (
                 <a
                   href={project.href}
-                  className="flex flex-col w-full gap-4 p-4 border shadow-sm border-slate-200 md:flex-row lg:flex-col hover:bg-gray-100 card rounded-2xl"
+                  className="flex flex-col w-full max-w-lg gap-4 p-4 border shadow-sm animate space-between border-slate-200 md:flex-row lg:flex-col hover:bg-gray-100 card rounded-2xl"
                 >
                   <div className="flex flex-col flex-1 gap-2">
                     <div className="">
@@ -129,7 +129,7 @@ export default function Home({ posts }) {
           </div>
         </div>
 
-        <div className="hidden object-fill py-8 pl-12 xl:block basis-1/2">
+        <div className="flex-1 hidden object-fill 2xl:block">
           <Image
             src="/images/simon.jpeg"
             height={2000}
@@ -167,7 +167,7 @@ export default function Home({ posts }) {
         <Filters posts={posts} active={active} setActive={setActive} />
 
         <motion.div
-          className="grid gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5"
+          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5"
           // animate={{ opacity: active ? 1 : 0 }}
         >
           {active === "all"

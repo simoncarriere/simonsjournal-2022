@@ -45,12 +45,10 @@
   }
 }
 @layer components {
-  .card {
+  .animate {
     @apply cursor-pointer hover:-translate-y-1.5 duration-500 transition-all;
   }
-  .card img {
-    @apply object-cover w-full h-48 rounded-lg;
-  }
+
   .btn-icon-primary {
     @apply bg-slate-900 text-white rounded-md flex justify-center items-center hover:bg-slate-800 transition h-16 w-16;
   }
