@@ -40,8 +40,8 @@ export default function Home({ posts }) {
   return (
     <main>
       {/* Heading */}
-      <header className="flex pt-4 2xl:items-center 2xl:justify-between">
-        <div className="mx-auto basis-2/3 lg:mt-12 md:mx-0">
+      <header className="flex pt-4 xl:items-center xl:justify-between">
+        <div className="mx-auto mt-8 basis-2/3 lg:mt-12 md:mx-0">
           <div className="max-w-md pr-1 mx-auto text-center md:max-w-lg md:text-left 2xl:max-w-xl md:m-0">
             <h1 className="leading-tight ">
               Purpose driven full stack developer & product strategist
@@ -75,11 +75,11 @@ export default function Home({ posts }) {
               </Link>
             </div>
             {/* Projects */}
-            <div className="flex flex-col justify-between w-full gap-4 mt-6 md:flex-col lg:flex-row xl:pr-16 2xl:mt-6">
+            <div className="flex flex-col justify-between w-full gap-4 mt-6 sm:flex-col lg:flex-row xl:pr-16 2xl:mt-6">
               {projects.map((project) => (
                 <a
                   href={project.href}
-                  className="flex flex-col w-full max-w-lg gap-4 p-4 border shadow-sm animate space-between border-slate-200 md:flex-row lg:flex-col hover:bg-gray-100 card rounded-2xl"
+                  className="flex flex-col w-full max-w-lg gap-4 p-5 border shadow-sm animate space-between border-slate-200 hover:bg-gray-100 card rounded-2xl"
                 >
                   <div className="flex flex-col flex-1 gap-2">
                     <div className="">
@@ -129,7 +129,7 @@ export default function Home({ posts }) {
           </div>
         </div>
 
-        <div className="hidden object-fill mt-8 ml-4 basis-1/2 2xl:block">
+        <div className="hidden object-fill mt-8 ml-4 basis-1/2 xl:block">
           <Image
             src="/images/simon.jpeg"
             height={2000}
@@ -167,7 +167,7 @@ export default function Home({ posts }) {
         <Filters posts={posts} active={active} setActive={setActive} />
 
         <motion.div
-          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5"
+          className="grid gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5"
           // animate={{ opacity: active ? 1 : 0 }}
         >
           {active === "all"

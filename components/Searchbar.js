@@ -270,7 +270,7 @@ const Searchbar = () => {
               <div className="m-8">
                 <h5 className="text-slate-500">
                   {filteredPost.length} Search Results for "{rawQuery}"" in
-                  Projects
+                  Journal
                 </h5>
                 {filteredPost.map((post) => (
                   <div
