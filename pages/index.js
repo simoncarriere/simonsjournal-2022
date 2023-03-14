@@ -49,7 +49,7 @@ export default function Home({ posts }) {
               Montreal, available anywhere.
             </h2>
           </div>
-          <div className="max-w-2xl mt-12">
+          <div className="mt-12 xl:max-w-2xl">
             <div className="flex items-center my-auto">
               <h2 className="mr-4">Currently Building</h2>
               <Link href="/now">
