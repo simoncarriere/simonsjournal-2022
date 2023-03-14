@@ -23,7 +23,7 @@ export default function Home({ posts }) {
   return (
     <main>
       {/* Heading */}
-      <header className="flex mt-32 xl:items-center xl:justify-center md:mt-20 lg:mt-14">
+      <header className="flex mt-32 xl:items-center xl:justify-between md:mt-20 lg:mt-8">
         <div className="mx-auto lg:mx-0">
           <div className="max-w-md pr-1 mx-auto text-center lg:text-left 2xl:max-w-xl lg:m-0">
             <h1 className="leading-tight ">
@@ -57,7 +57,7 @@ export default function Home({ posts }) {
               </Link>
             </div>
             {/* Projects */}
-            <div className="w-full gap-4 mt-8 space-between xl:pr-16 sm:flex 2xl:mt-6 xl:mr-12">
+            <div className="w-full gap-4 mt-8 space-between xl:pr-16 sm:flex 2xl:mt-6">
               <a href="http://hellosupersaas.com" className=" basis-1/2 card">
                 <div className="w-full 2xl:w-64">
                   <Image
@@ -90,7 +90,7 @@ export default function Home({ posts }) {
           </div>
         </div>
 
-        <div className="hidden object-fill xl:block basis-1/2">
+        <div className="hidden object-fill p-8 pl-12 xl:block basis-1/2">
           <Image
             src="/images/simon.jpeg"
             height={2000}
