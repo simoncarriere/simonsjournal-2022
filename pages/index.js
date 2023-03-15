@@ -75,20 +75,23 @@ export default function Home({ posts }) {
               </Link>
             </div>
             {/* Projects */}
-            <div className="flex flex-col justify-between w-full gap-4 mt-6 sm:flex-col md:flex-row xl:pr-16 2xl:mt-6">
+            <div className="flex flex-col w-full gap-4 mt-6 sm:flex-col md:flex-row xl:pr-16 2xl:mt-6">
               {projects.map((project) => (
                 <a
                   href={project.href}
                   className="flex flex-col gap-4 p-5 border shadow-sm animate space-between bg-slate-100 border-slate-200 hover:bg-slate-50 rounded-2xl"
                 >
                   <div className="flex flex-col flex-1 gap-2">
-                    <div className="">
+                    <div className="w-10 group">
                       <Image
                         src={project.logo}
                         height={40}
                         width={40}
-                        className="rounded-lg xl:object-contain"
+                        className="rounded-lg xl:object-contain group"
                       />
+                      <span className="absolute z-10 px-2 py-1 ml-1 text-xs transition-all ease-in-out scale-0 rounded opacity-0 top-7 left-18 duration-400 bg-slate-900/80 text-slate-100 group-hover:scale-100 group-hover:opacity-100">
+                        {project.href}
+                      </span>
                     </div>
                     <div>
                       <h3 className="block pb-1 text-sm">{project.title}</h3>
@@ -100,7 +103,7 @@ export default function Home({ posts }) {
                   <div className="flex-1">
                     <Image
                       src={project.img}
-                      height={250}
+                      height={200}
                       width={400}
                       className="object-cover rounded-lg"
                     />
@@ -152,14 +155,15 @@ export default function Home({ posts }) {
           className="grid gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5"
           // animate={{ opacity: active ? 1 : 0 }}
         >
-          {active === "all"
-            ? posts
-                .map((post, idx) => <PostCard key={idx} {...post} />)
-                .reverse()
-            : posts
-                .filter((post) => post.category === active)
-                .map((post, idx) => <PostCard key={idx} {...post} />)
-                .reverse()}
+          {
+            active === "all"
+              ? posts.map((post, idx) => <PostCard key={idx} {...post} />)
+              : // .reverse()
+                posts
+                  .filter((post) => post.category === active)
+                  .map((post, idx) => <PostCard key={idx} {...post} />)
+            // .reverse()
+          }
         </motion.div>
       </div>
       {/* CTA */}

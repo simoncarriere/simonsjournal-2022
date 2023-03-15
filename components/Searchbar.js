@@ -172,23 +172,23 @@ const Searchbar = () => {
                                     </div> */}
 
                   {/* SECTION 2  */}
-                  <div className="flex flex-col px-8 py-8 mb-8 border rounded-md xl:mx-4 xl:w-1/3 border-slate-200">
-                    <div className="items-center mx-auto mt-12 mb-2">
-                      <img
-                        src="/images/supersaas.png"
-                        className="w-48 object-fit "
-                        alt="Work in progress Newsletter logo"
-                      />
+                  <div className="flex flex-col justify-between h-auto px-8 py-8 mb-8 border rounded-md xl:mx-4 xl:w-1/3 border-slate-200 bg-gradient-to-br from-emerald-100 to bg-emerald-500">
+                    <div>
+                      <span className="items-center px-2 py-0.5 text-sm rounded-lg w-44 bg-emerald-800/80 text-emerald-200">
+                        Launching Summer 2023
+                      </span>
+                      <h2 className="my-2 text-xl font-semibold text-emerald-800">
+                        Help design and launch my course on how to build your
+                        MVP
+                      </h2>
                     </div>
                     <a
-                      href="https://hellosupersaas.com"
-                      className="flex mx-auto"
+                      href="https://form.typeform.com/to/DJ7mTcYt"
+                      className="flex "
+                      target="_blank"
                     >
-                      <button className="w-40 px-3 py-3 text-sm text-white transition rounded-md bg-slate-900 hover:opacity-90">
-                        $50 Early Bird
-                        <span className="ml-2 italic text-orange-900 line-through">
-                          $299
-                        </span>
+                      <button className="px-8 py-4 text-sm transition rounded-md border-emerald-100 bg-emerald-200 hover:bg-emerald-100">
+                        Answer 15 Questions
                       </button>
                       {/* <button className='w-40 px-4 py-2 transition rounded-md hover:opacity-80 bg-slate-900 text-slate-100'>Get an Estimate</button> */}
                     </a>

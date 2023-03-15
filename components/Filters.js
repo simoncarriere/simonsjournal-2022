@@ -1,26 +1,40 @@
-import { Fragment } from 'react'
-import { Menu, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { Fragment } from "react";
+import { Menu, Transition } from "@headlessui/react";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
-
-
-export default function Filters({posts, active, setActive}) {
-
+export default function Filters({ posts, active, setActive }) {
   const tabs = [
-    { name: 'All', category: 'all', count: posts.length},
-    { name: 'Case Studies', category: 'project', count: posts.filter(i => i.category === 'project').length},
-    { name: 'Code Snippets', category: 'code', count: posts.filter(i => i.category === 'code').length, current: false },
-    { name: 'Personal',  category: 'personal', count: posts.filter(i => i.category === 'personal').length },
+    { name: "All", category: "all", count: posts.length },
+    {
+      name: "Case Studies",
+      category: "project",
+      count: posts.filter((i) => i.category === "project").length,
+    },
+    {
+      name: "Guides",
+      category: "guides",
+      count: posts.filter((i) => i.category === "guides").length,
+    },
+    {
+      name: "Code Snippets",
+      category: "code",
+      count: posts.filter((i) => i.category === "code").length,
+      current: false,
+    },
+    {
+      name: "Personal",
+      category: "personal",
+      count: posts.filter((i) => i.category === "personal").length,
+    },
     // { name: 'Other', category: 'other', count: posts.filter(i => i.category === 'other').length},
-  ]
+  ];
 
   return (
-    <div className='flex justify-between w-full border-b border-slate-200 '>
-      
+    <div className="flex justify-between w-full border-b border-slate-200 ">
       {/* ----- Tabs ----- */}
       <div>
         {/* DROPDOWN MOBILE */}
@@ -36,7 +50,9 @@ export default function Filters({posts, active, setActive}) {
             // defaultValue={tabs.find((tab) => tab.current).name}
           >
             {tabs.map((tab) => (
-              <option key={tab.name} onClick={() => setActive(id.name)}>{tab.name}</option>
+              <option key={tab.name} onClick={() => setActive(id.name)}>
+                {tab.name}
+              </option>
             ))}
           </select>
         </div>
@@ -50,21 +66,23 @@ export default function Filters({posts, active, setActive}) {
                   href="#"
                   onClick={() => setActive(tab.category)}
                   className={classNames(
-                    tab.category === active 
-                      ? 'border-gray-400 text-slate-600'
-                      : ' text-neutral-500 hover:text-neutral-700 hover:border-b-3 hover:border-gray-300',
-                    'whitespace-nowrap flex py-4 px-1 border-b-2 text-lg cursor-pointer items-center'
+                    tab.category === active
+                      ? "border-gray-400 text-slate-600"
+                      : " text-neutral-500 hover:text-neutral-700 hover:border-b-3 hover:border-gray-300",
+                    "whitespace-nowrap flex py-4 px-1 border-b-2 text-lg cursor-pointer items-center"
                   )}
                 >
                   {tab.name}
-                    <span
-                      className={classNames(
-                        tab.category === active ? 'bg-slate-700 text-slate-100' : 'bg-slate-200 text-slate-900',
-                        'hidden transition ml-3 py-2 px-3.5 rounded-md text-xs font-medium md:inline-block m-auto'
-                      )}
-                    >
-                      {tab.count ? tab.count : '0'}
-                    </span>
+                  <span
+                    className={classNames(
+                      tab.category === active
+                        ? "bg-slate-700 text-slate-100"
+                        : "bg-slate-200 text-slate-900",
+                      "hidden transition ml-3 py-2 px-3.5 rounded-md text-xs font-medium md:inline-block m-auto"
+                    )}
+                  >
+                    {tab.count ? tab.count : "0"}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -135,7 +153,6 @@ export default function Filters({posts, active, setActive}) {
           </Menu.Items>
         </Transition>
       </Menu> */}
-      
     </div>
-  )
+  );
 }

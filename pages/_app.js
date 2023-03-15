@@ -12,8 +12,8 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Contentlayer Next.js Example</title>
-        <link rel="icon" type="image/x-icon" href="/favicon.png" />
+        <title>Simonsjournal</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="/Logo.png" />
       </Head>
       <ContactProvider>
         <Header />
