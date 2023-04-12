@@ -10,7 +10,7 @@ function Logo() {
     <Link href="/">
       <div className="object-fill w-16 p-2">
         <Image
-          src="/images/Logo.png"
+          src="/images/logo2.png"
           className="cursor-pointer"
           width="200"
           height="200"

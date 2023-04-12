@@ -20,7 +20,7 @@ const actions = [
   {
     id: 3,
     name: "Download CV",
-    url: "#",
+    url: "https://drive.google.com/drive/folders/1WSJor1BDyW4j0jkOf9Eq6o6027PUZxlL?usp=sharing",
   },
   {
     id: 4,

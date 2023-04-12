@@ -13,7 +13,7 @@
     @apply font-sans font-normal text-2xl sm:text-4xl xl:text-3xl 2xl:text-5xl  text-slate-900;
   }
   h2 {
-    @apply font-sans font-normal text-sm sm:text-lg lg:text-xl text-slate-900 tracking-wide leading-tight;
+    @apply font-sans font-normal text-lg lg:text-xl text-slate-900 tracking-wide leading-tight;
   }
   h3 {
     @apply leading-6;

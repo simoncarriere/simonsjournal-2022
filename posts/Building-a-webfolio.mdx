@@ -1,18 +1,19 @@
 ---
 title: Building my webfolio
-date: 2022-11-22
+date: 2023-03-10
 image: "maxresdefault.jpeg"
 category: personal
 links:
-  - { title: Source Code, url: http://google.com }
-  - { title: Live Link, url: http://google.com }
+  - {
+      title: Source Code,
+      url: https://github.com/simoncarriere/simonsjournal-2022,
+    }
+  - { title: Live Link, url: https://simonsjournal.com }
 ---
-
-### An honest colophon
 
 Launching my portfolio was a remarkably challenging personal endeavour. For years I’ve wanted a space to write, showcase my work, experiment, and maybe, finally, begin my journey as a content creator. But, after multiple attempts over the years, I kept iterating or procrastinating without ever launching. I was facing both comparison paralysis and an overly-ambitious, nonnegotiable feature list I had taxed myself with. This is how I learned the hard way, the most important rule of product development.
 
-### 1. Define objectives & identify who you're building for
+## 1. Define objectives & identify who you're building for
 
 Start by identifying your target user and develop them into a persona.
 
@@ -31,7 +32,7 @@ These answers will help you identify touchpoints and communicate your value prop
 
 We can also extend these requirements by modelling an ideal user journey in order to help craft the narrative. In my scenario, a recruiter lands on my page and components individually ease in, a tooltip appears on the search bar guiding them into exploring the focal point. There they find both products I'm currently working on and are exposed to my content strategy where hopefully they find value. By guiding the first 30 seconds, I should be able to check a few of their boxes; technically competent, able to build products and can communicate technical concepts.
 
-### 2. Design
+## 2. Design
 
 Start by developing a minimal design guide (Read: *How to build a recognizable design system from Figma to Storybook)*. The process will help you define your voice, provide consistency across your creations and showcase a bit of personality. It can be helpful to maintain a system to file inspiration; a method of saving unique UI elements, colour palettes, and type systems you find while browsing. Aggregate these into a mood board, narrow and extract them down to an atomic level and start to craft an identity that reflects you and how you wish to be perceived.
 
@@ -39,24 +40,20 @@ Spend time learning how to use Figma. There are currently no better tools to qui
 
 I found inspiration in Dann Petty's homepage layout and content aggregation, in Open AI's scientifically inspired branding and in Kirchberg's use of animation and stacked hierarchy. I love two-toned, washed-out colour palettes and slick non-serifs fonts with a little personality. I also knew I wanted to keep a minimal aesthetic and design a command palette to be my focal point.
 
-### 3. Development
+## 3. Development
 
 Choose a stack you're already comfortable with. Don't use your web folio as a test subject to explore a new stack or upgrade to the newest framework update. Instead, execute using the framework you've already learnt, and use the database you already know. Once you've launched then you can start experimenting and extending. Instead of building my search using Algolia and risking getting stuck and frustrated with the implementation, my MVP kept it simple using React hooks. I also resorted to tailwind animation classes and incrementally implemented Framer Motion for more sophisticated animation. Also, spend time translating your design system into individual components before styling your layout. Tailwind makes this super easy by configuring the tailwind.config file with your atoms and the @layer components directive in your CSS to design your molecules.
 
 Finally, here's simonsjournal.com's current colophon:
 
-- Next 12 (Waiting on dependencies to upgrade to V14)
-- Content layer
+- Next 12 (Waiting on dependencies to upgrade to V13)
+- ContentLayer
 - MDX
 - Tailwind
 - Framer
-- Algolia
-- Next Auth / Magic - Authenticating users with Twitter
-- Superbase - Track page views & persist individual article discussions
-- Gumroad
 - Cal.com
 
-### Roadmap & Changelog
+## Roadmap & Changelog
 
 My web portfolio will continue to be somewhere to showcase what I'm learning, experimenting with and communicate
 
@@ -64,8 +61,10 @@ I'm proud of myself, its a milestone and the start of my new mantra "Launch it a
 
 Roadmap for [simonsjournal.com](http://simonsjournal.com/) :
 
-- [x] Clean up the SEO, meta tags, and social images
-- [ ] Further, enhance component lifecycle animations.
-- [ ] Extend my Cmd Pallette with actions. I’m experimenting with sending emails within the palette through a Q&A and booking appointments (using the google Calendar API). Then do all this with your voice.
-- [ ] Add a discussion section to
-- [ ] Build a recommendation with graph theory.
+- Clean up the SEO, meta tags, and social images
+- Enhance the SearchBar with Algolia for site wide text search
+- Authenticate Users with Twitter and add a discussion section to each article
+- Further, enhance component lifecycle animations with Framer Motion
+- Track page views and add a "most read" section
+- Extend my Cmd Pallette with actions. I’m experimenting with sending emails within the palette through a Q&A and booking appointments (using the google Calendar API).
+- Build a recommendation section for articles using with graph theory.

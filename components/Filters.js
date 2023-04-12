@@ -38,11 +38,11 @@ export default function Filters({ posts, active, setActive }) {
       {/* ----- Tabs ----- */}
       <div>
         {/* DROPDOWN MOBILE */}
-        <div className="sm:hidden">
+        {/* <div className="sm:hidden">
           <label htmlFor="tabs" className="sr-only">
             Select a tab
           </label>
-          {/* Use an "onChange" listener to redirect the user to the selected tab URL. */}
+          // Use an "onChange" listener to redirect the user to the selected tab URL. 
           <select
             id="tabs"
             name="tabs"
@@ -55,7 +55,7 @@ export default function Filters({ posts, active, setActive }) {
               </option>
             ))}
           </select>
-        </div>
+        </div> */}
         {/* RESPONSIVE TABS */}
         <div className="hidden sm:block">
           <div className="">

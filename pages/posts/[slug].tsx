@@ -33,7 +33,7 @@ const PostLayout = ({ post }: { post: Post }) => {
       </Head>
 
       <article className="pt-24 mx-auto">
-        <div className="flex">
+        <div className="sm:flex ">
           <div className="flex flex-col flex-1 gap-3 ">
             <time dateTime={post.date}>
               Posted {format(parseISO(post.date), "LLLL d, yyyy")}
@@ -47,7 +47,7 @@ const PostLayout = ({ post }: { post: Post }) => {
               </div>
             ) : null}
           </div>
-          <div className="flex-1">
+          <div className="flex-1 mt-8 sm:mt-0">
             <img
               src={`/images/${post.image}`}
               className="object-cover rounded-lg"
@@ -55,12 +55,12 @@ const PostLayout = ({ post }: { post: Post }) => {
           </div>
         </div>
 
-        <div className="pt-20 mt-24 border-t mb-44 border-neutral-300">
+        <div className="pt-16 mt-24 border-t mb-44 border-neutral-300">
           {/* Main Section */}
           <div className="relative ">
             <div>
               <div>
-                <div className="mx-auto prose prose-a:link prose-h3:font-thin prose-h3:text-xl prose-h3:mt-16 prose-h3:mb-8 prose-p:text-xl prose-p:text-gray-600 prose-p:leading-9 prose-li:text-gray-600">
+                <div className="mx-auto prose prose-a:link prose-h3:font-thin prose-h3:text-xl prose-h3:mt-16 prose-h3:mb-8 prose-p:text-xl prose-p:text-gray-600 prose-p:leading-9 prose-li:text-xl prose-li:leading-9 prose-li:text-gray-600 prose-ol:text-xl prose-ol:leading-9">
                   {/* MDX */}
                   <div dangerouslySetInnerHTML={{ __html: post.body.html }} />
                 </div>

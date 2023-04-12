@@ -1,0 +1,39 @@
+---
+title: 8 Reusable Firebase Custom Hooks
+date: 2023-04-10
+category: code
+image: firebasehooks.png
+---
+
+## useCollection
+
+Won't
+
+```
+export const useCollection = (c, _q) => {
+  const [documents, setDocuments] = useState(null);
+
+  // The reference won't trigger a useEffect inifinte loop
+  const q = useRef(_q).current;
+
+  useEffect(() => {
+    let ref = collection(db, c);
+    if (q) {
+      ref = query(ref, where(...q));
+    }
+
+    const unsub = onSnapshot(ref, (snapshot) => {
+      let results = [];
+      snapshot.docs.forEach((doc) => {
+        results.push({ ...doc.data(), id: doc.id });
+      });
+      setDocuments(results);
+    });
+
+    return () => unsub();
+  }, [c, q]);
+
+  return { documents };
+};
+
+```

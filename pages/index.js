@@ -22,14 +22,16 @@ const projects = [
     title: "Bivi - Multiplayer Task App",
     desc: "Where ambitious async teams get thing done together.",
     href: "https://bivi.io",
-    img: "/images/product-7.png",
+    // img: "/images/product-7.png",
+    img: "/images/bivi4.png",
     logo: "/images/bivi-icon.png",
   },
   {
     title: "Supersaas - Race to MVP",
     desc: "A collection of boilerplates to fast-track your next SAAS project.",
     href: "https://hellosupersaas.com",
-    img: "/images/product-6.png",
+    img: "/images/hellosupersaas.png",
+    // img: "/images/product-6.png",
     logo: "/images/supersaas-icon.png",
   },
 ];
@@ -55,7 +57,7 @@ export default function Home({ posts }) {
             {/* xl:max-w-2xl */}
             <div className="flex items-center my-auto">
               <h2 className="mr-4">Currently Building</h2>
-              <Link href="/now">
+              <span>
                 <button className="btn-icon-secondary">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +74,7 @@ export default function Home({ posts }) {
                     />
                   </svg>
                 </button>
-              </Link>
+              </span>
             </div>
             {/* Projects */}
             <div className="flex flex-col w-full gap-4 mt-6 sm:flex-col md:flex-row xl:pr-16 2xl:mt-6">
@@ -100,12 +102,12 @@ export default function Home({ posts }) {
                       </p>
                     </div>
                   </div>
-                  <div className="flex-1">
+                  <div className="items-start self-start justify-start flex-1 ">
                     <Image
                       src={project.img}
                       height={200}
                       width={400}
-                      className="object-cover rounded-lg"
+                      className="items-start self-start justify-start object-cover object-top rounded-lg"
                     />
                   </div>
                 </a>
@@ -129,7 +131,7 @@ export default function Home({ posts }) {
         <div className="flex justify-between w-full items-middle">
           <div className="flex items-center my-auto mb-8">
             <h2 className="mr-4">Journal Entries</h2>
-            <Link href="/posts">
+            <span>
               <button className="btn-icon-secondary">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -146,7 +148,7 @@ export default function Home({ posts }) {
                   />
                 </svg>
               </button>
-            </Link>
+            </span>
           </div>
         </div>
         <Filters posts={posts} active={active} setActive={setActive} />
