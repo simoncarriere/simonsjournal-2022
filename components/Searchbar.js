@@ -15,7 +15,7 @@ const actions = [
   {
     id: 2,
     name: "Schedule a Call",
-    url: "https://calendly.com/simonsjournal/meeting",
+    url: "https://cal.com/simonsjournal/30min",
   },
   {
     id: 3,
