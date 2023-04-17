@@ -1,0 +1,88 @@
+---
+title: Simple Data Visualization with Chart.js and React
+date: 2023-04-14
+image: "chartjs.png"
+category: code
+links:
+  - { title: Source Code, url: https://github.com/simoncarriere/ledger-app }
+  - { title: Live Link, url: https://main--ledgertailwindreact.netlify.app }
+---
+
+## React Chart.js 2
+
+As a developer, you may have to create charts to visualize data in your applications. One popular library for creating charts is Chart.js, which is a powerful and easy-to-use JavaScript library for creating responsive, interactive, and customizable charts. In this blog post, we will show you how to build a bar chart using Chart.js and React, with estimated data on real estate prices across Canadian cities.
+
+```
+npm install chart.js react-chartjs-2
+```
+
+## Creating the Data
+
+First, we need to create the data for the chart. We will create a dataset with labels for each city and two sets of data: one for the average real estate price and one for the estimated price growth in 2023. Here is an example dataset:
+
+```
+const data = {
+  labels: ['Vancouver', 'Toronto', 'Montreal', 'Calgary', 'Ottawa', 'Quebec City', 'Edmonton'],
+  datasets: [
+    {
+      label: 'Average Real Estate Price (CAD)',
+      data: [1230000, 1020000, 535000, 465000, 490000, 350000, 395000],
+      backgroundColor: 'rgba(54, 162, 235, 0.2)',
+      borderColor: 'rgba(54, 162, 235, 1)',
+      borderWidth: 1,
+    },
+    {
+      label: 'Estimated Price Growth in 2023 (%)',
+      data: [3.5, 2.8, 2.1, 1.9, 1.7, 1.5, 1.2],
+      backgroundColor: 'rgba(255, 99, 132, 0.2)',
+      borderColor: 'rgba(255, 99, 132, 1)',
+      borderWidth: 1,
+    },
+  ],
+};
+```
+
+In this dataset, we have the labels for each city and two sets of data: one for the average real estate price and one for the estimated price growth in 2023. We also define the background color, border color, and border width for each set of data.
+
+## Configuring the Chart
+
+Next, we need to configure the chart options, including the y-axis configuration to start at 0. Here is an example of chart options:
+
+```
+const options = {
+  scales: {
+    yAxes: [
+      {
+        ticks: {
+          beginAtZero: true,
+        },
+      },
+    ],
+  },
+};
+```
+
+In this example, we set the y-axis configuration to start at 0. We can also customize other options, such as the chart title, legend, tooltip, and animation.
+
+## Rendering the Chart
+
+Finally, we can render the chart by using the Bar component from React-Chartjs-2 and passing in the data and options as props. Here is an example component:
+
+```
+import React from 'react';
+import { Bar } from 'react-chartjs-2';
+
+const data = {...};
+const options = {...};
+
+const RealEstateBarChart = () => {
+  return (
+    <div>
+      <h2>Real Estate Prices in Canadian Cities</h2>
+      <Bar data={data} options={options} />
+    </div>
+  );
+};
+
+export default RealEstateBarChart;
+```

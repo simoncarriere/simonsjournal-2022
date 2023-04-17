@@ -7,33 +7,299 @@ image: firebasehooks.png
 
 ## useCollection
 
-Won't
+This hook will return a list of documents from a collection. It will also update the list when the collection changes.
 
 ```
 export const useCollection = (c, _q) => {
   const [documents, setDocuments] = useState(null);
 
   // The reference won't trigger a useEffect inifinte loop
-  const q = useRef(_q).current;
+  const q = useRef(\_q).current;
 
   useEffect(() => {
-    let ref = collection(db, c);
-    if (q) {
+      let ref = collection(db, c);
+      if (q) {
       ref = query(ref, where(...q));
-    }
+  }
 
-    const unsub = onSnapshot(ref, (snapshot) => {
+  const unsub = onSnapshot(ref, (snapshot) => {
       let results = [];
       snapshot.docs.forEach((doc) => {
         results.push({ ...doc.data(), id: doc.id });
       });
       setDocuments(results);
+  });
+
+  return () => unsub();
+
+}, [c, q]);
+
+return { documents };
+};
+
+```
+
+## useDocument
+
+This hook will return a single document from a collection. It will also update the document when the document changes.
+
+```
+import { useState, useEffect } from "react";
+import { db } from "../lib/firebase";
+import { doc, onSnapshot } from "firebase/firestore";
+
+/*
+  Expected Arguments:
+  c - collection name
+  d - document name
+
+  Expected usage:
+  const { documents } = useDocument('rooms', currentRoom.id)
+*/
+
+export const useDocument = (c, d) => {
+  const [document, setDocument] = useState(null);
+
+  useEffect(() => {
+    let ref = doc(db, c, d);
+
+    const unsub = onSnapshot(ref, (doc) => {
+      setDocument(doc.data());
     });
 
     return () => unsub();
-  }, [c, q]);
+  }, [c, d]);
 
-  return { documents };
+  return { document };
+};
+```
+
+## useAuthContext
+
+This hook will return the auth context. It will also throw an error if the hook is used outside of the AuthContextProvider.
+
+```
+"use client";
+
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+
+export const useAuthContext = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw Error("useAuthContext must be inside an AuthContextProvider");
+  }
+  return context;
+};
+```
+
+## useSignup
+
+This hook will handle the signup process. It will also create a user document in the users collection.
+
+```
+"use client";
+import { useState } from "react";
+// Custom Hooks
+import { useAuthContext } from "../hooks/useAuthContext";
+// Firebase Imports
+import { auth, db } from "../lib/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { setDoc, doc, collection } from "firebase/firestore";
+
+export const useSignup = () => {
+  const { dispatch } = useAuthContext();
+  // Form Handling
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const signup = (email, password, displayName) => {
+    setError(null);
+    setLoading(true);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((res) => {
+        dispatch({ type: "LOGIN", payload: res.user });
+        // Denormalize user email & uuid with custom doc id of uuid
+        try {
+          let ref = collection(db, "users");
+          setDoc(doc(ref, res.user.uid), {
+            uid: res.user.uid,
+            email: res.user.email,
+            displayName: displayName,
+            joinDate: new Date().toISOString(),
+          });
+        } catch (err) {
+          console.error(err.message);
+        }
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setError("Failed to create an account. Email already in use.");
+        setLoading(false);
+      });
+  };
+
+  return { error, loading, signup };
+};
+```
+
+## useSocialSignup
+
+This hook will handle the signup process for social providers. It will also create a user document in the users collection.
+
+```
+"use client";
+import { useState, useEffect } from "react";
+// Firebase Imports
+import { auth, db } from "../lib/firebase";
+import {
+  GoogleAuthProvider,
+  GithubAuthProvider,
+  TwitterAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
+import { setDoc, doc, collection } from "firebase/firestore";
+// Access our auth context dispatch function
+import { useAuthContext } from "./useAuthContext";
+
+// Social Providers
+const googleProvider = new GoogleAuthProvider();
+const twitterProvider = new TwitterAuthProvider();
+const githubProvider = new GithubAuthProvider();
+
+export const useSocialAuth = () => {
+  const { dispatch } = useAuthContext();
+
+  // Form Handling
+  const [error, setError] = useState(null);
+  const [isPending, setIsPending] = useState(false);
+  const [isCancelled, setIsCancelled] = useState(false); // For Cleanup
+
+  const socialSignup = async (provider) => {
+    setError(null);
+    setIsPending(true);
+
+    try {
+      const res = await signInWithPopup(auth, provider).then((res) => {
+        // Denormalize user email & uuid with custom doc id of uuid
+        try {
+          let ref = collection(db, "users");
+          setDoc(
+            doc(ref, res.user.uid),
+            {
+              uid: res.user.uid,
+              email: res.user.email,
+              displayName: res.user.displayName,
+              photoURL: res.user.photoURL,
+            },
+            { merge: true }
+          );
+        } catch (err) {
+          console.error(err.message);
+        }
+        dispatch({ type: "LOGIN", payload: res.user });
+      });
+
+      //  // Get the user's ID token as it is needed to exchange for a session cookie.
+      //  const credential = provider.credentialFromResult(res);
+      //  const token = credential.accessToken;
+
+      // Not getting a response at all (example network connection)
+      if (!res) {
+        setError("Could not complete signup");
+      }
+
+      // Check for abort
+      if (!isCancelled) {
+        setIsPending(false);
+        setError(null);
+      }
+    } catch (err) {
+      // Example : Email taken
+      if (!isCancelled) {
+        console.log(err.message);
+        setError(err.message);
+        setIsPending(false);
+      }
+    }
+  };
+
+  // Cleanup Function will only return on component unmount (Cancel pending async request)
+  useEffect(() => {
+    return () => setIsCancelled(true);
+  }, []);
+
+  return {
+    socialSignup,
+    googleProvider,
+    githubProvider,
+    twitterProvider,
+    error,
+    isPending,
+  };
 };
 
+```
+
+## useLogin
+
+This hook will handle the login process.
+
+```
+import { useState } from "react";
+// Custom Hooks
+import { useAuthContext } from "./useAuthContext";
+
+// Firebase Imports
+import { auth } from "../lib/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+
+export const useLogin = () => {
+  const { dispatch } = useAuthContext();
+  // Form Handling
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const login = (email, password) => {
+    setError(null);
+    setLoading(true);
+    signInWithEmailAndPassword(auth, email, password)
+      .then((res) => {
+        dispatch({ type: "LOGIN", payload: res.user });
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError("Failed to log in. Wrong email or password.");
+        setLoading(false);
+      });
+  };
+
+  return { error, loading, login };
+};
+```
+
+## useLogout
+
+This hook will handle the logout process.
+
+```
+"use client";
+import { useAuthContext } from "../hooks/useAuthContext";
+import { auth } from "../lib/firebase";
+import { signOut } from "firebase/auth";
+
+export const useLogout = () => {
+  const { dispatch } = useAuthContext();
+
+  const logout = () => {
+    signOut(auth)
+      .then(() => {
+        dispatch({ type: "LOGOUT" });
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+  return { logout };
+};
 ```
